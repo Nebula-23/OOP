@@ -5,8 +5,9 @@
 #include "horse.h"
 #include "training.h"
 #include "race.h"
+#include "UI.h"
 
-const int MAX_MONTH = 36;
+const int MAX_MONTH = 72;
 const int startStat = 100.0;
 
 using namespace std;
@@ -17,34 +18,51 @@ void print_basic(int month, horse* player, training& trainer);
 int main() {
     srand(static_cast<unsigned>(time(nullptr)));
 
+    init_console_size();  // 콘솔 크기 초기화
+
+    int menuChoice = menuDraw(); // 시작 화면 메뉴 표시
+    if (menuChoice == 3) {
+        cout << "게임을 종료합니다." << endl;
+        return 0;
+    }
+
     horse player = select_horse();
     training trainer(player);
 
     Sleep(500);
     system("cls");
-
+    //6턴 진행후 레이스, 갈수록 CPU말의 티어가 상승
     for (int month = 0; month < MAX_MONTH; month++) {
-        cout << "[ " << month + 1 << "개월차 진행 중... ]" << endl;
+        if (month != 0 && month % 6 == 0) {
+            cout << "\n=== 레이스가 시작됩니다! ===\n";
 
-        // 6개월마다 레이스
-        if ((month + 1) % 6 == 0) {
-            cout << "\n===  레이스가 시작됩니다!  ===\n";
-            Race race(player, 1); // tier는 1로 예시
+            int tier = 1; // 기본값
+            if (month <= 12)        tier = 6;
+            else if (month <= 24)   tier = 5;
+            else if (month <= 36)   tier = 4;
+            else if (month <= 48)   tier = 3;
+            else if (month <= 60)   tier = 2;
+            else  tier = 1;
+
+            Race race(player, tier);
             race.start();
-            Sleep(1000);
-            system("cls");
         }
 
-        // 훈련 루틴
         print_basic(month + 1, &player, trainer);
         Sleep(1000);
         system("cls");
     }
 
-    cout << "\n[  36개월 간의 훈련 및 경주가 종료되었습니다! 수고하셨습니다  ]\n";
+    //최종레이스
+    cout << "\n=== 최종 레이스가 시작됩니다! ===\n";
+    Race race(player, 1);
+    race.start();
+
+    //게임 종료
+    cout << "\n[ 게임이 종료되었습니다 ]\n";
     return 0;
 }
-
+ //말선택
 horse select_horse() {
     cout << "1. 도주마 사일런스 스즈카\n"
         << "2. 선행마 마야노 탑건\n"
@@ -73,12 +91,33 @@ horse select_horse() {
     }
 }
 
+//메인 게임 UI
 void print_basic(int month, horse* player, training& trainer) {
-    cout << "=============================================\n"
-        << "Month " << month << " / " << MAX_MONTH << "\n"
-        << "=============================================\n\n";
+    //년차 , D-Day, 말품종 표시 함수
+    int display_year = (month % 24 == 0 && month != 0) ? month / 24 : month / 24 + 1;
+    
+    int d_day = (month % 6 == 0) ? 0 : 6 - (month % 6);
+    
+    string breed_str;
+    switch (player->get_breed()) {
+    case 0: breed_str = "도주마"; break;
+    case 1: breed_str = "선행마"; break;
+    case 2: breed_str = "선입마"; break;
+    case 3: breed_str = "추입마"; break;
+    default: breed_str = "알 수 없음"; break;
+    }
 
-    cout << "부상확률 : " << trainer.injury_percent(*player) << "%\n\n";
+    
+
+    cout << "[ " << display_year << "년차 ]" << endl;
+    cout << "===============================================\n"
+        << player->get_name() << " | " << breed_str << " | " << month << " turn |" << " 레이스 D-" << d_day << "\n"
+        << "===============================================\n";
+    cout << "스피드: " << player->get_spd() << "  파워: " << player->get_pow()<<"\n";
+    cout << "근성: " << player->get_guts() << " 지구력: " << player->get_sta() << "\n";
+   
+
+    cout <<"채력: "<< trainer.get_hp() << "  부상확률 : " << trainer.injury_percent(*player) << "%\n\n";
 
     cout << "1) 스피드 훈련\t2) 파워 훈련\t3) 근성 훈련\t4) 지구력 훈련\t5) 휴식\n";
     while (true) {

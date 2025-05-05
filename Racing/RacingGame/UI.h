@@ -12,38 +12,38 @@
 using namespace std;
 
 void init_console_size() {
-	system("mode con:cols=124 lines=35");
+    system("mode con:cols=124 lines=35");
 }
 
 void init_game_ui() { // 게임맨처음 킬때 TItle 현재는 사용 안함
 
-	cout << " 말달리자 게임 " << endl;
+    cout << " 말달리자 게임 " << endl;
 
 }
 
 void gotoxy(int x, int y) {
-	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE); // 콘솔 커서 핸들가져오기
-	COORD pos;
-	pos.X = x; // x좌표
-	pos.Y = y; // y좌표	
-	SetConsoleCursorPosition(consoleHandle, pos); // 커서 위치 설정
+    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE); // 콘솔 커서 핸들가져오기
+    COORD pos;
+    pos.X = x; // x좌표
+    pos.Y = y; // y좌표	
+    SetConsoleCursorPosition(consoleHandle, pos); // 커서 위치 설정
 }
 
 
 
 int keyControl() {
-	char temp = _getch();
+    char temp = _getch();
 
-	if (temp == 72) // 위
-		return UP;
-	else if (temp == 80) // 아래
-		return DOWN;
-	else if (temp == 27) // ESC
-		return 27;
-	else if (temp == 13) // Enter
-		return 13;
-	else
-		return -1; // 잘못된 입력
+    if (temp == 72) // 위
+        return UP;
+    else if (temp == 80) // 아래
+        return DOWN;
+    else if (temp == 27) // ESC
+        return 27;
+    else if (temp == 13) // Enter
+        return 13;
+    else
+        return -1; // 잘못된 입력
 }
 
 void drawArrow(int x, int y) {

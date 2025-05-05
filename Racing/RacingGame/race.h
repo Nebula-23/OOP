@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include"canvas.h"
 #include"horse.h"
 #include <array>
@@ -10,33 +10,33 @@ class Race {
 private:
     static const int HORSE_COUNT = 7;
 
-    // canvas ìƒì„±
+    // canvas »ı¼º
     Canvas canvas;
 
-    int lane = rand() % HORSE_COUNT; // í”Œë ˆì´ì–´ ë¼ì¸ ì¶”ì²¨;
-    std::array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu íŠ¹ì„± ë°°ì—´
+    int lane = rand() % HORSE_COUNT; // ÇÃ·¹ÀÌ¾î ¶óÀÎ ÃßÃ·;
+    std::array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu Æ¯¼º ¹è¿­
 
-    horse horses[HORSE_COUNT];       // ë¹ˆ ë§ ë°°ì—´ ìƒì„±
-    bool finished[HORSE_COUNT] = {}; // ë§ì´ ê²°ìŠ¹ì„ ì— ë„ì°©ì—¬ë¶€ í™•ì¸
+    horse horses[HORSE_COUNT];       // ºó ¸» ¹è¿­ »ı¼º
+    bool finished[HORSE_COUNT] = {}; // ¸»ÀÌ °á½Â¼±¿¡ µµÂø¿©ºÎ È®ÀÎ
 
 public:
-    Race(const horse& player, int tier) { // í”Œë ˆì´ì–´ ë§ ì…ë ¥, í˜„ì¬ ë ˆì´ìŠ¤ í‹°ì–´ ì…ë ¥
-        horses[lane] = player; // í”Œë ˆì´ì–´ ë§ ì €ì¥
-        horses[lane].reset(); // í”Œë ˆì´ì–´ ë“±ìˆ˜ ìƒíƒœ ì´ˆê¸°í™”
+    Race(const horse& player, int tier) { // ÇÃ·¹ÀÌ¾î ¸» ÀÔ·Â, ÇöÀç ·¹ÀÌ½º Æ¼¾î ÀÔ·Â
+        horses[lane] = player; // ÇÃ·¹ÀÌ¾î ¸» ÀúÀå
+        horses[lane].reset(); // ÇÃ·¹ÀÌ¾î µî¼ö »óÅÂ ÃÊ±âÈ­
 
-        // CPU íƒ€ì… ì…”í”Œ
+        // CPU Å¸ÀÔ ¼ÅÇÃ
         std::mt19937 g(std::random_device{}());
         std::shuffle(cpu_type.begin(), cpu_type.end(), g);
 
-        for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // ë§ ìƒì„±
+        for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // ¸» »ı¼º
             if (i != lane)
-                horses[i] = horse("", cpu_type[j++], tier); // cpuì´ë¦„ ìƒì„±ë¡œì§ ë§Œë“¤ê¸°
+                horses[i] = horse("", cpu_type[j++], tier); // cpuÀÌ¸§ »ı¼º·ÎÁ÷ ¸¸µé±â
         }
     }
 
-    void tie_breaker() { // ë™ì„ì°¨ ê²€ì‚¬
+    void tie_breaker() { // µ¿¼®Â÷ °Ë»ç
         for (int i = 0; i < HORSE_COUNT; i++) {
-            if (finished[i]) { // ê²°ìŠ¹ì„ ì— ë„ë‹¬í•œ ë§ë§Œ ë“±ìˆ˜ ê³„ì‚°
+            if (finished[i]) { // °á½Â¼±¿¡ µµ´ŞÇÑ ¸»¸¸ µî¼ö °è»ê
                 int rank = 1;
                 for (int j = 0; j < HORSE_COUNT; j++) {
                     if (finished[j] && horses[i].get_position() < horses[j].get_position()) {
@@ -50,10 +50,10 @@ public:
 
     void show_race_summary() {
         for (int i = 0; i < HORSE_COUNT; ++i) {
-            std::cout << i + 1 << "ë ˆì¸ | " << horses[i].get_name();
+            std::cout << i + 1 << "·¹ÀÎ | " << horses[i].get_name();
 
-            if (horses[i].get_rank() > 0) { // ë“±ìˆ˜ê°€ ìˆëŠ” ê²½ìš°ì—ë§Œ ë“±ìˆ˜ ì¶œë ¥
-                std::cout << " | ë“±ìˆ˜: " << horses[i].get_rank();
+            if (horses[i].get_rank() > 0) { // µî¼ö°¡ ÀÖ´Â °æ¿ì¿¡¸¸ µî¼ö Ãâ·Â
+                std::cout << " | µî¼ö: " << horses[i].get_rank();
             }
 
             std::cout << '\n';
@@ -70,25 +70,25 @@ public:
                     continue;
                 }
 
-                horses[i].move(); // ë§ ì´ë™
+                horses[i].move(); // ¸» ÀÌµ¿
 
-                int prev_pos = horses[i].get_prev_pos(); // ì´ì „ ìœ„ì¹˜
-                int curr_pos = horses[i].get_position(); // ì´ë™í•œ ìœ„ì¹˜
+                int prev_pos = horses[i].get_prev_pos(); // ÀÌÀü À§Ä¡
+                int curr_pos = horses[i].get_position(); // ÀÌµ¿ÇÑ À§Ä¡
 
-                std::cout << i << " ì´ì „ ìœ„ì¹˜: " << horses[i].get_prev_pos() << " | ì´ë™í•œ ìœ„ì¹˜ " << horses[i].get_position() << std::endl;
+                std::cout << i << " ÀÌÀü À§Ä¡: " << horses[i].get_prev_pos() << " | ÀÌµ¿ÇÑ À§Ä¡ " << horses[i].get_position() << std::endl;
 
                 if (curr_pos >= 60) {
-                    canvas.set_tile(i, 60, prev_pos); // ê²°ìŠ¹ì„ ì— ë„ë‹¬í•œ ë§ ìœ„ì¹˜ ê³ ì •
+                    canvas.set_tile(i, 60, prev_pos); // °á½Â¼±¿¡ µµ´ŞÇÑ ¸» À§Ä¡ °íÁ¤
                     finished[i] = true;
                     ++finished_count;
                     tie_breaker();
                 }
 
                 else {
-                    canvas.set_tile(i, curr_pos, prev_pos); // ì¼ë°˜ ì´ë™ ì²˜ë¦¬
+                    canvas.set_tile(i, curr_pos, prev_pos); // ÀÏ¹İ ÀÌµ¿ Ã³¸®
                 }
 
-                //ë³´ìƒ í•¨ìˆ˜ ë§Œë“¤ì–´ì•¼í•¨
+                //º¸»ó ÇÔ¼ö ¸¸µé¾î¾ßÇÔ
             }
 
             canvas.printMap();

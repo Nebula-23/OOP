@@ -1,84 +1,92 @@
-#ifndef TRAINING_H
+ï»¿#ifndef TRAINING_H
 #define TRAINING_H
 
 #include<iostream>
 #include "horse.h"
 
-#define TRAINING_MHP 10 //ÈÆ·Ãº° ¸¶ÀÌ³Ê½º Ã¼·Â
-#define INJRTYSTATS 100// ºÎ»ó½Ã ±ïÀÌ´Â ½ºÅÈ 
-#define MIRACLE 10 //Ã¼·Â ¹Ì¶óÅ¬ ¼öÄ¡ ¹Ø¿¡¼­ ÈÆ·Ã ¼º°ø½Ã Ãß°¡
+#define TRAINING_MHP 10 //í›ˆë ¨ë³„ ë§ˆì´ë„ˆìŠ¤ ì²´ë ¥
+#define MIRACLE 10 //ì²´ë ¥ ë¯¸ë¼í´ ìˆ˜ì¹˜ ë°‘ì—ì„œ í›ˆë ¨ ì„±ê³µì‹œ ì¶”ê°€
 
 class training {
     horse &h;
-    int training_hp; //100 ÃÖ´ë 
-    bool isInjury; //Âü ºÎ»ó, °ÅÁş ³ëºÎ»ó 
+    int training_hp=0; //100 ìµœëŒ€ 
+    bool isInjury=0; //ì°¸ ë¶€ìƒ, ê±°ì§“ ë…¸ë¶€ìƒ 
+    int m_sta[4] = { 0 }; //ë¶€ìƒì‹œ ë§ˆì´ë„ˆìŠ¤ ìŠ¤íƒ¯ ì €ì¥ìš©
 
-    void training_bass(bool &isInjury,int &m,int &s) { //Æ®·¹ÀÌ´× º£ÀÌ½º M< ¸ŞÀÎÁõ°¡½ºÅÈ, S<¼­ºê Áõ°¡½ºÅÈ
-        if (rand() % 101 < injury_percent(h)) { //ºÎ»ó½Ã ¸ğµç´É·ÂÄ¡ °¨¼Ò
+    void training_bass(bool &isInjury,int &m,int &s) { //íŠ¸ë ˆì´ë‹ ë² ì´ìŠ¤ M< ë©”ì¸ì¦ê°€ìŠ¤íƒ¯, S<ì„œë¸Œ ì¦ê°€ìŠ¤íƒ¯
+        if (rand() % 101 < injury_percent(h)) { //ë¶€ìƒì‹œ ëª¨ë“ ëŠ¥ë ¥ì¹˜ ê°ì†Œ
             isInjury = true;
-            h.set_spd(-INJRTYSTATS);
-            h.set_sta(-INJRTYSTATS);
-            h.set_pow(-INJRTYSTATS);
-            h.set_guts(-INJRTYSTATS);
-            std::cout << "ºÎ»ó! \tÀü ´É·ÂÄ¡ - " << INJRTYSTATS << std::endl;
+            m_sta[0] = static_cast<int>(h.get_spd() * 0.1);
+            m_sta[1] = static_cast<int>(h.get_sta() * 0.1);
+            m_sta[2] = static_cast<int>(h.get_pow() * 0.1);
+            m_sta[3] = static_cast<int>(h.get_guts() * 0.1);
+            h.set_spd(-m_sta[0]);
+            h.set_sta(-m_sta[1]);
+            h.set_pow(-m_sta[2]);
+            h.set_guts(-m_sta[3]);
+            std::cout << "ë¶€ìƒ! \tì „ ëŠ¥ë ¥ì¹˜ - 10%"<< std::endl;
+            training_hp = 100;
             return;
         }
         else {
-            if (isInjury) { //ºÎ»óÀÌÀÖ´Âµ¥ ÈÆ·ÃÇÒ°æ¿ì ºÎ»óÀÌÇ®¸®Áö¸¸ ½ºÅÈÈ¹µæ¿¡ -µğ¹öÇÁ
-                m = 90;
-                s = (rand() % 11 + 30) * 0.9;
-                isInjury = false;
-                std::cout << "ºÎ»ó Á÷ÈÄ ...\n";
-            }
-            else if (training_hp <= MIRACLE) { //Ã¼·Â10¹Ø ±ØÀû¼º°ø 
+            if (training_hp <= MIRACLE) { //ì²´ë ¥10ë°‘ ê·¹ì ì„±ê³µ 
                 m = 200;
                 s = (rand() % 11 + 30) * 2;
-                std::cout << "±ØÀû ¼º°ø!\n";
+                std::cout << "ê·¹ì  ì„±ê³µ!\n";
             }
-            else { //Æò¹üÇÏ°Ô ÈÆ·ÃÇÏ´Â°Í 
+            else { //í‰ë²”í•˜ê²Œ í›ˆë ¨í•˜ëŠ”ê²ƒ 
                 m = 100;
                 s = rand() % 11 + 30;
-                std::cout << "Æò¹üÇÑ ÈÆ·Ã!\n";
+                std::cout << "í‰ë²”í•œ í›ˆë ¨!\n";
             }
             training_hp -= TRAINING_MHP;
+            isInjury = false;
         }
     }
 public:
     training(horse& horse) : h(horse),training_hp(100),isInjury(false) {}
 
-    void training_speed(horse& h) { //°¢ ½ºÅÈ ÈÆ·Ã 
+    void training_speed(horse& h) { //ê° ìŠ¤íƒ¯ í›ˆë ¨ 
         int m, s;
         training_bass(isInjury, m, s);
-        std::cout << "½ºÇÇµå + " << m << " | ÆÄ¿ö + " << s << std::endl;
-        h.set_spd( m);
-        h.set_pow( s);
+        if (!isInjury){
+            std::cout << "ìŠ¤í”¼ë“œ + " << m << " | íŒŒì›Œ + " << s << std::endl;
+            h.set_spd(m);
+            h.set_pow(s);
+        }
     }
 
     void training_endurance(horse& h) {
         int m, s;
-        training_bass(isInjury, m, s);
-        std::cout << "Áö±¸·Â + " << m << " | ±Ù¼º + " << s << std::endl;
-        h.set_sta(m);
-        h.set_guts(s);
+        training_bass(isInjury, m, s); 
+        if (!isInjury) {
+            std::cout << "ì§€êµ¬ë ¥ + " << m << " | ê·¼ì„± + " << s << std::endl;
+            h.set_sta(m);
+            h.set_guts(s);
+        }
     }
 
     void training_power(horse& h) {
         int m, s;
         training_bass(isInjury, m, s);
-        std::cout << "ÆÄ¿ö + " << m << " | ½ºÇÇµå + " << s << std::endl;
-        h.set_pow(m);
-        h.set_spd(s);
+        if (!isInjury) {
+            std::cout << "íŒŒì›Œ + " << m << " | ìŠ¤í”¼ë“œ + " << s << std::endl;
+            h.set_pow(m);
+            h.set_spd(s);
+        }
     }
 
     void training_perseverance(horse& h) {
         int m, s;
         training_bass(isInjury, m, s);
-        std::cout << "±Ù¼º + " << m << " | Áö±¸·Â + " << s << std::endl;
-        h.set_guts(m);
-        h.set_sta (s);
+        if (!isInjury) {
+            std::cout << "ê·¼ì„± + " << m << " | ì§€êµ¬ë ¥ + " << s << std::endl;
+            h.set_guts(m);
+            h.set_sta(s);
+        }
     }
 
-    int injury_percent(horse& h) { //ÈÆ·Ã hpº° ºÎ»ó È®·ü 
+    int injury_percent(horse& h) { //í›ˆë ¨ hpë³„ ë¶€ìƒ í™•ë¥  
         if (training_hp <= 0) { return 70; }
         else if (training_hp <= 10) { return 60; }
         else if (training_hp <= 20) { return 50; }
@@ -87,22 +95,24 @@ public:
         else { return 0; }
     }
 
-    void rest(horse& h) {//ÈÆ·Ã hp È¸º¹
-        if (isInjury) { //ºÎ»óÀÔ¾úÀ»¶§ ÈÆ·ÃÇÏ¸é ÀÒÀº½ºÅÈ ´Ù½Ã È¸º¹ÇØÁÜ
+    void rest(horse& h) {//í›ˆë ¨ hp íšŒë³µ
+        if (isInjury) { //ë¶€ìƒì…ì—ˆì„ë•Œ í›ˆë ¨í•˜ë©´ ìƒì€ìŠ¤íƒ¯ ë‹¤ì‹œ íšŒë³µí•´ì¤Œ
+            double rcv_pct = (static_cast<double>(rand() % 51 + 50))/100; //50~100í¼
             isInjury = false;
-            h.set_spd(INJRTYSTATS);
-            h.set_sta(INJRTYSTATS);
-            h.set_pow(INJRTYSTATS);
-            h.set_guts(INJRTYSTATS);
-            std::cout << "ºÎ»óÈÄ È¸º¹ ÀÒÀº ½ºÅÈ È¸º¹!\t";
+            h.set_spd(static_cast<int>(m_sta[0]*rcv_pct));
+            h.set_sta(static_cast<int>(m_sta[1] * rcv_pct));
+            h.set_pow(static_cast<int>(m_sta[2] * rcv_pct));
+            h.set_guts(static_cast<int>(m_sta[3] * rcv_pct));
+            std::cout << "ë¶€ìƒí›„ íšŒë³µ ìƒì€ ìŠ¤íƒ¯ "<< rcv_pct*100<<"% íšŒë³µ!";
+            return;
         }
-        int rest_hp = rand() % 41 + 30; // ÃÖ¼Ò 30~70
+        int rest_hp = rand() % 41 + 30; // ìµœì†Œ 30~70
         training_hp += rest_hp;
         if (training_hp > 100) { 
             rest_hp -= training_hp - 100;
             training_hp = 100;
         }
-        std::cout << "È¸º¹µÈ Ã¼·Â: " << rest_hp << std::endl;
+        std::cout << "íšŒë³µëœ ì²´ë ¥: " << rest_hp << std::endl;
     }
 };
 

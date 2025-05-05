@@ -32,7 +32,11 @@ public:
                 else if (map[h][w] != 0) {
                     std::cout << map[h][w]; isH = true;
                 }
+<<<<<<< HEAD
                 else if (!isH)std::cout << '.';
+=======
+                else if (!isH)std::cout << 'ㆍ';
+>>>>>>> 4bafeb84af563646d56599ba00c2c249b2053710
                 else std::cout << ' ';
             }
             std::cout << '\n'; 

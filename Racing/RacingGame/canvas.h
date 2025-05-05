@@ -1,42 +1,50 @@
-ï»¿#ifndef CANVAS_H
+#pragma once
+#ifndef CANVAS_H
 #define CANVAS_H
 #include <iostream>
 
 class Canvas {
 private:
-    static const int WIDTH = 61; // ë§ˆì§€ë§‰ì— | ê²°ìŠ¹ì„ ì„ (ê²½ê¸°ì¥ í¬ê¸°ëŠ” 60)
-    static const int HEIGHT = 7;
-    int map[HEIGHT][WIDTH];
+	static const int WIDTH = 61; // ¸¶Áö¸·¿¡ °á½Â¼± °æ±âÀå Å©±â´Â 60*7
+	static const int HEIGHT = 7;
+	int map[HEIGHT][WIDTH];
 
 public:
-    Canvas() {
-        for (int y = 0; y < HEIGHT; ++y)
-            for (int x = 0; x < WIDTH; ++x) {
-                map[y][x] = 0;  // ë§µì„ ëª¨ë‘ ì´ˆê¸°í™”
-            }
-        for (int i = 0; i < HEIGHT; ++i) {
-            map[i][60] = -1;
-        }
-    }
+	Canvas() {
+		for (int y= 0; y< HEIGHT; ++y)
+			for (int x = 0; x < WIDTH; ++x) 
+			{
+				map[y][x] = 0; // ¸ÊÀ» ¸ğµÎ ÃÊ±âÈ­
+			}
+		for (int i = 0; i < HEIGHT; ++i) 
+		{
+			map[i][60] = -1;
+		}
+	}
 
-    void set_tile(int y, int x, int posX) { // yëŠ” ë§ì´ ë‹¬ë¦¬ëŠ” ë¼ì¸, xëŠ” ì´ë™í•  ìœ„ì¹˜, posXëŠ” í˜„ì¬ìœ„ì¹˜
-        map[y][posX] = 0; // í˜„ì¬ìœ„ì¹˜ 0ìœ¼ë¡œ ì´ˆê¸°í™”
-        map[y][x] = y + 1;  // ë§ì´ ì´ë™í•œ ìœ„ì¹˜ ì„¤ì •
-    }
 
-    void printMap() { // ë§µ ì¶œë ¥ í•¨ìˆ˜
-        for (int h = 0; h < HEIGHT; h++) {
-            bool isH = false;
-            for (int w = 0; w < WIDTH; w++) {
-                if (map[h][w] == -1) std::cout << '|';
-                else if (map[h][w] != 0) {
-                    std::cout << map[h][w]; isH = true;
-                }
-                else if (!isH)std::cout << '.';
-                else std::cout << ' ';
-            }
-            std::cout << '\n';
-        }
-    } 
+void set_tile(int y, int x, int posX) {
+	map[y][posX] = 0; // ÇöÀç À§Ä¡ 0À¸·Î ÃÊ±âÈ­
+	map[y][x] = y + 1;
+}
+
+void printMap() // ¸ÊÃâ·ÂÇÔ¼ö
+{
+	for (int h = 0; h < WIDTH; h++) {
+		bool isH = false;
+		for (int w = 0; w < WIDTH; w++)
+		{
+			if (map[h][w] == -1)std::cout << '|';
+			else if (map[h][w] != 0)
+			{
+				std::cout << map[h][w]; isH = true;
+			}
+			else if (!isH)std::cout << '.';
+			else std::cout << ' ';
+		}
+		std::cout << '\n';
+	}
+}
 };
-#endif //CANVAS_H
+#endif // !CANVAS_H
+

@@ -33,9 +33,9 @@ int main() {
 }
 
 horse select_horse() {
-    cout << "1. 도주마 세크리테리엇\n" 
-        << "2. 선행마 트리플 크라운\n" //이름확인필요 
-        << "3. 선입마 오르페브르\n"
+    cout << "1. 도주마 사일런스 스즈카\n" 
+        << "2. 선행마 마야노 탑건\n"
+        << "3. 선입마 오구리 캡\n"
         << "4. 추입마 골드 쉽\n"
         << "시작마를 고르시오 (1 ~ 4): ";
 
@@ -49,10 +49,10 @@ horse select_horse() {
             continue;
         }
         switch (n) {
-        case 1: return horse("aaa",0, startStat, startStat, startStat, startStat);
-        case 2: return horse("aaa", 1, startStat, startStat, startStat, startStat);
-        case 3: return horse("aaa", 2, startStat, startStat, startStat, startStat);
-        case 4: return horse("aaa", 3, startStat, startStat, startStat, startStat);
+        case 1: return horse("사일런스 스즈카", 0, startStat, startStat, startStat, startStat);
+        case 2: return horse("마야노 탑건", 1, startStat, startStat, startStat, startStat);
+        case 3: return horse("오구리 캡", 2, startStat, startStat, startStat, startStat);
+        case 4: return horse("추입마 골드 쉽", 3, startStat, startStat, startStat, startStat);
         default:
             cout << "잘못된 선택입니다. 다시 입력해주세요: ";
             continue;

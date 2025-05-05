@@ -30,7 +30,7 @@ public:
 
         for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // 말 생성
             if (i != lane)
-                horses[i] = horse("", cpu_type[j++], tier);
+                horses[i] = horse("", cpu_type[j++], tier); // cpu이름 생성로직 만들기
         }
     }
 
@@ -87,6 +87,8 @@ public:
                 else {
                     canvas.set_tile(i, curr_pos, prev_pos); // 일반 이동 처리
                 }
+
+                //보상 함수 만들어야함
             }
 
             canvas.printMap();

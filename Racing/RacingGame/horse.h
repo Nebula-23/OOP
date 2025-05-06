@@ -9,7 +9,7 @@
 
 enum HorseType { PLAYER, CPU };
 
-class horse{
+class horse {
 private:
     HorseType type;
     // 말 능력치
@@ -26,20 +26,24 @@ private:
     int prev_pos = 0;        // 이전 위치
     int curr_pos = 0;        // 현재 위치
     double decimal_point = 0.0; // 소수점 누적 (정수 이동 제외 분)
+    int rank = 0; // 레이스 등수 저장
 
 protected:
     // 스텟별 가중치
     double breed_mod[3];      // 품종 보정치 0: 초반 / 1: 중반 / 2: 후반
     double stat_mod[3];       // 스탯 보정치 0: 초반 / 1: 중반 / 2: 후반
-public:
 
-    // 기본 생성자
+public:
+    // 임시 생성용 기본생성자
+    horse() : type(CPU), name("임시생성자"), breed(0), spd(0), pow(0), sta(0), guts(0) {}
 
     // CPU용 생성자
     horse(std::string name, int breed, int tier)
         : type(CPU), name(name), breed(breed) {
         set_ai_stats(breed, tier);
         set_modifiers(breed);
+        std::cout << "Horse Created: " << name << ", Breed: " << breed << ", Tier: " << tier << std::endl;
+        std::cout << "Stats - Speed: " << spd << ", Stamina: " << sta << ", pow: " << pow << ", Guts: " << guts << std::endl;
     }
 
     // 플레이어용 생성자
@@ -97,13 +101,17 @@ public:
     int get_pow() { return pow; }               // 파워 리턴
     int get_sta() { return sta; }               // 스태미나 리턴
     int get_guts() { return guts; }             // 근성 리턴
-    int get_breed() { return breed; }             // 타입 리턴
+    int get_breed() { return breed; }           // 품종 리턴
+    int get_rank() { return rank; }             // 랭크 리턴
+
 
     // 스탯 추가용 setter
     void set_spd(int n) { this->spd += n; }     // 스피드 증가
     void set_pow(int n) { this->pow += n; }     // 파워 증가
     void set_sta(int n) { this->sta += n; }     // 스태미나 증가 (오타 수정)
-    void set_guts(int n) { this->guts += n; } // 근성 증가
+    void set_guts(int n) { this->guts += n; }   // 근성 증가
+    void set_breed(int n) { this->breed = n; }  // 품종 리턴
+    void set_rank(int n) { this->rank = n; }    // 랭크 리턴
 
     // 현재 위치가 어느 구간인지 반환 (0: 초반 / 1: 중반 / 2: 후반)
     int position() const {
@@ -139,6 +147,21 @@ public:
 
     // 현재 위치 반환 (외부 조회용)
     int get_position() const { return curr_pos; }
+
+    // 이전 위치 반환 (외부 조회용)
+    int get_prev_pos() const { return prev_pos; }
+
+    // 동석차 방지 (오버로딩 사용)
+    void add_position(int n) { this->curr_pos += n; }
+
+    // 리셋
+    void reset() {
+        prev_pos = 0;        // 이전 위치
+        curr_pos = 0;        // 현재 위치
+        decimal_point = 0.0; // 소수점 누적
+        rank = 0; // 레이스 등수
+    }
+
 };
 
 

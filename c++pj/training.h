@@ -76,7 +76,7 @@ public:
         }
     }
 
-    void training_perseverance(horse& h) {
+    void training_perseverance(horse& h) { 
         int m, s;
         training_bass(isInjury, m, s);
         if (!isInjury) {
@@ -112,6 +112,8 @@ public:
         }
         std::cout << "회복된 체력: " << rest_hp << std::endl;
     }
+
+    int get_hp() { return training_hp;};
 };
 
 #endif // !TRAINING_H

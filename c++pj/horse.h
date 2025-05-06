@@ -16,7 +16,7 @@ private:
 	int spd = 0;
 	int pow = 0;
 	int sta = 0;
-	int guts = 0;
+	int guts = 0; 
 
 	std::string name;
 	int breed;

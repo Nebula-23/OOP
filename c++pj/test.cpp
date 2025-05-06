@@ -5,13 +5,14 @@
 #include <ctime>
 #include <Windows.h>
 
-const int MAX_MONTH = 36;
+
 const int startStat = 100.0;
 
 using namespace std;
 
 horse select_horse();
-void print_basic(int month, horse* player, training& trainer);
+//void print_basic(int month, horse* player, training& trainer);
+void print_stat(int month, horse* player, training& trainer);
 
 int main() { //cols 가로 , lines 세로 cols=140 lines=30
     int start_format;
@@ -44,7 +45,7 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
 
     for (int i = 0; i < MAX_MONTH; i++) {
-        print_basic(i, &player, trainer);
+        print_stat(i, &player, trainer);
         Sleep(500);
         system("cls");
     }
@@ -70,35 +71,37 @@ horse select_horse() {
         int n;
         cin >> n;
         switch (n) {
-        case 1: return horse("aaa", 0, startStat, startStat, startStat, startStat);
-        case 2: return horse("aaa", 1, startStat, startStat, startStat, startStat);
-        case 3: return horse("aaa", 2, startStat, startStat, startStat, startStat);
-        case 4: return horse("aaa", 3, startStat, startStat, startStat, startStat);
+        case 1: return horse("세크리테리엇", 0, startStat, startStat, startStat, startStat);
+        case 2: return horse("트리플 크라운", 1, startStat, startStat, startStat, startStat);
+        case 3: return horse("오르페브르", 2, startStat, startStat, startStat, startStat);
+        case 4: return horse("골드 쉽", 3, startStat, startStat, startStat, startStat);
         default:
             cout << "잘못된 선택입니다. 다시 입력해주세요: ";
         }
     }
 }
 
-void print_basic(int month, horse* player, training& trainer) {
-    cout << "=============================================\n"
-        << "Month " << month << " / " << MAX_MONTH << "\n";
-    cout << "=============================================\n\n";
+void print_stat(int month, horse* player, training& trainer); //트레이닝부분
 
-    cout << "부상확률 : " << trainer.injury_percent(*player) << "%\n\n";
-
-    cout << "1) 스피드 훈련\t2) 파워 훈련\t3) 근성 훈련\t4) 지구력 훈련\t5) 휴식\n";
-    while (true) {
-        int n;
-        cin >> n;
-        switch (n) {
-        case 1: trainer.training_speed(*player);      return;
-        case 2: trainer.training_power(*player);      return;
-        case 3: trainer.training_perseverance(*player); return;
-        case 4: trainer.training_endurance(*player);  return;
-        case 5: trainer.rest(*player);                return;
-        default:
-            cout << "잘못된 선택입니다. 다시 입력해주세요: ";
-        }
-    }
-}
+//void print_basic(int month, horse* player, training& trainer) {
+//    cout << "=============================================\n"
+//        << "Month " << month << " / " << MAX_MONTH << "\n";
+//    cout << "=============================================\n\n";
+//
+//    cout << "부상확률 : " << trainer.injury_percent(*player) << "%\n\n";
+//
+//    cout << "1) 스피드 훈련\t2) 파워 훈련\t3) 근성 훈련\t4) 지구력 훈련\t5) 휴식\n";
+//    while (true) {
+//        int n;
+//        cin >> n;
+//        switch (n) {
+//        case 1: trainer.training_speed(*player);      return;
+//        case 2: trainer.training_power(*player);      return;
+//        case 3: trainer.training_perseverance(*player); return;
+//        case 4: trainer.training_endurance(*player);  return;
+//        case 5: trainer.rest(*player);                return;
+//        default:
+//            cout << "잘못된 선택입니다. 다시 입력해주세요: ";
+//        }
+//    }
+//}

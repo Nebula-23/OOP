@@ -1,11 +1,12 @@
 #pragma once
 #include <iostream>
-#include "conio.h"
 #include <windows.h>
 
+#include "conio.h"
+#include "training.h"
 #define UP 72 // 위
 #define DOWN 80 // 아래
-
+const int MAX_MONTH = 36;
 
 //#define LEFT 2 
 //#define RIGHT 3
@@ -109,6 +110,62 @@ int menuDraw() {
     }
 }
 
+void print_stat(int month, horse* player, training& trainer){
+    int display_year = (month % 24 == 0 && month != 0) ? month / 24 : month / 24 + 1;
+    int d_day = (month % 6 == 0) ? 0 : 6 - (month % 6);
+
+    string brred_str;
+    switch (player->get_breed()) {
+    case 0: brred_str = "도주마"; break;
+    case 1: brred_str = "선행마"; break;
+    case 2: brred_str = "선입마"; break;
+    case 3: brred_str = "추입마"; break;
+    default: brred_str = "알 수 없음"; break;
+    }
+
+    cout << "===========================================================================================================================\n"
+        << "\t\t\t\t\t\t\t" << display_year << "(년차)\n\n" //<< month << " / " << MAX_MONTH << "\n\n"
+        << "\t\t\t\t\t"<<player->get_name() << " | " << brred_str << " | " << month << "turn |" << "레이스 D-" << d_day << "\n";
+    cout << "===========================================================================================================================\n\n";
+    cout << "\n";//여기 이렇게 만들어 놓은이유는 나중에 들어갈 그림을 위해서 만들어 놓은겁니다.
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\t\t\t\t 그림이 들어갈 구간 ( 말 다그닥 다그닥 아스키코드)\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "===========================================================================================================================\n";
+    cout << "현능력치\n";
+    cout << "스피드 : "<< player->get_spd() << "\t파워 : " <<player->get_pow() << "\t근성 : " << player->get_guts() <<"\t지구력 : " << player->get_sta()<<"\n";
+    cout << "부상확률 : " << trainer.injury_percent(*player) << "%\t" << "체력: "<<trainer.get_hp()<< "\n";
+    cout << "===========================================================================================================================\n";
+    cout << "1) 스피드 훈련\t2) 파워 훈련\t3) 근성 훈련\t4) 지구력 훈련\t5) 휴식\n";
+    while (true) {
+        int n;
+        cin >> n;
+        switch (n) {
+        case 1: trainer.training_speed(*player);      return;
+        case 2: trainer.training_power(*player);      return;
+        case 3: trainer.training_perseverance(*player); return;
+        case 4: trainer.training_endurance(*player);  return;
+        case 5: trainer.rest(*player);                return;
+        default:
+            cout << "잘못된 선택입니다. 다시 입력해주세요: ";
+        }
+    }
+}
 
 /*
 참고사이트

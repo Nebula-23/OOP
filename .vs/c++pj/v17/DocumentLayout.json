@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|solutionrelative:c\u002B\u002Bpj\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\training.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|solutionrelative:c\u002B\u002Bpj\\training.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\UI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|solutionrelative:c\u002B\u002Bpj\\UI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|solutionrelative:c\u002B\u002Bpj\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08D8FFB2-1E86-4A35-9722-F657FA574A1D}|c\u002B\u002Bpj\\c\u002B\u002Bpj.vcxproj|C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\horse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -26,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "test.cpp",
               "DocumentMoniker": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\test.cpp",
               "RelativeDocumentMoniker": "c\u002B\u002Bpj\\test.cpp",
               "ToolTip": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\test.cpp",
               "RelativeToolTip": "c\u002B\u002Bpj\\test.cpp",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwCYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-04T14:44:24.373Z",
               "IsPinned": true,
@@ -44,32 +48,34 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UI.h",
-              "DocumentMoniker": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\UI.h",
-              "RelativeDocumentMoniker": "c\u002B\u002Bpj\\UI.h",
-              "ToolTip": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\UI.h",
-              "RelativeToolTip": "c\u002B\u002Bpj\\UI.h",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAAGkAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "training.h",
+              "DocumentMoniker": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\training.h",
+              "RelativeDocumentMoniker": "c\u002B\u002Bpj\\training.h",
+              "ToolTip": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\training.h",
+              "RelativeToolTip": "c\u002B\u002Bpj\\training.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-05T06:48:48.23Z",
-              "IsPinned": true
+              "WhenOpened": "2025-05-06T12:39:04.743Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "horse.h",
               "DocumentMoniker": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\horse.h",
               "RelativeDocumentMoniker": "c\u002B\u002Bpj\\horse.h",
               "ToolTip": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\horse.h",
               "RelativeToolTip": "c\u002B\u002Bpj\\horse.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAiwFwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-04T14:44:04.218Z"
+              "WhenOpened": "2025-05-04T14:44:04.218Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "canvas.h",
               "DocumentMoniker": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\canvas.h",
               "RelativeDocumentMoniker": "c\u002B\u002Bpj\\canvas.h",
@@ -78,6 +84,45 @@
               "ViewState": "AgIAABYAAAAAAAAAAAAgwB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-04T14:43:54.291Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": []
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "4dacda3c-0796-43ee-8246-a9c60581526d",
+        "Display": 1,
+        "X": -33,
+        "Y": 239,
+        "Width": 823,
+        "Height": 716,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UI.h",
+              "DocumentMoniker": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\UI.h",
+              "RelativeDocumentMoniker": "c\u002B\u002Bpj\\UI.h",
+              "ToolTip": "C:\\Users\\kimdg\\Desktop\\c\u002B\u002Bpj\\c\u002B\u002Bpj\\UI.h",
+              "RelativeToolTip": "c\u002B\u002Bpj\\UI.h",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAJgAAACIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-05T06:48:48.23Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -23,26 +23,6 @@ public:
 	}
 
 
-<<<<<<< HEAD
-    void printMap() {
-        for (int h = 0; h < HEIGHT; h++) {
-            bool isH = false;
-            for (int w = 0; w < WIDTH; w++) {
-                if (map[h][w] == -1)std::cout << '|';
-                else if (map[h][w] != 0) {
-                    std::cout << map[h][w]; isH = true;
-                }
-<<<<<<< HEAD
-                else if (!isH)std::cout << '.';
-=======
-                else if (!isH)std::cout << 'ã†';
->>>>>>> 4bafeb84af563646d56599ba00c2c249b2053710
-                else std::cout << ' ';
-            }
-            std::cout << '\n'; 
-        }
-    } // ë§µ ì¶œë ¥ í•¨ìˆ˜
-=======
 	void set_tile(int y, int x, int posX) {
 		map[y][posX] = 0; // ÇöÀç À§Ä¡ 0À¸·Î ÃÊ±âÈ­
 		map[y][x] = y + 1;
@@ -65,7 +45,6 @@ public:
 			std::cout << '\n';
 		}
 	}
->>>>>>> 44d409c5cec3d7f0421b565d05fc0f17b2d1fc6d
 };
 #endif // !CANVAS_H
 

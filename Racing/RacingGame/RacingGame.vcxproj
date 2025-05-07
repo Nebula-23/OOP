@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ad67f295-b54c-4129-9755-8da129c42480}</ProjectGuid>
+    <ProjectGuid>{75b278c5-8e9c-49ba-bf91-f461020c8ef8}</ProjectGuid>
     <RootNamespace>RacingGame</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -128,18 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canvas.h" />
     <ClInclude Include="horse.h" />
-<<<<<<< HEAD
-    <ClInclude Include="training.h" />
-=======
     <ClInclude Include="race.h" />
     <ClInclude Include="training.h" />
     <ClInclude Include="UI.h" />
->>>>>>> 44d409c5cec3d7f0421b565d05fc0f17b2d1fc6d
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

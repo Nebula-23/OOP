@@ -20,13 +20,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="race.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="canvas.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="horse.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="race.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="training.h">

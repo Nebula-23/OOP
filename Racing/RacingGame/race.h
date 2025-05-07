@@ -1,6 +1,7 @@
 #pragma once
 #include"canvas.h"
 #include"horse.h"
+#include"horse_name.h"
 #include <array>
 #include <algorithm>
 #include <random>
@@ -10,8 +11,9 @@ class Race {
 private:
     static const int HORSE_COUNT = 7;
 
-    // canvas 생성
+    // canvas, Horse_name 생성
     Canvas canvas;
+    Horse_name name;
 
     int lane = rand() % HORSE_COUNT; // 플레이어 라인 추첨;
     std::array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu 특성 배열
@@ -30,7 +32,7 @@ public:
 
         for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // 말 생성
             if (i != lane)
-                horses[i] = horse("", cpu_type[j++], tier); // cpu이름 생성로직 만들기
+                horses[i] = horse(name.get_name(cpu_type[j]), cpu_type[j++], tier); // cpu이름 생성로직 만들기
         }
     }
 

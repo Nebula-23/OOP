@@ -62,7 +62,7 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
             race.start();
         }
 
-        print_stat(i+1, &player, trainer);
+        print_stat(i + 1, &player, trainer);
         Sleep(500);
         system("cls");
     }
@@ -91,9 +91,9 @@ horse select_horse() {
         int n;
         cin >> n;
         switch (n) {
-        case 1: return horse("세크리테리엇", 0, startStat, startStat, startStat, startStat);
-        case 2: return horse("트리플 크라운", 1, startStat, startStat, startStat, startStat);
-        case 3: return horse("오르페브르", 2, startStat, startStat, startStat, startStat);
+        case 1: return horse("사일런스 스즈카", 0, startStat, startStat, startStat, startStat);
+        case 2: return horse("마야노 탑건", 1, startStat, startStat, startStat, startStat);
+        case 3: return horse("오구리 캡", 2, startStat, startStat, startStat, startStat);
         case 4: return horse("골드 쉽", 3, startStat, startStat, startStat, startStat);
         default:
             cout << "잘못된 선택입니다. 다시 입력해주세요: ";

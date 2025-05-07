@@ -1,7 +1,7 @@
 #pragma once
-#include"canvas.h"
-#include"horse.h"
-#include"horse_name.h"
+#include "canvas.h"
+#include "horse.h"
+#include "horse_name.h"
 #include <array>
 #include <algorithm>
 #include <random>
@@ -31,8 +31,12 @@ public:
         std::shuffle(cpu_type.begin(), cpu_type.end(), g);
 
         for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // 말 생성
-            if (i != lane)
-                horses[i] = horse(name.get_name(cpu_type[j]), cpu_type[j++], tier); // cpu이름 생성로직 만들기
+            if (i != lane){
+                int type = cpu_type[j];
+                horses[i] = horse(name.get_name(type), type, tier); // cpu이름 생성로직 만들기
+                j++;
+            }
+
         }
     }
 
@@ -102,3 +106,4 @@ public:
         }
     }
 };
+

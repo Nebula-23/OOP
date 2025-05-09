@@ -15,10 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="horse.h">
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="race.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="race.h">
+    <ClInclude Include="canvas.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="horse.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="training.h">
@@ -27,13 +35,8 @@
     <ClInclude Include="UI.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="canvas.h">
+    <ClInclude Include="horse_name.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="test.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

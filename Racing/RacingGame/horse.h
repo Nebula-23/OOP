@@ -151,7 +151,8 @@ public:
     // 이전 위치 반환 (외부 조회용)
     int get_prev_pos() const { return prev_pos; }
 
-    // 동석차 방지 (오버로딩 사용)
+    // 동석차 방지
+    double get_decimal_point() { return decimal_point; }
     void add_position(int n) { this->curr_pos += n; }
 
     // 리셋

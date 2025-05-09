@@ -39,17 +39,22 @@ public:
         }
     }
 
-    void tie_breaker() { // 동석차 검사
+    void tie_breaker() { // 동석차 방지 및 등수 배정 함수
         for (int i = 0; i < HORSE_COUNT; i++) {
-            if (finished[i]) { // 결승선에 도달한 말만 등수 계산
-                int rank = 1;
-                for (int j = 0; j < HORSE_COUNT; j++) {
-                    if (finished[j] && horses[i].get_position() < horses[j].get_position()) {
-                        rank++;
-                    }
+            if (!finished[i]) continue; // 결승선에 도달한 말 제외
+
+            int rank = 1;
+            double total_i = horses[i].get_position() + horses[i].get_decimal_point();
+
+            for (int j = 0; j < HORSE_COUNT; j++) {
+                if (i == j || !finished[j]) continue;
+
+                double total_j = horses[j].get_position() + horses[j].get_decimal_point();
+                if (total_i < total_j) {
+                    rank++;
                 }
-                horses[i].set_rank(rank);
             }
+            horses[i].set_rank(rank);
         }
     }
 
@@ -116,7 +121,7 @@ public:
         while (finished_count < HORSE_COUNT) {
             for (int i = 0; i < HORSE_COUNT; ++i) {
                 if (finished[i]) {
-                    horses[i].add_position(100);
+                    horses[i].add_position(30);
                     continue;
                 }
 

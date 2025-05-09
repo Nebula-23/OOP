@@ -30,9 +30,6 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
     else
         exit(1);
 
-
-
-
     srand(static_cast<unsigned>(time(nullptr)));
 
     horse player = select_horse();
@@ -41,9 +38,6 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
     Sleep(500);
     system("cls");
-
-
-
 
     for (int i = 0; i < MAX_MONTH; i++) {
         //레이스 함수 갈수록 말의 티어가 높아짐 1년차(6,5티어) 2년차(4,3티어) 3년차 (2,1티어)
@@ -58,8 +52,14 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
             else if (i <= 60)   tier = 2;
             else  tier = 1;
 
+            cout << "-------------------------------------------------------------------\n";
             Race race(player, tier);
+            cout << "------------------------------생성자 호출------------------------\n";
             race.start();
+            cout << "---------------------------------레이스 끝-----------------------\n";
+            race.reward();
+            getchar();
+            cout << "---------------------------------레이스 겟챠----------------------------\n";
         }
 
         print_stat(i + 1, &player, trainer);

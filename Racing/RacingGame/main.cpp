@@ -16,6 +16,9 @@ horse select_horse();
 void print_stat(int month, horse* player, training& trainer);
 
 int main() { //cols 가로 , lines 세로 cols=140 lines=30
+    SetConsoleOutputCP(CP_UTF8);  // 출력 인코딩
+    SetConsoleCP(CP_UTF8);        // 입력 인코딩
+
     int start_format;
     init_console_size(); // 콘솔 크기 초기화
     //init_game_ui(); // UI 초기화

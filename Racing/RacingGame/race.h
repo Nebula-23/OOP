@@ -58,7 +58,19 @@ public:
         }
     }
 
-    void show_race_summary() { //레인 및 등수 출력
+    void show_race_summary(int n) { //레인별 능력치 제공
+        for (int i = 0; i < HORSE_COUNT; ++i) {
+            std::cout << i + 1 << "레인 | " << horses[i].get_name();
+            std::cout << " | 주행 특성: " << horses[i].get_breed();
+            std::cout << " | 스피드: " << horses[i].get_spd();
+            std::cout << " | 파워: " << horses[i].get_pow();
+            std::cout << " | 지구력: " << horses[i].get_sta();
+            std::cout << " | 근성: " << horses[i].get_guts();
+            std::cout << '\n';
+        }
+    }
+
+    void show_race_summary(void) { //레인 및 등수 출력
         for (int i = 0; i < HORSE_COUNT; ++i) {
             std::cout << i + 1 << "레인 | " << horses[i].get_name();
 
@@ -74,6 +86,13 @@ public:
         std::cout << "\nGAME OVER\n";
         Sleep(2000);
         exit(0);
+    }
+
+    void cpu_check() { // 사전 정보 출력
+        canvas.printMap();   // 맵 출력
+        show_race_summary(1); // 레인별 능력치 보여주기
+        std::cout << "\n레이스를 시작하려면 엔터를 눌러주세요.\n";
+        getchar();
     }
 
     void reward() { // 등수 보상 함수 -> 수치는 나중에 밸런싱
@@ -122,10 +141,13 @@ public:
     }
 
     void start() {
+        //system("cls");
+        cpu_check();
+
         int finished_count = 0;
 
         while (finished_count < HORSE_COUNT) {
-            for (int i = 0; i < HORSE_COUNT; ++i) {
+            for (int i = 0; i < HORSE_COUNT; i++) {
                 if (finished[i]) {
                     horses[i].add_position(30);
                     continue;
@@ -136,7 +158,7 @@ public:
                 int prev_pos = horses[i].get_prev_pos(); // 이전 위치
                 int curr_pos = horses[i].get_position(); // 이동한 위치
 
-                std::cout << i << "이전 위치: " << horses[i].get_prev_pos() << " | 이동한 위치 " << horses[i].get_position() << std::endl;
+                //std::cout << i << "이전 위치: " << horses[i].get_prev_pos() << " | 이동한 위치 " << horses[i].get_position() << std::endl;
 
                 if (curr_pos >= 60) {
                     canvas.set_tile(i, 60, prev_pos); // 결승선에 도달한 말 위치 고정
@@ -155,7 +177,6 @@ public:
             getchar(); // 디버그용
             //system("cls");
             //Sleep(500);
-
         }
     }
 };

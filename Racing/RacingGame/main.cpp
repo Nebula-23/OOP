@@ -16,6 +16,7 @@ horse select_horse();
 void print_stat(int month, horse* player, training& trainer);
 
 int main() { //cols 가로 , lines 세로 cols=140 lines=30
+    // 콘솔 입출력 인코딩을 UTF-8로 설정
     SetConsoleOutputCP(CP_UTF8);  // 출력 인코딩
     SetConsoleCP(CP_UTF8);        // 입력 인코딩
 
@@ -45,7 +46,6 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
     for (int i = 0; i < MAX_MONTH; i++) {
         //레이스 함수 갈수록 말의 티어가 높아짐 1년차(6,5티어) 2년차(4,3티어) 3년차 (2,1티어)
         if (i != 0 && i % 6 == 0) {
-            cout << "\n=== 레이스가 시작됩니다! ===\n";
 
             int tier = 1; // 기본값
             if (i <= 12)        tier = 6;
@@ -56,6 +56,8 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
             else  tier = 1;
 
             Race race(player, tier);
+            cout << "\n=== 레이스가 시작됩니다! ===\n";
+
             race.start();
             cout << "---------------------------------레이스 끝-----------------------\n";
             race.reward();

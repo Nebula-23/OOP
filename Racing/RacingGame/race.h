@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "canvas.h"
 #include "horse.h"
 #include "horse_name.h"
@@ -11,37 +11,37 @@ class Race {
 private:
     static const int HORSE_COUNT = 7;
     
-    horse& player;    // ½ÇÁ¦ ÇÃ·¹ÀÌ¾î ÂüÁ¶
-    Canvas canvas;    // canvas »ı¼º
-    Horse_name name;  // Horse_name »ı¼º
+    horse& player;    // ì‹¤ì œ í”Œë ˆì´ì–´ ì°¸ì¡°
+    Canvas canvas;    // canvas ìƒì„±
+    Horse_name name;  // Horse_name ìƒì„±
 
-    int lane = rand() % HORSE_COUNT; // ÇÃ·¹ÀÌ¾î ¶óÀÎ ÃßÃ·;
-    std::array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu Æ¯¼º ¹è¿­
+    int lane = rand() % HORSE_COUNT; // í”Œë ˆì´ì–´ ë¼ì¸ ì¶”ì²¨;
+    std::array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu íŠ¹ì„± ë°°ì—´
 
-    horse horses[HORSE_COUNT];       // ºó ¸» ¹è¿­ »ı¼º
-    bool finished[HORSE_COUNT] = {}; // ¸»ÀÌ °á½Â¼±¿¡ µµÂø¿©ºÎ È®ÀÎ
+    horse horses[HORSE_COUNT];       // ë¹ˆ ë§ ë°°ì—´ ìƒì„±
+    bool finished[HORSE_COUNT] = {}; // ë§ì´ ê²°ìŠ¹ì„ ì— ë„ì°©ì—¬ë¶€ í™•ì¸
 
 public:
-    Race(horse& player, int tier) : player(player) { // ÇÃ·¹ÀÌ¾î ¸» ÀÔ·Â, ÇöÀç ·¹ÀÌ½º Æ¼¾î ÀÔ·Â
-        horses[lane] = player; // È­¸é Ç¥½Ã¿ë º¹»çº»
-        horses[lane].reset();  // º¹»çº» ÃÊ±âÈ­
+    Race(horse& player, int tier) : player(player) { // í”Œë ˆì´ì–´ ë§ ì…ë ¥, í˜„ì¬ ë ˆì´ìŠ¤ í‹°ì–´ ì…ë ¥
+        horses[lane] = player; // í™”ë©´ í‘œì‹œìš© ë³µì‚¬ë³¸
+        horses[lane].reset();  // ë³µì‚¬ë³¸ ì´ˆê¸°í™”
 
-        // CPU Å¸ÀÔ ¼ÅÇÃ
+        // CPU íƒ€ì… ì…”í”Œ
         std::mt19937 g(std::random_device{}());
         std::shuffle(cpu_type.begin(), cpu_type.end(), g);
 
-        for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // ¸» »ı¼º
+        for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // ë§ ìƒì„±
             if (i != lane){
                 int type = cpu_type[j];
-                horses[i] = horse(name.get_name(type), type, tier); // cpuÀÌ¸§ »ı¼º·ÎÁ÷ ¸¸µé±â
+                horses[i] = horse(name.get_name(type), type, tier); // cpuì´ë¦„ ìƒì„±ë¡œì§ ë§Œë“¤ê¸°
                 j++;
             }
         }
     }
 
-    void tie_breaker() { // µ¿¼®Â÷ ¹æÁö ¹× µî¼ö ¹èÁ¤ ÇÔ¼ö
+    void tie_breaker() { // ë™ì„ì°¨ ë°©ì§€ ë° ë“±ìˆ˜ ë°°ì • í•¨ìˆ˜
         for (int i = 0; i < HORSE_COUNT; i++) {
-            if (!finished[i]) continue; // °á½Â¼±¿¡ µµ´ŞÇÑ ¸» Á¦¿Ü
+            if (!finished[i]) continue; // ê²°ìŠ¹ì„ ì— ë„ë‹¬í•œ ë§ ì œì™¸
 
             int rank = 1;
             double total_i = horses[i].get_position() + horses[i].get_decimal_point();
@@ -58,32 +58,32 @@ public:
         }
     }
 
-    void show_race_summary() { //·¹ÀÎ ¹× µî¼ö Ãâ·Â
+    void show_race_summary() { //ë ˆì¸ ë° ë“±ìˆ˜ ì¶œë ¥
         for (int i = 0; i < HORSE_COUNT; ++i) {
-            std::cout << i + 1 << "·¹ÀÎ | " << horses[i].get_name();
+            std::cout << i + 1 << "ë ˆì¸ | " << horses[i].get_name();
 
-            if (horses[i].get_rank() > 0) { // µî¼ö°¡ ÀÖ´Â °æ¿ì¿¡¸¸ µî¼ö Ãâ·Â
-                std::cout << " | µî¼ö: " << horses[i].get_rank();
+            if (horses[i].get_rank() > 0) { // ë“±ìˆ˜ê°€ ìˆëŠ” ê²½ìš°ì—ë§Œ ë“±ìˆ˜ ì¶œë ¥
+                std::cout << " | ë“±ìˆ˜: " << horses[i].get_rank();
             }
 
             std::cout << '\n';
         }
     }
 
-    void exit_game() { //°ÔÀÓ¿À¹ö
+    void exit_game() { //ê²Œì„ì˜¤ë²„
         std::cout << "\nGAME OVER\n";
         Sleep(2000);
         exit(0);
     }
 
-    void reward() { // µî¼ö º¸»ó ÇÔ¼ö -> ¼öÄ¡´Â ³ªÁß¿¡ ¹ë·±½Ì
+    void reward() { // ë“±ìˆ˜ ë³´ìƒ í•¨ìˆ˜ -> ìˆ˜ì¹˜ëŠ” ë‚˜ì¤‘ì— ë°¸ëŸ°ì‹±
         int rank = horses[lane].get_rank();
-        player.set_rank(rank);  // player¿¡ µî¼ö ±â·Ï
+        player.set_rank(rank);  // playerì— ë“±ìˆ˜ ê¸°ë¡
 
         switch (rank)
         {
         case 1:
-            std::cout << "1µîÀ» ´Ş¼ºÇß½À´Ï´Ù! (¸ğµç ´É·ÂÄ¡ +100)\n";
+            std::cout << "1ë“±ì„ ë‹¬ì„±í–ˆìŠµë‹ˆë‹¤! (ëª¨ë“  ëŠ¥ë ¥ì¹˜ +100)\n";
             player.set_spd(100);
             player.set_pow(100);
             player.set_sta(100);
@@ -91,7 +91,7 @@ public:
             break;
 
         case 2:
-            std::cout << "2µîÀ» ´Ş¼ºÇß½À´Ï´Ù! (¸ğµç ´É·ÂÄ¡ +70)\n";
+            std::cout << "2ë“±ì„ ë‹¬ì„±í–ˆìŠµë‹ˆë‹¤! (ëª¨ë“  ëŠ¥ë ¥ì¹˜ +70)\n";
             player.set_spd(70);
             player.set_pow(70);
             player.set_sta(70);
@@ -99,7 +99,7 @@ public:
             break;
 
         case 3:
-            std::cout << "3µîÀ» ´Ş¼ºÇß½À´Ï´Ù! (¸ğµç ´É·ÂÄ¡ +40)\n";
+            std::cout << "3ë“±ì„ ë‹¬ì„±í–ˆìŠµë‹ˆë‹¤! (ëª¨ë“  ëŠ¥ë ¥ì¹˜ +40)\n";
             player.set_spd(40);
             player.set_pow(40);
             player.set_sta(40);
@@ -107,7 +107,7 @@ public:
             break;
 
         case 4:
-            std::cout << "4µîÀ» ´Ş¼ºÇß½À´Ï´Ù! (¸ğµç ´É·ÂÄ¡ +10)\n";
+            std::cout << "4ë“±ì„ ë‹¬ì„±í–ˆìŠµë‹ˆë‹¤! (ëª¨ë“  ëŠ¥ë ¥ì¹˜ +10)\n";
             player.set_spd(10);
             player.set_pow(10);
             player.set_sta(10);
@@ -115,7 +115,7 @@ public:
             break;
 
         default:
-            std::cout << "¸ñÇ¥ µî¼ö¿¡ µµ´ŞÇÏÁö ¸øÇß½À´Ï´Ù...\n";
+            std::cout << "ëª©í‘œ ë“±ìˆ˜ì— ë„ë‹¬í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤...\n";
             exit_game();
             break;
         }
@@ -131,28 +131,28 @@ public:
                     continue;
                 }
 
-                horses[i].move(); // ¸» ÀÌµ¿
+                horses[i].move(); // ë§ ì´ë™
 
-                int prev_pos = horses[i].get_prev_pos(); // ÀÌÀü À§Ä¡
-                int curr_pos = horses[i].get_position(); // ÀÌµ¿ÇÑ À§Ä¡
+                int prev_pos = horses[i].get_prev_pos(); // ì´ì „ ìœ„ì¹˜
+                int curr_pos = horses[i].get_position(); // ì´ë™í•œ ìœ„ì¹˜
 
-                std::cout << i << "ÀÌÀü À§Ä¡: " << horses[i].get_prev_pos() << " | ÀÌµ¿ÇÑ À§Ä¡ " << horses[i].get_position() << std::endl;
+                std::cout << i << "ì´ì „ ìœ„ì¹˜: " << horses[i].get_prev_pos() << " | ì´ë™í•œ ìœ„ì¹˜ " << horses[i].get_position() << std::endl;
 
                 if (curr_pos >= 60) {
-                    canvas.set_tile(i, 60, prev_pos); // °á½Â¼±¿¡ µµ´ŞÇÑ ¸» À§Ä¡ °íÁ¤
+                    canvas.set_tile(i, 60, prev_pos); // ê²°ìŠ¹ì„ ì— ë„ë‹¬í•œ ë§ ìœ„ì¹˜ ê³ ì •
                     finished[i] = true;
                     ++finished_count;
                     tie_breaker();
                 }
 
                 else {
-                    canvas.set_tile(i, curr_pos, prev_pos); // ÀÏ¹İ ÀÌµ¿ Ã³¸®
+                    canvas.set_tile(i, curr_pos, prev_pos); // ì¼ë°˜ ì´ë™ ì²˜ë¦¬
                 }
             }
 
             canvas.printMap();
             show_race_summary();
-            getchar(); // µğ¹ö±×¿ë
+            getchar(); // ë””ë²„ê·¸ìš©
             //system("cls");
             //Sleep(500);
 

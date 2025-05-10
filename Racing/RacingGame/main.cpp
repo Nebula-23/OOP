@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <ctime>
 #include <cstdlib>
 #include <windows.h>
@@ -15,10 +15,10 @@ horse select_horse();
 //void print_basic(int month, horse* player, training& trainer);
 void print_stat(int month, horse* player, training& trainer);
 
-int main() { //cols °¡·Î , lines ¼¼·Î cols=140 lines=30
+int main() { //cols ê°€ë¡œ , lines ì„¸ë¡œ cols=140 lines=30
     int start_format;
-    init_console_size(); // ÄÜ¼Ö Å©±â ÃÊ±âÈ­
-    //init_game_ui(); // UI ÃÊ±âÈ­
+    init_console_size(); // ì½˜ì†” í¬ê¸° ì´ˆê¸°í™”
+    //init_game_ui(); // UI ì´ˆê¸°í™”
     start_format = menuDraw();
     if (start_format == 1)
     {
@@ -30,27 +30,21 @@ int main() { //cols °¡·Î , lines ¼¼·Î cols=140 lines=30
     else
         exit(1);
 
-
-
-
     srand(static_cast<unsigned>(time(nullptr)));
 
     horse player = select_horse();
-    // Æ®·¹ÀÌ³Ê °´Ã¼ »ı¼º
+    // íŠ¸ë ˆì´ë„ˆ ê°ì²´ ìƒì„±
     training trainer(player);
 
     Sleep(500);
     system("cls");
 
-
-
-
     for (int i = 0; i < MAX_MONTH; i++) {
-        //·¹ÀÌ½º ÇÔ¼ö °¥¼ö·Ï ¸»ÀÇ Æ¼¾î°¡ ³ô¾ÆÁü 1³âÂ÷(6,5Æ¼¾î) 2³âÂ÷(4,3Æ¼¾î) 3³âÂ÷ (2,1Æ¼¾î)
+        //ë ˆì´ìŠ¤ í•¨ìˆ˜ ê°ˆìˆ˜ë¡ ë§ì˜ í‹°ì–´ê°€ ë†’ì•„ì§ 1ë…„ì°¨(6,5í‹°ì–´) 2ë…„ì°¨(4,3í‹°ì–´) 3ë…„ì°¨ (2,1í‹°ì–´)
         if (i != 0 && i % 6 == 0) {
-            cout << "\n=== ·¹ÀÌ½º°¡ ½ÃÀÛµË´Ï´Ù! ===\n";
+            cout << "\n=== ë ˆì´ìŠ¤ê°€ ì‹œì‘ë©ë‹ˆë‹¤! ===\n";
 
-            int tier = 1; // ±âº»°ª
+            int tier = 1; // ê¸°ë³¸ê°’
             if (i <= 12)        tier = 6;
             else if (i <= 24)   tier = 5;
             else if (i <= 36)   tier = 4;
@@ -60,14 +54,16 @@ int main() { //cols °¡·Î , lines ¼¼·Î cols=140 lines=30
 
             Race race(player, tier);
             race.start();
+            cout << "---------------------------------ë ˆì´ìŠ¤ ë-----------------------\n";
+            race.reward();
         }
 
         print_stat(i + 1, &player, trainer);
         Sleep(500);
         system("cls");
     }
-    //ÃÖÁ¾·¹ÀÌ½º
-    cout << "\n=== ÃÖÁ¾ ·¹ÀÌ½º°¡ ½ÃÀÛµË´Ï´Ù! ===\n";
+    //ìµœì¢…ë ˆì´ìŠ¤
+    cout << "\n=== ìµœì¢… ë ˆì´ìŠ¤ê°€ ì‹œì‘ë©ë‹ˆë‹¤! ===\n";
     Race race(player, 1);
     race.start();
     return 0;
@@ -77,15 +73,17 @@ horse select_horse() {
     int x = 46;
 
     gotoxy(x, 15);
-    cout << "1. µµÁÖ¸¶ »çÀÏ·±½º ½ºÁîÄ«\n";
+    cout << "1. ë„ì£¼ë§ˆ ì‚¬ì¼ëŸ°ìŠ¤ ìŠ¤ì¦ˆì¹´\n";
     gotoxy(x, 17);
-    cout << "2. ¼±Çà¸¶ ¸¶¾ß³ë Å¾°Ç\n";
+    cout << "2. ì„ í–‰ë§ˆ ë§ˆì•¼ë…¸ íƒ‘ê±´\n";
     gotoxy(x, 19);
-    cout << "3. ¼±ÀÔ¸¶ ¿À±¸¸® Ä¸\n";
+    cout << "3. ì„ ì…ë§ˆ ì˜¤êµ¬ë¦¬ ìº¡\n";
     gotoxy(x, 21);
-    cout << "4. ÃßÀÔ¸¶ °ñµå ½±\n";
+    cout << "4. ì¶”ì…ë§ˆ ê³¨ë“œ ì‰½\n";
     gotoxy(x, 23);
-    cout << "½ÃÀÛ¸¶¸¦ °í¸£½Ã¿À (1 ~ 4): ";
+    cout << "5. ì»¤ìŠ¤í…€ ë§ ë§Œë“¤ê¸°\n";
+    gotoxy(x, 25);
+    cout << "ì‹œì‘ë§ˆë¥¼ ê³ ë¥´ì‹œì˜¤ (1 ~ 5): ";
 
     while (true) {
         int n;
@@ -93,16 +91,34 @@ horse select_horse() {
         if (cin.fail()) {
             cin.clear();
             cin.ignore(1000, '\n');
-            cout << "¼ıÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             continue;
         }
         switch (n) {
-        case 1: return horse("»çÀÏ·±½º ½ºÁîÄ«", 0, startStat, startStat, startStat, startStat);
-        case 2: return horse("¸¶¾ß³ë Å¾°Ç", 1, startStat, startStat, startStat, startStat);
-        case 3: return horse("¿À±¸¸® Ä¸", 2, startStat, startStat, startStat, startStat);
-        case 4: return horse("°ñµå ½±", 3, startStat, startStat, startStat, startStat);
+        case 1: return horse("ì‚¬ì¼ëŸ°ìŠ¤ ìŠ¤ì¦ˆì¹´", 0, startStat, startStat, startStat, startStat);
+        case 2: return horse("ë§ˆì•¼ë…¸ íƒ‘ê±´", 1, startStat, startStat, startStat, startStat);
+        case 3: return horse("ì˜¤êµ¬ë¦¬ ìº¡", 2, startStat, startStat, startStat, startStat);
+        case 4: return horse("ê³¨ë“œ ì‰½", 3, startStat, startStat, startStat, startStat);
+        case 5: {//ì»¤ìŠ¤í…€ë§ ìƒì„±
+            string name;
+            int breed;
+
+            cout << "\n[ì»¤ìŠ¤í…€ ë§ ìƒì„±]\n";
+            cout << "ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ";
+            cin.ignore(); // ë²„í¼ ë¹„ìš°ê¸°
+            getline(cin, name);
+
+            cout << "ê²½ì£¼ ìŠ¤íƒ€ì¼ì„ ì„ íƒí•˜ì„¸ìš” (1: ë„ì£¼, 2: ì„ í–‰, 3: ì„ ì…, 4: ì¶”ì…): ";
+            while (!(cin >> breed) || breed < 1 || breed > 4) {
+                cin.clear();
+                cin.ignore(100, '\n');
+                cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš” (1~4): ";
+            }
+
+            return horse(name, breed - 1, startStat, startStat, startStat, startStat);
+        }
         default:
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
         }
     }
 }

@@ -1,43 +1,43 @@
-#ifndef HORSE_H
+ï»¿#ifndef HORSE_H
 #define HORSE_H
 #include<iostream>
 #include<string>
 #include<cmath>
 #include<cstdlib>
 
-#define BASELINE 1000 // ½ºÅÈ ±âÁØÄ¡ (ÀÌµ¿·ÎÁ÷ °è»ê »ç¿ë)
+#define BASELINE 1000 // ìŠ¤íƒ¯ ê¸°ì¤€ì¹˜ (ì´ë™ë¡œì§ ê³„ì‚° ì‚¬ìš©)
 
 enum HorseType { PLAYER, CPU };
 
 class horse {
 private:
     HorseType type;
-    // ¸» ´É·ÂÄ¡
-    int spd = 0;   // ¼Óµµ
-    int pow = 0;   // Èû
-    int sta = 0;   // ½ºÅÂ¹Ì³ª
-    int guts = 0;  // ±Ù¼º
+    // ë§ ëŠ¥ë ¥ì¹˜
+    int spd = 0;   // ì†ë„
+    int pow = 0;   // í˜
+    int sta = 0;   // ìŠ¤íƒœë¯¸ë‚˜
+    int guts = 0;  // ê·¼ì„±
 
-    // ¸» ±âº» Á¤º¸
-    std::string name;   // ¸» ÀÌ¸§
-    int breed;          // Ç°Á¾ ¹øÈ£ (µµÁÖ - 0 / ¼±Çà - 1 / ¼±ÀÔ - 2 / ÃßÀÔ - 3)
+    // ë§ ê¸°ë³¸ ì •ë³´
+    std::string name;   // ë§ ì´ë¦„
+    int breed;          // í’ˆì¢… ë²ˆí˜¸ (ë„ì£¼ - 0 / ì„ í–‰ - 1 / ì„ ì… - 2 / ì¶”ì… - 3)
 
-    // À§Ä¡ °ü·Ã º¯¼ö
-    int prev_pos = 0;        // ÀÌÀü À§Ä¡
-    int curr_pos = 0;        // ÇöÀç À§Ä¡
-    double decimal_point = 0.0; // ¼Ò¼öÁ¡ ´©Àû (Á¤¼ö ÀÌµ¿ Á¦¿Ü ºĞ)
-    int rank = 0; // ·¹ÀÌ½º µî¼ö ÀúÀå
+    // ìœ„ì¹˜ ê´€ë ¨ ë³€ìˆ˜
+    int prev_pos = 0;        // ì´ì „ ìœ„ì¹˜
+    int curr_pos = 0;        // í˜„ì¬ ìœ„ì¹˜
+    double decimal_point = 0.0; // ì†Œìˆ˜ì  ëˆ„ì  (ì •ìˆ˜ ì´ë™ ì œì™¸ ë¶„)
+    int rank = 0; // ë ˆì´ìŠ¤ ë“±ìˆ˜ ì €ì¥
 
 protected:
-    // ½ºÅİº° °¡ÁßÄ¡
-    double breed_mod[3];      // Ç°Á¾ º¸Á¤Ä¡ 0: ÃÊ¹İ / 1: Áß¹İ / 2: ÈÄ¹İ
-    double stat_mod[3];       // ½ºÅÈ º¸Á¤Ä¡ 0: ÃÊ¹İ / 1: Áß¹İ / 2: ÈÄ¹İ
+    // ìŠ¤í…Ÿë³„ ê°€ì¤‘ì¹˜
+    double breed_mod[3];      // í’ˆì¢… ë³´ì •ì¹˜ 0: ì´ˆë°˜ / 1: ì¤‘ë°˜ / 2: í›„ë°˜
+    double stat_mod[3];       // ìŠ¤íƒ¯ ë³´ì •ì¹˜ 0: ì´ˆë°˜ / 1: ì¤‘ë°˜ / 2: í›„ë°˜
 
 public:
-    // ÀÓ½Ã »ı¼º¿ë ±âº»»ı¼ºÀÚ
-    horse() : type(CPU), name("ÀÓ½Ã»ı¼ºÀÚ"), breed(0), spd(0), pow(0), sta(0), guts(0) {}
+    // ì„ì‹œ ìƒì„±ìš© ê¸°ë³¸ìƒì„±ì
+    horse() : type(CPU), name("ì„ì‹œìƒì„±ì"), breed(0), spd(0), pow(0), sta(0), guts(0) {}
 
-    // CPU¿ë »ı¼ºÀÚ
+    // CPUìš© ìƒì„±ì
     horse(std::string name, int breed, int tier)
         : type(CPU), name(name), breed(breed) {
         set_ai_stats(breed, tier);
@@ -46,14 +46,14 @@ public:
        // std::cout << "Stats - Speed: " << spd << ", Stamina: " << sta << ", pow: " << pow << ", Guts: " << guts << std::endl;
     }
 
-    // ÇÃ·¹ÀÌ¾î¿ë »ı¼ºÀÚ
+    // í”Œë ˆì´ì–´ìš© ìƒì„±ì
     horse(std::string name, int breed, int spd, int pow, int sta, int guts)
         : type(PLAYER), name(name), breed(breed),
         spd(spd), pow(pow), sta(sta), guts(guts) {
         set_modifiers(breed);
     }
 
-    // AI ½ºÅÈ ¼³Á¤
+    // AI ìŠ¤íƒ¯ ì„¤ì •
     void set_ai_stats(int breed, int tier) {
         switch (breed) {
         case 0: spd = (1100 + rand() % 101) / tier;
@@ -75,7 +75,7 @@ public:
         }
     }
 
-    // Ç°Á¾ Æ¯¼º ¼³Á¤
+    // í’ˆì¢… íŠ¹ì„± ì„¤ì •
     void set_modifiers(int breed) {
         static double s_mod[4][3] = {
             {1.5, 1.3, 1.2},
@@ -95,73 +95,73 @@ public:
         }
     }
 
-    // ½ºÅÈ Á¶È¸¿ë getter
-    std::string get_name() { return name; }     // ¸» ÀÌ¸§ ¸®ÅÏ
-    int get_spd() { return spd; }               // ½ºÇÇµå ¸®ÅÏ
-    int get_pow() { return pow; }               // ÆÄ¿ö ¸®ÅÏ
-    int get_sta() { return sta; }               // ½ºÅÂ¹Ì³ª ¸®ÅÏ
-    int get_guts() { return guts; }             // ±Ù¼º ¸®ÅÏ
-    int get_breed() { return breed; }           // Ç°Á¾ ¸®ÅÏ
-    int get_rank() { return rank; }             // ·©Å© ¸®ÅÏ
+    // ìŠ¤íƒ¯ ì¡°íšŒìš© getter
+    std::string get_name() { return name; }     // ë§ ì´ë¦„ ë¦¬í„´
+    int get_spd() { return spd; }               // ìŠ¤í”¼ë“œ ë¦¬í„´
+    int get_pow() { return pow; }               // íŒŒì›Œ ë¦¬í„´
+    int get_sta() { return sta; }               // ìŠ¤íƒœë¯¸ë‚˜ ë¦¬í„´
+    int get_guts() { return guts; }             // ê·¼ì„± ë¦¬í„´
+    int get_breed() { return breed; }           // í’ˆì¢… ë¦¬í„´
+    int get_rank() { return rank; }             // ë­í¬ ë¦¬í„´
 
 
-    // ½ºÅÈ Ãß°¡¿ë setter
-    void set_spd(int n) { this->spd += n; }     // ½ºÇÇµå Áõ°¡
-    void set_pow(int n) { this->pow += n; }     // ÆÄ¿ö Áõ°¡
-    void set_sta(int n) { this->sta += n; }     // ½ºÅÂ¹Ì³ª Áõ°¡ (¿ÀÅ¸ ¼öÁ¤)
-    void set_guts(int n) { this->guts += n; }   // ±Ù¼º Áõ°¡
-    void set_breed(int n) { this->breed = n; }  // Ç°Á¾ ¸®ÅÏ
-    void set_rank(int n) { this->rank = n; }    // ·©Å© ¸®ÅÏ
+    // ìŠ¤íƒ¯ ì¶”ê°€ìš© setter
+    void set_spd(int n) { this->spd += n; }     // ìŠ¤í”¼ë“œ ì¦ê°€
+    void set_pow(int n) { this->pow += n; }     // íŒŒì›Œ ì¦ê°€
+    void set_sta(int n) { this->sta += n; }     // ìŠ¤íƒœë¯¸ë‚˜ ì¦ê°€ (ì˜¤íƒ€ ìˆ˜ì •)
+    void set_guts(int n) { this->guts += n; }   // ê·¼ì„± ì¦ê°€
+    void set_breed(int n) { this->breed = n; }  // í’ˆì¢… ë¦¬í„´
+    void set_rank(int n) { this->rank = n; }    // ë­í¬ ë¦¬í„´
 
-    // ÇöÀç À§Ä¡°¡ ¾î´À ±¸°£ÀÎÁö ¹İÈ¯ (0: ÃÊ¹İ / 1: Áß¹İ / 2: ÈÄ¹İ)
+    // í˜„ì¬ ìœ„ì¹˜ê°€ ì–´ëŠ êµ¬ê°„ì¸ì§€ ë°˜í™˜ (0: ì´ˆë°˜ / 1: ì¤‘ë°˜ / 2: í›„ë°˜)
     int position() const {
         if (curr_pos <= 19) return 0;
         else if (curr_pos <= 39) return 1;
         else return 2;
     }
 
-    // ¸» ÀÌµ¿ ·ÎÁ÷
+    // ë§ ì´ë™ ë¡œì§
     void move() {
-        // ±¸°£º° ´ëÀÀ ½ºÅÈ ¼±ÅÃ: [0]:pow, [1]:sta, [2]:guts
+        // êµ¬ê°„ë³„ ëŒ€ì‘ ìŠ¤íƒ¯ ì„ íƒ: [0]:pow, [1]:sta, [2]:guts
         int stat_by_section[3] = { pow, sta, guts };
 
-        int seg = position(); // ÇöÀç À§Ä¡ÇÑ ±¸°£
+        int seg = position(); // í˜„ì¬ ìœ„ì¹˜í•œ êµ¬ê°„
 
-        // ¼Óµµ ±â¹İ ÀÌµ¿ °Å¸® + ´É·ÂÄ¡ ¹× Ç°Á¾ º¸Á¤ + ´©Àû ¼Ò¼öÁ¡
+        // ì†ë„ ê¸°ë°˜ ì´ë™ ê±°ë¦¬ + ëŠ¥ë ¥ì¹˜ ë° í’ˆì¢… ë³´ì • + ëˆ„ì  ì†Œìˆ˜ì 
         double base_speed = static_cast<double>(spd) / BASELINE;
         double random_factor = 2.5 + (rand() % 11) / 10.0;
 
-        double stat_ratio = static_cast<double>(stat_by_section[seg]) / BASELINE; // ´É·ÂÄ¡ ºñÀ² Àû¿ë
-        double stat_bonus = stat_ratio * stat_mod[seg]; // ´É·ÂÄ¡ º¸³Ê½º °è»ê
-        double breed_bonus = breed_mod[seg] * stat_bonus; // Ç°Á¾ º¸³Ê½º °è»ê
+        double stat_ratio = static_cast<double>(stat_by_section[seg]) / BASELINE; // ëŠ¥ë ¥ì¹˜ ë¹„ìœ¨ ì ìš©
+        double stat_bonus = stat_ratio * stat_mod[seg]; // ëŠ¥ë ¥ì¹˜ ë³´ë„ˆìŠ¤ ê³„ì‚°
+        double breed_bonus = breed_mod[seg] * stat_bonus; // í’ˆì¢… ë³´ë„ˆìŠ¤ ê³„ì‚°
 
-        double move_distance = base_speed * random_factor + breed_bonus + decimal_point; // ÃÖÁ¾ ÀÌµ¿ °Å¸®
+        double move_distance = base_speed * random_factor + breed_bonus + decimal_point; // ìµœì¢… ì´ë™ ê±°ë¦¬
 
-        // ¼Ò¼öÁ¡ ºÎºĞÀº ´ÙÀ½ ÀÌµ¿¿¡ ¹İ¿µµÇµµ·Ï ÀúÀå
+        // ì†Œìˆ˜ì  ë¶€ë¶„ì€ ë‹¤ìŒ ì´ë™ì— ë°˜ì˜ë˜ë„ë¡ ì €ì¥
         decimal_point = fmod(move_distance, 1.0);
 
-        // Á¤¼ö ºÎºĞ¸¸ ÇöÀç À§Ä¡¿¡ ¹İ¿µ
+        // ì •ìˆ˜ ë¶€ë¶„ë§Œ í˜„ì¬ ìœ„ì¹˜ì— ë°˜ì˜
         prev_pos = curr_pos;
         curr_pos += static_cast<int>(move_distance);
     }
 
-    // ÇöÀç À§Ä¡ ¹İÈ¯ (¿ÜºÎ Á¶È¸¿ë)
+    // í˜„ì¬ ìœ„ì¹˜ ë°˜í™˜ (ì™¸ë¶€ ì¡°íšŒìš©)
     int get_position() const { return curr_pos; }
 
-    // ÀÌÀü À§Ä¡ ¹İÈ¯ (¿ÜºÎ Á¶È¸¿ë)
+    // ì´ì „ ìœ„ì¹˜ ë°˜í™˜ (ì™¸ë¶€ ì¡°íšŒìš©)
     int get_prev_pos() const { return prev_pos; }
 
-    // µ¿¼®Â÷ ¹æÁö (¿À¹ö·Îµù »ç¿ë)
+    // ë™ì„ì°¨ ë°©ì§€
+    double get_decimal_point() { return decimal_point; }
     void add_position(int n) { this->curr_pos += n; }
 
-    // ¸®¼Â
+    // ë¦¬ì…‹
     void reset() {
-        prev_pos = 0;        // ÀÌÀü À§Ä¡
-        curr_pos = 0;        // ÇöÀç À§Ä¡
-        decimal_point = 0.0; // ¼Ò¼öÁ¡ ´©Àû
-        rank = 0; // ·¹ÀÌ½º µî¼ö
+        prev_pos = 0;        // ì´ì „ ìœ„ì¹˜
+        curr_pos = 0;        // í˜„ì¬ ìœ„ì¹˜
+        decimal_point = 0.0; // ì†Œìˆ˜ì  ëˆ„ì 
+        rank = 0; // ë ˆì´ìŠ¤ ë“±ìˆ˜
     }
-
 };
 
 

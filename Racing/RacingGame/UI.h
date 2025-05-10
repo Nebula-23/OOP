@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 #include <windows.h>
 
 #include "conio.h"
 #include "training.h"
-#define UP 72 // À§
-#define DOWN 80 // ¾Æ·¡
+#define UP 72 // ìœ„
+#define DOWN 80 // ì•„ë˜
 const int MAX_MONTH = 72;
 
 //#define LEFT 2 
@@ -16,18 +16,18 @@ void init_console_size() {
     system("mode con:cols=124 lines=35");
 }
 
-void init_game_ui() { // °ÔÀÓ¸ÇÃ³À½ Å³¶§ TItle ÇöÀç´Â »ç¿ë ¾ÈÇÔ
+void init_game_ui() { // ê²Œì„ë§¨ì²˜ìŒ í‚¬ë•Œ TItle í˜„ì¬ëŠ” ì‚¬ìš© ì•ˆí•¨
 
-    cout << " ¸»´Ş¸®ÀÚ °ÔÀÓ " << endl;
+    cout << " ë§ë‹¬ë¦¬ì ê²Œì„ " << endl;
 
 }
 
 void gotoxy(int x, int y) {
-    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE); // ÄÜ¼Ö Ä¿¼­ ÇÚµé°¡Á®¿À±â
+    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE); // ì½˜ì†” ì»¤ì„œ í•¸ë“¤ê°€ì ¸ì˜¤ê¸°
     COORD pos;
-    pos.X = x; // xÁÂÇ¥
-    pos.Y = y; // yÁÂÇ¥	
-    SetConsoleCursorPosition(consoleHandle, pos); // Ä¿¼­ À§Ä¡ ¼³Á¤
+    pos.X = x; // xì¢Œí‘œ
+    pos.Y = y; // yì¢Œí‘œ	
+    SetConsoleCursorPosition(consoleHandle, pos); // ì»¤ì„œ ìœ„ì¹˜ ì„¤ì •
 }
 
 
@@ -35,16 +35,16 @@ void gotoxy(int x, int y) {
 int keyControl() {
     char temp = _getch();
 
-    if (temp == 72) // À§
+    if (temp == 72) // ìœ„
         return UP;
-    else if (temp == 80) // ¾Æ·¡
+    else if (temp == 80) // ì•„ë˜
         return DOWN;
     else if (temp == 27) // ESC
         return 27;
     else if (temp == 13) // Enter
         return 13;
     else
-        return -1; // Àß¸øµÈ ÀÔ·Â
+        return -1; // ì˜ëª»ëœ ì…ë ¥
 }
 
 void drawArrow(int x, int y) {
@@ -54,57 +54,57 @@ void drawArrow(int x, int y) {
 
 void clearArrow(int x, int y) {
     gotoxy(x, y);
-    printf(" "); // ÀÌÀü À§Ä¡ÀÇ '>'¸¦ Áö¿ò
+    printf(" "); // ì´ì „ ìœ„ì¹˜ì˜ '>'ë¥¼ ì§€ì›€
 }
 
 int menuDraw() {
     int x = 50;
     int y = 15;
-    int arrowX = x + 4; // '>' ±âÈ£ À§Ä¡
-    int currentY = y + 10; // ÇöÀç ¼±ÅÃµÈ Ç×¸ñÀÇ yÁÂÇ¥
+    int arrowX = x + 4; // '>' ê¸°í˜¸ ìœ„ì¹˜
+    int currentY = y + 10; // í˜„ì¬ ì„ íƒëœ í•­ëª©ì˜ yì¢Œí‘œ
 
     cout << "===========================================================================================================================\n" << endl;
     gotoxy(x, y);
-    printf("¾Æ¹«Æ° ¸»´Ş¸®ÀÚ °ÔÀÓÀÓ\n");
+    printf("ì•„ë¬´íŠ¼ ë§ë‹¬ë¦¬ì ê²Œì„ì„\n");
 
     gotoxy(x - 4, y + 2);
-    cout << "°è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£¼¼¿ä...";
+    cout << "ê³„ì†í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ì„¸ìš”...";
 
     gotoxy(x + 4, y + 10);
-    printf("  °ÔÀÓ½ÃÀÛ ");
+    printf("  ê²Œì„ì‹œì‘ ");
 
     gotoxy(x + 6, y + 12);
-    printf("ÀÌ¾îÇÏ±â ");
+    printf("ì´ì–´í•˜ê¸° ");
 
     gotoxy(x + 6, y + 14);
-    printf("  Á¾·á	\n\n");
+    printf("  ì¢…ë£Œ	\n\n");
     cout << "==========================================================================================================================\n" << endl;
 
-    // Ã³À½¿¡ '>' Ç¥½Ã¸¦ ¹Ù·Î ±×¸®±â
+    // ì²˜ìŒì— '>' í‘œì‹œë¥¼ ë°”ë¡œ ê·¸ë¦¬ê¸°
     drawArrow(arrowX, currentY);
 
     while (1) {
         int n = keyControl();
         switch (n) {
         case UP:
-            if (currentY > y + 10) { // ÃÖ¼Ò À§Ä¡ Á¦ÇÑ
+            if (currentY > y + 10) { // ìµœì†Œ ìœ„ì¹˜ ì œí•œ
                 clearArrow(arrowX, currentY);
-                currentY -= 2; // ÇÑ ÁÙ À§·Î ÀÌµ¿
+                currentY -= 2; // í•œ ì¤„ ìœ„ë¡œ ì´ë™
                 drawArrow(arrowX, currentY);
             }
             break;
         case DOWN:
-            if (currentY < y + 14) { // ÃÖ´ë À§Ä¡ Á¦ÇÑ
+            if (currentY < y + 14) { // ìµœëŒ€ ìœ„ì¹˜ ì œí•œ
                 clearArrow(arrowX, currentY);
-                currentY += 2; // ÇÑ ÁÙ ¾Æ·¡·Î ÀÌµ¿
+                currentY += 2; // í•œ ì¤„ ì•„ë˜ë¡œ ì´ë™
                 drawArrow(arrowX, currentY);
             }
             break;
         case 13: // Enter
             system("cls");
-            if (currentY == y + 10) return 1; // °ÔÀÓ½ÃÀÛ
-            else if (currentY == y + 12) return 2; // ÀÌ¾îÇÏ±â
-            else if (currentY == y + 14) return 3; // Á¾·á
+            if (currentY == y + 10) return 1; // ê²Œì„ì‹œì‘
+            else if (currentY == y + 12) return 2; // ì´ì–´í•˜ê¸°
+            else if (currentY == y + 14) return 3; // ì¢…ë£Œ
             break;
         }
     }
@@ -116,25 +116,25 @@ void print_stat(int month, horse* player, training& trainer) {
 
     string brred_str;
     switch (player->get_breed()) {
-    case 0: brred_str = "µµÁÖ¸¶"; break;
-    case 1: brred_str = "¼±Çà¸¶"; break;
-    case 2: brred_str = "¼±ÀÔ¸¶"; break;
-    case 3: brred_str = "ÃßÀÔ¸¶"; break;
-    default: brred_str = "¾Ë ¼ö ¾øÀ½"; break;
+    case 0: brred_str = "ë„ì£¼ë§ˆ"; break;
+    case 1: brred_str = "ì„ í–‰ë§ˆ"; break;
+    case 2: brred_str = "ì„ ì…ë§ˆ"; break;
+    case 3: brred_str = "ì¶”ì…ë§ˆ"; break;
+    default: brred_str = "ì•Œ ìˆ˜ ì—†ìŒ"; break;
     }
 
     cout << "===========================================================================================================================\n"
-        << "\t\t\t\t\t\t\t" << display_year << "(³âÂ÷)\n\n" //<< month << " / " << MAX_MONTH << "\n\n"
-        << "\t\t\t\t\t" << player->get_name() << " | " << brred_str << " | " << month << "turn |" << "·¹ÀÌ½º D-" << d_day << "\n";
+        << "\t\t\t\t\t\t\t" << display_year << "(ë…„ì°¨)\n\n" //<< month << " / " << MAX_MONTH << "\n\n"
+        << "\t\t\t\t\t" << player->get_name() << " | " << brred_str << " | " << month << "turn |" << "ë ˆì´ìŠ¤ D-" << d_day << "\n";
     cout << "===========================================================================================================================\n\n";
-    cout << "\n";//¿©±â ÀÌ·¸°Ô ¸¸µé¾î ³õÀºÀÌÀ¯´Â ³ªÁß¿¡ µé¾î°¥ ±×¸²À» À§ÇØ¼­ ¸¸µé¾î ³õÀº°Ì´Ï´Ù.
+    cout << "\n";//ì—¬ê¸° ì´ë ‡ê²Œ ë§Œë“¤ì–´ ë†“ì€ì´ìœ ëŠ” ë‚˜ì¤‘ì— ë“¤ì–´ê°ˆ ê·¸ë¦¼ì„ ìœ„í•´ì„œ ë§Œë“¤ì–´ ë†“ì€ê²ë‹ˆë‹¤.
     cout << "\n";
     cout << "\n";
     cout << "\n";
     cout << "\n";
     cout << "\n";
     cout << "\n";
-    cout << "\t\t\t\t ±×¸²ÀÌ µé¾î°¥ ±¸°£ ( ¸» ´Ù±×´Ú ´Ù±×´Ú ¾Æ½ºÅ°ÄÚµå)\n";
+    cout << "\t\t\t\t ê·¸ë¦¼ì´ ë“¤ì–´ê°ˆ êµ¬ê°„ ( ë§ ë‹¤ê·¸ë‹¥ ë‹¤ê·¸ë‹¥ ì•„ìŠ¤í‚¤ì½”ë“œ)\n";
     cout << "\n";
     cout << "\n";
     cout << "\n";
@@ -147,51 +147,51 @@ void print_stat(int month, horse* player, training& trainer) {
     cout << "\n";
     cout << "\n";
     cout << "===========================================================================================================================\n";
-    cout << "Çö´É·ÂÄ¡\n";
-    cout << "½ºÇÇµå : " << player->get_spd() << "\tÆÄ¿ö : " << player->get_pow() << "\t±Ù¼º : " << player->get_guts() << "\tÁö±¸·Â : " << player->get_sta() << "\n";
-    cout << "ºÎ»óÈ®·ü : " << trainer.injury_percent(*player) << "%\t" << "Ã¼·Â: " << trainer.get_hp() << "\n";
+    cout << "í˜„ëŠ¥ë ¥ì¹˜\n";
+    cout << "ìŠ¤í”¼ë“œ : " << player->get_spd() << "\tíŒŒì›Œ : " << player->get_pow() << "\tê·¼ì„± : " << player->get_guts() << "\tì§€êµ¬ë ¥ : " << player->get_sta() << "\n";
+    cout << "ë¶€ìƒí™•ë¥  : " << trainer.injury_percent(*player) << "%\t" << "ì²´ë ¥: " << trainer.get_hp() << "\n";
     cout << "===========================================================================================================================\n";
-    cout << "1) ½ºÇÇµå ÈÆ·Ã\t2) ÆÄ¿ö ÈÆ·Ã\t3) ±Ù¼º ÈÆ·Ã\t4) Áö±¸·Â ÈÆ·Ã\t5) ÈŞ½Ä\n";
+    cout << "1) ìŠ¤í”¼ë“œ í›ˆë ¨\t2) íŒŒì›Œ í›ˆë ¨\t3) ê·¼ì„± í›ˆë ¨\t4) ì§€êµ¬ë ¥ í›ˆë ¨\t5) íœ´ì‹\n";
     while (true) {
         int n;
         cin >> n;
         if (cin.fail()) {
             cin.clear();
             cin.ignore(1000, '\n');
-            cout << "¼ıÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             continue;
         }
         switch (n) {
         case 1: {
             if (player->get_spd() == 1400) {
-                std::cout << "ÀÌ¹Ì ¸Æ½º ´Ù½Ã¼±ÅÃ\n"; continue;
+                std::cout << "ì´ë¯¸ ë§¥ìŠ¤ ë‹¤ì‹œì„ íƒ\n"; continue;
             }
             trainer.training_speed(*player);   return;
         }
         case 2: {
             if (player->get_pow() == 1400) {
-                std::cout << "ÀÌ¹Ì ¸Æ½º ´Ù½Ã¼±ÅÃ\n"; continue;
+                std::cout << "ì´ë¯¸ ë§¥ìŠ¤ ë‹¤ì‹œì„ íƒ\n"; continue;
             } trainer.training_power(*player);      return;
         }
         case 3: {
             if (player->get_sta() == 1400) {
-                std::cout << "ÀÌ¹Ì ¸Æ½º ´Ù½Ã¼±ÅÃ\n"; continue;
+                std::cout << "ì´ë¯¸ ë§¥ìŠ¤ ë‹¤ì‹œì„ íƒ\n"; continue;
             } trainer.training_perseverance(*player); return;
         }
         case 4: {
             if (player->get_guts() == 1400) {
-                std::cout << "ÀÌ¹Ì ¸Æ½º ´Ù½Ã¼±ÅÃ\n"; continue;
+                std::cout << "ì´ë¯¸ ë§¥ìŠ¤ ë‹¤ì‹œì„ íƒ\n"; continue;
             } trainer.training_endurance(*player);  return;
         }
         case 5: trainer.rest(*player);                return;
         default:
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
         }
     }
 }
 
 /*
-Âü°í»çÀÌÆ®
-https://geundung.dev/14?category=699626 => È­¸é ¸Ş´º¶õ ±¸¼º
-https://geundung.dev/15?category=699626 =>Å°º¸µå ÀÌº¥Æ® Ã³¸®
+ì°¸ê³ ì‚¬ì´íŠ¸
+https://geundung.dev/14?category=699626 => í™”ë©´ ë©”ë‰´ë€ êµ¬ì„±
+https://geundung.dev/15?category=699626 =>í‚¤ë³´ë“œ ì´ë²¤íŠ¸ ì²˜ë¦¬
 */

@@ -21,11 +21,13 @@
   <ItemGroup>
     <ClInclude Include="canvas.h" />
     <ClInclude Include="horse.h" />
+    <ClInclude Include="horse_name.h" />
     <ClInclude Include="race.h" />
     <ClInclude Include="training.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

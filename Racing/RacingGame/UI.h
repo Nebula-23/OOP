@@ -155,13 +155,13 @@ void print_stat(int month, horse* player, training& trainer) {
     while (true) {
         int n;
         cin >> n;
-        cin.ignore();
         if (cin.fail()) {
             cin.clear();
             cin.ignore(1000, '\n');
             cout << "숫자만 입력해주세요: ";
             continue;
         }
+        cin.ignore(1000, '\n'); //버퍼정리
         switch (n) {
         case 1: {
             if (player->get_spd() == 1400) {

@@ -70,6 +70,12 @@ public:
         }
     }
 
+    void exit_game() { //게임오버
+        std::cout << "\nGAME OVER\n";
+        Sleep(2000);
+        exit(0);
+    }
+
     void reward() { // 등수 보상 함수 -> 수치는 나중에 밸런싱
         int rank = horses[lane].get_rank();
         player.set_rank(rank);  // player에 등수 기록
@@ -110,7 +116,7 @@ public:
 
         default:
             std::cout << "목표 등수에 도달하지 못했습니다...\n";
-            // 게임종료 함수 실행?
+            exit_game();
             break;
         }
     }

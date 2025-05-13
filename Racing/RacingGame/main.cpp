@@ -26,7 +26,7 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
     int start_format;
     init_console_size(); // 콘솔 크기 초기화
     //init_game_ui(); // UI 초기화
-    PlaySound(TEXT("C:\\Users\\kimdg\\Desktop\\c++pj\\Racing\\RacingGame\\BGM1"), NULL, SND_ASYNC || SND_LOOP);
+    PlaySound(TEXT("BGM1.wav"), NULL, SND_ASYNC | SND_LOOP);
     start_format = menuDraw();
     if (start_format == 1)
     {
@@ -47,7 +47,7 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
     Sleep(500);
     system("cls");
    
-    PlaySound(TEXT("C:\\Users\\kimdg\\Desktop\\c++pj\\Racing\\RacingGame\\BGM2"), NULL, SND_ASYNC || SND_LOOP);
+    PlaySound(TEXT("BGM2.wav"), NULL, SND_ASYNC | SND_LOOP);
 
     for (int i = 0; i < MAX_MONTH; i++) {
         //레이스 함수 갈수록 말의 티어가 높아짐 1년차(6,5티어) 2년차(4,3티어) 3년차 (2,1티어)

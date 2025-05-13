@@ -6,11 +6,12 @@
 #include "training.h"
 #define UP 72 // 위
 #define DOWN 80 // 아래
-const int MAX_MONTH = 72;
+const int MAX_MONTH = 36;
 
 //#define LEFT 2 
 //#define RIGHT 3
 using namespace std;
+
 
 void init_console_size() {
     system("mode con:cols=124 lines=35");
@@ -58,17 +59,38 @@ void clearArrow(int x, int y) {
 }
 
 int menuDraw() {
+    
+   
     int x = 50;
     int y = 15;
     int arrowX = x + 4; // '>' 기호 위치
     int currentY = y + 10; // 현재 선택된 항목의 y좌표
-
+    
     cout << "===========================================================================================================================\n" << endl;
-    gotoxy(x, y);
-    printf("아무튼 말달리자 게임임\n");
+    gotoxy(x - 48, y - 6);
+    printf("      :::::::::::   ::::    :::   :::::::::::   :::::::::::   :::::::::::         :::        :::               :::    ::: \n");//1
 
-    gotoxy(x - 4, y + 2);
-    cout << "계속하려면 아무 키나 누르세요...";
+    gotoxy(x - 48, y - 5);
+    printf("         :+:       :+:+:   :+:       :+:           :+:           :+:           :+: :+:      :+:               :+:    :+:  \n");//2
+
+    gotoxy(x - 48, y - 4);
+    printf("        +:+       :+:+:+  +:+       +:+           +:+           +:+          +:+   +:+     +:+               +:+    +:+   \n");//3
+
+    gotoxy(x - 48, y - 3);
+    printf("       +#+       +#+ +:+ +#+       +#+           +#+           +#+         +#++:++#++:    +#+               +#++:++#++    \n");//4
+
+    gotoxy(x - 48, y - 2);
+    printf("      +#+       +#+  +#+#+#       +#+           +#+           +#+         +#+     +#+    +#+               +#+    +#+      \n");//5
+
+    gotoxy(x - 48, y - 1);
+    printf("    #+#       #+#   #+#+#       #+#           #+#           #+#         #+#     #+#    #+#        #+#     #+#    #+#      \n");
+
+    gotoxy(x - 48, y);
+    //gotoxy(x-50, y );
+    printf("###########  ###    ####   ###########       ###       ###########     ###     ###    ########## ###     ###    ###       ");
+
+    /*gotoxy(x - 4, y + 2);
+    cout << "계속하려면 아무 키나 누르세요...";*/
 
     gotoxy(x + 4, y + 10);
     printf("  게임시작 ");
@@ -122,30 +144,32 @@ void print_stat(int month, horse* player, training& trainer) {
     case 3: brred_str = "추입마"; break;
     default: brred_str = "알 수 없음"; break;
     }
-
+   
+    
     cout << "===========================================================================================================================\n"
         << "\t\t\t\t\t\t\t" << display_year << "(년차)\n\n" //<< month << " / " << MAX_MONTH << "\n\n"
         << "\t\t\t\t\t" << player->get_name() << " | " << brred_str << " | " << month << "turn |" << "레이스 D-" << d_day << "\n";
     cout << "===========================================================================================================================\n\n";
-    cout << "\n";//여기 이렇게 만들어 놓은이유는 나중에 들어갈 그림을 위해서 만들어 놓은겁니다.
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\t\t\t\t 그림이 들어갈 구간 ( 말 다그닥 다그닥 아스키코드)\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
-    cout << "\n";
+    cout << "\t\t\t    ,\n";
+    cout << "\t\t\t    _,,).~,,._   /====================================================== \n";
+    cout << "\t\t\t    (()`  ``)))),,_                                                   /| \n";
+    cout << "\t\t\t    |      ''(()))),,_          ____                                 / | \n";
+    cout << "\t\t\t    |6`   |   ''((\$))) \" - \".____. - \"    `-.-,                     /  | \n";
+    cout << "\t\t\t    |    .'    ''))))'                  \$))                        /   | \n";
+    cout << "\t\t\t    |   |  /`.     ''                     ((((                    /    | \n";
+    cout << "\t\t\t    , _)  /  /                          |))))                    /     | \n";
+    cout << "\t\t\t    `'   /    |                          (((((                  /     /| \n";
+    cout << "\t\t\t         ========================================================    / | \n";
+    cout << "\t\t\t         |      `|    |           ,\\     /((((((               |    /  | \n";            
+    cout << "\t\t\t         |       |   / `-.______.&lt;  \\   |  )))))            |   /   | \n";
+    cout << "\t\t\t         |       |   |  /         `. \\  \\  ((((                |  /    | \n";
+    cout << "\t\t\t         |       |  / \\ |           `./  | (((                 | /     | \n";
+    cout << "\t\t\t         ========================================================      | \n";
+    cout << "\t\t\t         |        | | | |            / | |  '                   |        \n";    
+    cout << "\t\t\t         |        | | /_(           /_(/ /                      |        \n";
+    cout << "\t\t\t         |        /_(/__]           \\_/(_)                      |        \n";
+    cout << "\t\t\t         |       /__]                /__]                       |        \n";
+    cout << "\t\t\t\t\t\t\n";
     cout << "===========================================================================================================================\n";
     cout << "현능력치\n";
     cout << "스피드 : " << player->get_spd() << "\t파워 : " << player->get_pow() << "\t근성 : " << player->get_guts() << "\t지구력 : " << player->get_sta() << "\n";
@@ -162,27 +186,10 @@ void print_stat(int month, horse* player, training& trainer) {
             continue;
         }
         switch (n) {
-        case 1: {
-            if (player->get_spd() == 1400) {
-                std::cout << "이미 맥스 다시선택\n"; continue;
-            }
-            trainer.training_speed(*player);   return;
-        }
-        case 2: {
-            if (player->get_pow() == 1400) {
-                std::cout << "이미 맥스 다시선택\n"; continue;
-            } trainer.training_power(*player);      return;
-        }
-        case 3: {
-            if (player->get_sta() == 1400) {
-                std::cout << "이미 맥스 다시선택\n"; continue;
-            } trainer.training_perseverance(*player); return;
-        }
-        case 4: {
-            if (player->get_guts() == 1400) {
-                std::cout << "이미 맥스 다시선택\n"; continue;
-            } trainer.training_endurance(*player);  return;
-        }
+        case 1: trainer.training_speed(*player);      return;
+        case 2: trainer.training_power(*player);      return;
+        case 3: trainer.training_perseverance(*player); return;
+        case 4: trainer.training_endurance(*player);  return;
         case 5: trainer.rest(*player);                return;
         default:
             cout << "잘못된 선택입니다. 다시 입력해주세요: ";
@@ -195,3 +202,4 @@ void print_stat(int month, horse* player, training& trainer) {
 https://geundung.dev/14?category=699626 => 화면 메뉴란 구성
 https://geundung.dev/15?category=699626 =>키보드 이벤트 처리
 */
+

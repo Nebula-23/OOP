@@ -7,7 +7,7 @@
 #include "race.h"
 #include "UI.h"
 
-const int startStat = 100.0;
+const int startStat = 50.0;
 
 using namespace std;
 

@@ -56,22 +56,22 @@ public:
     // AI 스탯 설정
     void set_ai_stats(int breed, int tier) {
         switch (breed) {
-        case 0: spd = (1100 + rand() % 101) / tier;
-            pow = (1000 + rand() % 101) / tier;
-            sta = (750 + rand() % 101) / tier;
-            guts = (650 + rand() % 101) / tier; break;
-        case 1: spd = (1050 + rand() % 101) / tier;
-            pow = (900 + rand() % 101) / tier;
-            sta = (950 + rand() % 101) / tier;
-            guts = (800 + rand() % 101) / tier; break;
-        case 2: spd = (950 + rand() % 101) / tier;
-            pow = (850 + rand() % 101) / tier;
-            sta = (1000 + rand() % 101) / tier;
-            guts = (850 + rand() % 101) / tier; break;
-        case 3: spd = (900 + rand() % 101) / tier;
-            pow = (800 + rand() % 101) / tier;
-            sta = (900 + rand() % 101) / tier;
-            guts = (1100 + rand() % 101) / tier; break;
+        case 0: spd = (1100 + rand() % 101) / 6 + 6 - tier;
+            pow = (1000 + rand() % 101) / 6 + 6 - tier;
+            sta = (750 + rand() % 101) / 6 + 6 - tier;
+            guts = (650 + rand() % 101) / 6 + 6 - tier; break;
+        case 1: spd = (1050 + rand() % 101) / 6 + 6 - tier;
+            pow = (900 + rand() % 101) / 6 + 6 - tier;
+            sta = (950 + rand() % 101) / 6 + 6 - tier;
+            guts = (800 + rand() % 101) / 6 + 6 - tier; break;
+        case 2: spd = (950 + rand() % 101) / 6 + 6 - tier;
+            pow = (850 + rand() % 101) / 6 + 6 - tier;
+            sta = (1000 + rand() % 101) / 6 + 6 - tier;
+            guts = (850 + rand() % 101) / 6 + 6 - tier; break;
+        case 3: spd = (900 + rand() % 101) / 6 + 6 - tier;
+            pow = (800 + rand() % 101) / 6 + 6 - tier;
+            sta = (900 + rand() % 101) / 6 + 6 - tier;
+            guts = (1100 + rand() % 101) / 6 + 6 - tier; break;
         }
     }
 

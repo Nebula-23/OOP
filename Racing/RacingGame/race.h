@@ -102,35 +102,27 @@ public:
         switch (rank)
         {
         case 1:
-            std::cout << "1등을 달성했습니다! (모든 능력치 +100)\n";
-            player.set_spd(100);
-            player.set_pow(100);
-            player.set_sta(100);
-            player.set_guts(100);
-            break;
-
-        case 2:
-            std::cout << "2등을 달성했습니다! (모든 능력치 +70)\n";
+            std::cout << "1등을 달성했습니다! (모든 능력치 +70)\n";
             player.set_spd(70);
             player.set_pow(70);
             player.set_sta(70);
             player.set_guts(70);
             break;
 
-        case 3:
-            std::cout << "3등을 달성했습니다! (모든 능력치 +40)\n";
-            player.set_spd(40);
-            player.set_pow(40);
-            player.set_sta(40);
-            player.set_guts(40);
+        case 2:
+            std::cout << "2등을 달성했습니다! (모든 능력치 +50)\n";
+            player.set_spd(50);
+            player.set_pow(50);
+            player.set_sta(50);
+            player.set_guts(50);
             break;
 
-        case 4:
-            std::cout << "4등을 달성했습니다! (모든 능력치 +10)\n";
-            player.set_spd(10);
-            player.set_pow(10);
-            player.set_sta(10);
-            player.set_guts(10);
+        case 3:
+            std::cout << "3등을 달성했습니다! (모든 능력치 +30)\n";
+            player.set_spd(30);
+            player.set_pow(30);
+            player.set_sta(30);
+            player.set_guts(30);
             break;
 
         default:
@@ -175,8 +167,8 @@ public:
             canvas.printMap();
             show_race_summary();
             getchar(); // 디버그용
-            //system("cls");
             //Sleep(500);
+            //system("cls");
         }
     }
 };

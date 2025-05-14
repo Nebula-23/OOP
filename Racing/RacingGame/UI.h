@@ -154,13 +154,14 @@ void print_stat(int month, horse* player, training& trainer) {
     cout << "1) 스피드 훈련\t2) 파워 훈련\t3) 근성 훈련\t4) 지구력 훈련\t5) 휴식\n";
     while (true) {
         int n;
-        cin >> n;
+        cin >> n; 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(1000, '\n');
             cout << "숫자만 입력해주세요: ";
             continue;
         }
+        cin.ignore(); // 버퍼 비우기
         switch (n) {
         case 1: {
             if (player->get_spd() == 1400) {

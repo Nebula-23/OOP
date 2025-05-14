@@ -61,6 +61,7 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
             race.start();
             cout << "---------------------------------레이스 끝-----------------------\n";
             race.reward();
+            getchar();
         }
 
         print_stat(i + 1, &player, trainer);

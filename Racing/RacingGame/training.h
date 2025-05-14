@@ -31,14 +31,14 @@ class training {
         }
         else {
             if (training_hp <= MIRACLE) { //체력10밑 극적성공 
-                m = 200;
-                s = (rand() % 11 + 30) * 2;
-                std::cout << "극적 성공!\n";
+                m = (rand() % 16 + 50) * 2;
+                s = (rand() % 16 + 10) * 2;
+                std::cout << "훈련 성공! 미라클!\n";
             }
             else { //평범하게 훈련하는것 
-                m = 100;
-                s = rand() % 11 + 30;
-                std::cout << "평범한 훈련!\n";
+                m = (rand() % 16 + 50);
+                s = (rand() % 16 + 10);
+                std::cout << "훈련 성공!\n";
             }
             training_hp -= TRAINING_MHP;
             if (training_hp < 0)training_hp = 0;

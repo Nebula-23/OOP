@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <ctime>
 #include <cstdlib>
 #include <windows.h>
@@ -6,19 +6,27 @@
 #include "training.h"
 #include "race.h"
 #include "UI.h"
+#include "game.h"
+#include <mmsystem.h> 
+#pragma comment(lib,"winmm.lib")
+
 
 const int startStat = 100.0;
 
 using namespace std;
 
-horse select_horse();
 //void print_basic(int month, horse* player, training& trainer);
 void print_stat(int month, horse* player, training& trainer);
 
-int main() { //cols °¡·Î , lines ¼¼·Î cols=140 lines=30
+int main() { //cols ê°€ë¡œ , lines ì„¸ë¡œ cols=140 lines=30
+    // ì½˜ì†” ì…ì¶œë ¥ ì¸ì½”ë”©ì„ UTF-8ë¡œ ì„¤ì •
+    SetConsoleOutputCP(CP_UTF8);  // ì¶œë ¥ ì¸ì½”ë”©
+    SetConsoleCP(CP_UTF8);        // ì…ë ¥ ì¸ì½”ë”©
+
     int start_format;
-    init_console_size(); // ÄÜ¼Ö Å©±â ÃÊ±âÈ­
-    //init_game_ui(); // UI ÃÊ±âÈ­
+    init_console_size(); // ì½˜ì†” í¬ê¸° ì´ˆê¸°í™”
+    //init_game_ui(); // UI ì´ˆê¸°í™”
+    PlaySound(TEXT("BGM1.wav"), NULL, SND_ASYNC | SND_LOOP);
     start_format = menuDraw();
     if (start_format == 1)
     {
@@ -32,93 +40,14 @@ int main() { //cols °¡·Î , lines ¼¼·Î cols=140 lines=30
 
     srand(static_cast<unsigned>(time(nullptr)));
 
+    // ë§ìƒì„± í•¨ìˆ˜ UI.hì—ì„œ ì²˜ë¦¬
     horse player = select_horse();
-    // Æ®·¹ÀÌ³Ê °´Ã¼ »ı¼º
-    training trainer(player);
 
-    Sleep(500);
-    system("cls");
-
-    for (int i = 0; i < MAX_MONTH; i++) {
-        //·¹ÀÌ½º ÇÔ¼ö °¥¼ö·Ï ¸»ÀÇ Æ¼¾î°¡ ³ô¾ÆÁü 1³âÂ÷(6,5Æ¼¾î) 2³âÂ÷(4,3Æ¼¾î) 3³âÂ÷ (2,1Æ¼¾î)
-        if (i != 0 && i % 6 == 0) {
-            cout << "\n=== ·¹ÀÌ½º°¡ ½ÃÀÛµË´Ï´Ù! ===\n";
-
-            int tier = 1; // ±âº»°ª
-            if (i <= 12)        tier = 6;
-            else if (i <= 24)   tier = 5;
-            else if (i <= 36)   tier = 4;
-            else if (i <= 48)   tier = 3;
-            else if (i <= 60)   tier = 2;
-            else  tier = 1;
-
-            cout << "-------------------------------------------------------------------\n";
-            Race race(player, tier);
-            cout << "------------------------------»ı¼ºÀÚ È£Ãâ------------------------\n";
-            race.start();
-            cout << "---------------------------------·¹ÀÌ½º ³¡-----------------------\n";
-            race.reward();
-            getchar();
-            cout << "---------------------------------·¹ÀÌ½º °ÙÃ­----------------------------\n";
-        }
-
-        print_stat(i + 1, &player, trainer);
-        Sleep(500);
-        system("cls");
-    }
-    //ÃÖÁ¾·¹ÀÌ½º
-    cout << "\n=== ÃÖÁ¾ ·¹ÀÌ½º°¡ ½ÃÀÛµË´Ï´Ù! ===\n";
-    Race race(player, 1);
-    race.start();
+    //ê²Œì„ ì§„í–‰ í•¨ìˆ˜ game,hì—ì„œ ì²˜ë¦¬
+    play_game(player);
     return 0;
 }
 
-horse select_horse() {
-    int x = 46;
 
-    gotoxy(x, 15);
-    cout << "1. µµÁÖ¸¶ ¼¼Å©¸®Å×¸®¾ù\n";
-    gotoxy(x, 17);
-    cout << "2. ¼±Çà¸¶ Æ®¸®ÇÃ Å©¶ó¿î\n"; //ÀÌ¸§È®ÀÎÇÊ¿ä
-    gotoxy(x, 19);
-    cout << "3. ¼±ÀÔ¸¶ ¿À¸£Æäºê¸£\n";
-    gotoxy(x, 21);
-    cout << "4. ÃßÀÔ¸¶ °ñµå ½±\n";
-    gotoxy(x, 23);
-    cout << "5. Ä¿½ºÅÒ ¸» ¸¸µé±â\n";
-    gotoxy(x, 25);
-    cout << "½ÃÀÛ¸¶¸¦ °í¸£½Ã¿À (1 ~ 5): ";
-
-    while (true) {
-        int n;
-        cin >> n;
-        switch (n) {
-        case 1: return horse("»çÀÏ·±½º ½ºÁîÄ«", 0, startStat, startStat, startStat, startStat);
-        case 2: return horse("¸¶¾ß³ë Å¾°Ç", 1, startStat, startStat, startStat, startStat);
-        case 3: return horse("¿À±¸¸® Ä¸", 2, startStat, startStat, startStat, startStat);
-        case 4: return horse("°ñµå ½±", 3, startStat, startStat, startStat, startStat);
-        case 5: {//Ä¿½ºÅÒ¸» »ı¼º
-            string name;
-            int breed;
-
-            cout << "\n[Ä¿½ºÅÒ ¸» »ı¼º]\n";
-            cout << "ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ";
-            cin.ignore(); // ¹öÆÛ ºñ¿ì±â
-            getline(cin, name);
-
-            cout << "ÁÖÇà ½ºÅ¸ÀÏÀ» ¼±ÅÃÇÏ¼¼¿ä (1: µµÁÖ, 2: ¼±Çà, 3: ¼±ÀÔ, 4: ÃßÀÔ): ";
-            while (!(cin >> breed) || breed < 1 || breed > 4) {
-                cin.clear();
-                cin.ignore(100, '\n');
-                cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä (1~4): ";
-            }
-
-            return horse(name, breed - 1, startStat, startStat, startStat, startStat);
-        }
-        default:
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
-        }
-    }
-}
 
 void print_stat(int month, horse* player, training& trainer);

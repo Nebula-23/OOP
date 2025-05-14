@@ -1,10 +1,9 @@
+ï»¿#include "horse.h"
+#include "training.h"
+
 #include <iostream>
 #include <ctime>
-#include <cstdlib>
-#include <windows.h>
-#include "horse.h"
-#include "training.h"
-#include "race.h"
+#include <Windows.h>
 
 const int MAX_MONTH = 36;
 const int startStat = 100.0;
@@ -18,56 +17,44 @@ int main() {
     srand(static_cast<unsigned>(time(nullptr)));
 
     horse player = select_horse();
+    // íŠ¸ë ˆì´ë„ˆ ê°ì²´ ìƒì„±
     training trainer(player);
 
     Sleep(500);
     system("cls");
 
-    for (int month = 0; month < MAX_MONTH; month++) {
-        cout << "[ " << month + 1 << "°³¿ùÂ÷ ÁøÇà Áß... ]" << endl;
-
-        // 6°³¿ù¸¶´Ù ·¹ÀÌ½º
-        if ((month + 1) % 6 == 0) {
-            cout << "\n===  ·¹ÀÌ½º°¡ ½ÃÀÛµË´Ï´Ù!  ===\n";
-            Race race(player, 1); // tier´Â 1·Î ¿¹½Ã
-            race.start();
-            Sleep(1000);
-            system("cls");
-        }
-
-        // ÈÆ·Ã ·çÆ¾
-        print_basic(month + 1, &player, trainer);
-        Sleep(1000);
+    for (int i = 0; i < MAX_MONTH; i++) {
+        print_basic(i,&player,trainer);
+        Sleep(500);
         system("cls");
     }
 
-    cout << "\n[  36°³¿ù °£ÀÇ ÈÆ·Ã ¹× °æÁÖ°¡ Á¾·áµÇ¾ú½À´Ï´Ù! ¼ö°íÇÏ¼Ì½À´Ï´Ù  ]\n";
     return 0;
 }
 
 horse select_horse() {
-    cout << "1. µµÁÖ¸¶ »çÀÏ·±½º ½ºÁîÄ«\n"
-        << "2. ¼±Çà¸¶ ¸¶¾ß³ë Å¾°Ç\n"
-        << "3. ¼±ÀÔ¸¶ ¿À±¸¸® Ä¸\n"
-        << "4. ÃßÀÔ¸¶ °ñµå ½±\n"
-        << "½ÃÀÛ¸¶¸¦ °í¸£½Ã¿À (1 ~ 4): ";
+    cout << "1. ë„ì£¼ë§ˆ ì‚¬ì¼ëŸ°ìŠ¤ ìŠ¤ì¦ˆì¹´\n" 
+        << "2. ì„ í–‰ë§ˆ ë§ˆì•¼ë…¸ íƒ‘ê±´\n"
+        << "3. ì„ ì…ë§ˆ ì˜¤êµ¬ë¦¬ ìº¡\n"
+        << "4. ì¶”ì…ë§ˆ ê³¨ë“œ ì‰½\n"
+        << "ì‹œì‘ë§ˆë¥¼ ê³ ë¥´ì‹œì˜¤ (1 ~ 4): ";
 
     while (true) {
         int n;
         cin >> n;
         if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cout << "¼ıÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cin.clear(); // fail í”Œë˜ê·¸ ì´ˆê¸°í™”
+            cin.ignore(1000, '\n'); // ë²„í¼ ë¹„ìš°ê¸° (ì—”í„°ê¹Œì§€ ë¬´ì‹œ)
+            cout << "ìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             continue;
         }
         switch (n) {
-        case 1: return horse("»çÀÏ·±½º ½ºÁîÄ«", 0, startStat, startStat, startStat, startStat);
-        case 2: return horse("¸¶¾ß³ë Å¾°Ç", 1, startStat, startStat, startStat, startStat);
-        case 3: return horse("¿À±¸¸® Ä¸", 2, startStat, startStat, startStat, startStat);
-        case 4: return horse("°ñµå ½±", 3, startStat, startStat, startStat, startStat);
+        case 1: return horse("ì‚¬ì¼ëŸ°ìŠ¤ ìŠ¤ì¦ˆì¹´", 0, startStat, startStat, startStat, startStat);
+        case 2: return horse("ë§ˆì•¼ë…¸ íƒ‘ê±´", 1, startStat, startStat, startStat, startStat);
+        case 3: return horse("ì˜¤êµ¬ë¦¬ ìº¡", 2, startStat, startStat, startStat, startStat);
+        case 4: return horse("ì¶”ì…ë§ˆ ê³¨ë“œ ì‰½", 3, startStat, startStat, startStat, startStat);
         default:
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             continue;
         }
     }
@@ -75,29 +62,29 @@ horse select_horse() {
 
 void print_basic(int month, horse* player, training& trainer) {
     cout << "=============================================\n"
-        << "Month " << month << " / " << MAX_MONTH << "\n"
-        << "=============================================\n\n";
+        << "Month " << month << " / " << MAX_MONTH << "\n";
+    cout << "=============================================\n\n";
 
-    cout << "ºÎ»óÈ®·ü : " << trainer.injury_percent(*player) << "%\n\n";
+    cout << "ë¶€ìƒí™•ë¥  : " << trainer.injury_percent(*player) << "%\n\n";
 
-    cout << "1) ½ºÇÇµå ÈÆ·Ã\t2) ÆÄ¿ö ÈÆ·Ã\t3) ±Ù¼º ÈÆ·Ã\t4) Áö±¸·Â ÈÆ·Ã\t5) ÈŞ½Ä\n";
+    cout << "1) ìŠ¤í”¼ë“œ í›ˆë ¨\t2) íŒŒì›Œ í›ˆë ¨\t3) ê·¼ì„± í›ˆë ¨\t4) ì§€êµ¬ë ¥ í›ˆë ¨\t5) íœ´ì‹\n";
     while (true) {
         int n;
         cin >> n;
         if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cout << "¼ıÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cin.clear(); // fail í”Œë˜ê·¸ ì´ˆê¸°í™”
+            cin.ignore(1000, '\n'); // ë²„í¼ ë¹„ìš°ê¸° (ì—”í„°ê¹Œì§€ ë¬´ì‹œ)
+            cout << "ìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             continue;
         }
         switch (n) {
-        case 1: trainer.training_speed(*player);        return;
-        case 2: trainer.training_power(*player);        return;
+        case 1: trainer.training_speed(*player);      return;
+        case 2: trainer.training_power(*player);      return;
         case 3: trainer.training_perseverance(*player); return;
-        case 4: trainer.training_endurance(*player);    return;
-        case 5: trainer.rest(*player);                  return;
+        case 4: trainer.training_endurance(*player);  return;
+        case 5: trainer.rest(*player);                return;
         default:
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             continue;
         }
     }

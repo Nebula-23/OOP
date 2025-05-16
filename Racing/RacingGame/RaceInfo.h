@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include <sstream>
 #include <iomanip>
 
 class RaceInfo {
 public:
-    // ¹®ÀÚ¿­ÀÇ Ãâ·Â ³Êºñ °è»ê (UTF-8 ÇÑ±ÛÀº 2Ä­, ³ª¸ÓÁö´Â 1Ä­)
+    // ë¬¸ìì—´ì˜ ì¶œë ¥ ë„ˆë¹„ ê³„ì‚° (UTF-8 í•œê¸€ì€ 2ì¹¸, ë‚˜ë¨¸ì§€ëŠ” 1ì¹¸)
     static int width(const std::string& s) {
         int w = 0;
         for (size_t i = 0; i < s.size(); ) {
@@ -34,7 +34,7 @@ public:
         return w;
     }
 
-    // ÁÂÃø Á¤·Ä + ÆĞµù
+    // ì¢Œì¸¡ ì •ë ¬ + íŒ¨ë”©
     static std::string pad(const std::string& s, int target_width) {
         int pad_size = target_width - width(s);
         std::ostringstream oss;
@@ -44,7 +44,7 @@ public:
         return oss.str();
     }
 
-    // ¼ıÀÚ ¿ìÃø Á¤·Ä ÆĞµù (¼±ÅÃ)
+    // ìˆ«ì ìš°ì¸¡ ì •ë ¬ íŒ¨ë”© (ì„ íƒ)
     static std::string pad_right(int n, int target_width) {
         std::ostringstream oss;
         std::string str = std::to_string(n);

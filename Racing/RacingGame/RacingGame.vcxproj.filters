@@ -15,27 +15,36 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="horse.h">
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\race.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="race.h">
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\Sound.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="training.h">
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\training.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="UI.h">
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\UI.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="canvas.h">
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\horse_name.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="horse_name.h">
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\canvas.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\horse.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\game.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RaceInfo.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="..\..\OOP\Racing\RacingGame\main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

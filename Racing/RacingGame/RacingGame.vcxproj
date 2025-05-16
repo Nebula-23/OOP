@@ -19,15 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="canvas.h" />
-    <ClInclude Include="horse.h" />
-    <ClInclude Include="horse_name.h" />
-    <ClInclude Include="race.h" />
-    <ClInclude Include="training.h" />
-    <ClInclude Include="UI.h" />
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\canvas.h" />
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\game.h" />
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\horse.h" />
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\horse_name.h" />
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\race.h" />
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\Sound.h" />
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\training.h" />
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\UI.h" />
+    <ClInclude Include="RaceInfo.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\OOP\Racing\RacingGame\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "race_info.h"
 #include "canvas.h"
 #include "horse.h"
 #include "horse_name.h"
@@ -12,13 +12,14 @@
 class Race {
 private:
     static const int HORSE_COUNT = 7;
-    
+
     horse& player;    // 실제 플레이어 참조
     Canvas canvas;    // canvas 생성
     Horse_name name;  // Horse_name 생성
 
     int lane = rand() % HORSE_COUNT; // 플레이어 라인 추첨;
     std::array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu 특성 배열
+    std::string h_breed = "";
 
     horse horses[HORSE_COUNT];       // 빈 말 배열 생성
     bool finished[HORSE_COUNT] = {}; // 말이 결승선에 도착여부 확인
@@ -59,6 +60,102 @@ public:
             horses[i].set_rank(rank);
         }
     }
+
+    void show_race_summary() {
+        using RI = RaceInfo;
+
+        const int COL_NUM_WIDTH = 6;
+        const int COL_NAME_WIDTH = 20;
+        const int COL_BREED_WIDTH = 12;
+        const int COL_STAT_WIDTH = 8;
+
+        std::cout
+            << RI::pad("번호", COL_NUM_WIDTH)
+            << RI::pad("이름", COL_NAME_WIDTH)
+            << RI::pad("주행 특성", COL_BREED_WIDTH)
+            << RI::pad("스피드", COL_STAT_WIDTH)
+            << RI::pad("파워", COL_STAT_WIDTH)
+            << RI::pad("지구력", COL_STAT_WIDTH)
+            << RI::pad("근성", COL_STAT_WIDTH)
+            << "\n";
+
+        for (int i = 0; i < HORSE_COUNT; ++i) {
+            switch (horses[i].get_breed())
+            {
+            case 0:
+                h_breed = "도주마";
+                break;
+            case 1:
+                h_breed = "선행마";
+                break;
+            case 2:
+                h_breed = "선입마";
+                break;
+            case 3:
+                h_breed = "추입마";
+                break;
+            }
+
+            std::cout
+                << RI::pad(std::to_string(i + 1) + "번마", COL_NUM_WIDTH)
+                << RI::pad(horses[i].get_name(), COL_NAME_WIDTH)
+                << RI::pad(h_breed, COL_BREED_WIDTH)
+                << RI::pad(std::to_string(horses[i].get_spd()), COL_STAT_WIDTH)
+                << RI::pad(std::to_string(horses[i].get_pow()), COL_STAT_WIDTH)
+                << RI::pad(std::to_string(horses[i].get_sta()), COL_STAT_WIDTH)
+                << RI::pad(std::to_string(horses[i].get_guts()), COL_STAT_WIDTH)
+                << "\n";
+        }
+    }
+
+    void show_race_rank() {
+        using RI = RaceInfo;
+
+        const int COL_NUM_WIDTH = 6;
+        const int COL_NAME_WIDTH = 20;
+        const int COL_BREED_WIDTH = 10;
+        const int COL_RANK_WIDTH = 6;
+
+        std::cout
+            << RI::pad("번호", COL_NUM_WIDTH)
+            << RI::pad("이름", COL_NAME_WIDTH)
+            << RI::pad("주행 특성", COL_BREED_WIDTH)
+            << RI::pad("등수", COL_RANK_WIDTH)
+            << "\n";
+
+        for (int i = 0; i < HORSE_COUNT; ++i) {
+            std::string h_num = std::to_string(i + 1) + "번마";
+            std::string h_name = horses[i].get_name();
+
+            switch (horses[i].get_breed())
+            {
+            case 0:
+                h_breed = "도주마";
+                break;
+            case 1:
+                h_breed = "선행마";
+                break;
+            case 2:
+                h_breed = "선입마";
+                break;
+            case 3:
+                h_breed = "추입마";
+                break;
+            }
+
+            std::string h_rank = horses[i].get_rank() > 0
+                ? std::to_string(horses[i].get_rank()) + "등"
+                : "";
+
+            std::cout
+                << RI::pad(h_num, COL_NUM_WIDTH)
+                << RI::pad(h_name, COL_NAME_WIDTH)
+                << RI::pad(h_breed, COL_BREED_WIDTH)
+                << RI::pad(h_rank, COL_RANK_WIDTH)
+                << "\n";
+        }
+    }
+
 
     void cpu_check() { // 사전 정보 출력
         canvas.printMap();   // 맵 출력

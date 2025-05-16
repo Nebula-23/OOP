@@ -61,7 +61,7 @@ public:
         }
     }
 
-    void show_race_summary() {
+    void show_race_summary() { // 레이스 사전 정보 출력
         using RI = RaceInfo;
 
         const int COL_NUM_WIDTH = 6;
@@ -108,7 +108,7 @@ public:
         }
     }
 
-    void show_race_rank() {
+    void show_race_rank() { // 레이스 등수 ui 출력
         using RI = RaceInfo;
 
         const int COL_NUM_WIDTH = 6;

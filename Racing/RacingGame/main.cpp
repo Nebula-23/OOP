@@ -48,12 +48,12 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
         if (i != 0 && i % 6 == 0) {
 
             int tier = 1; // 기본값
-            if (i <= 12)        tier = 6;
-            else if (i <= 24)   tier = 5;
-            else if (i <= 36)   tier = 4;
-            else if (i <= 48)   tier = 3;
-            else if (i <= 60)   tier = 2;
-            else  tier = 1;
+            //if (i <= 12)        tier = 6;
+            //else if (i <= 24)   tier = 5;
+            //else if (i <= 36)   tier = 4;
+            //else if (i <= 48)   tier = 3;
+            //else if (i <= 60)   tier = 2;
+            //else  tier = 1;
 
             Race race(player, tier);
             cout << "\n=== 레이스가 시작됩니다! ===\n";

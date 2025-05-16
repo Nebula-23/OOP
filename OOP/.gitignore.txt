@@ -1,0 +1,15 @@
+# 시스템 및 환경 설정 파일들
+.bash_history
+.cache/
+.gitconfig
+.vscode/
+AppData/
+
+# 사용자 관련 파일들
+Downloads/
+OneDrive/
+PycharmProjects/
+
+# Windows 시스템 파일들
+NTUSER.DAT
+ntuser.ini

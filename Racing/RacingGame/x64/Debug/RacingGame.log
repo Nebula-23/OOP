@@ -1,6 +1,5 @@
 ﻿  main.cpp
-  raceInfo.h
-  코드를 생성하고 있습니다...
-C:\school\OOP\Racing\RacingGame\race.h(5,10): error C1083: 포함 파일을 열 수 없습니다. 'raceInfo.h': No such file or directory
+  Including raceInfo.h
+C:\school\OOP\Racing\RacingGame\race.h(3,10): error C1083: 포함 파일을 열 수 없습니다. 'race_info.h': No such file or directory
   (소스 파일 '../../OOP/Racing/RacingGame/main.cpp'을(를) 컴파일하는 중)
   

@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\race.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\OOP\Racing\RacingGame\Sound.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -39,7 +36,7 @@
     <ClInclude Include="..\..\OOP\Racing\RacingGame\game.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="race_info.h">
+    <ClInclude Include="..\..\OOP\Racing\RacingGame\race.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

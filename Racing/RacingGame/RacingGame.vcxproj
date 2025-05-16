@@ -27,7 +27,6 @@
     <ClInclude Include="..\..\OOP\Racing\RacingGame\Sound.h" />
     <ClInclude Include="..\..\OOP\Racing\RacingGame\training.h" />
     <ClInclude Include="..\..\OOP\Racing\RacingGame\UI.h" />
-    <ClInclude Include="race_info.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\OOP\Racing\RacingGame\main.cpp" />

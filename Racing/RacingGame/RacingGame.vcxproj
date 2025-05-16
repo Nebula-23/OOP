@@ -25,8 +25,8 @@
     <ClInclude Include="..\..\OOP\Racing\RacingGame\horse_name.h" />
     <ClInclude Include="..\..\OOP\Racing\RacingGame\race.h" />
     <ClInclude Include="..\..\OOP\Racing\RacingGame\Sound.h" />
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\training.h" />
     <ClInclude Include="..\..\OOP\Racing\RacingGame\UI.h" />
+    <ClInclude Include="training.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\OOP\Racing\RacingGame\main.cpp" />
@@ -118,6 +118,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

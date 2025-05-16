@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 #include "canvas.h"
 #include "horse.h"
 #include "horse_name.h"
@@ -58,33 +59,6 @@ public:
             horses[i].set_rank(rank);
         }
     }
-
-    void show_race_summary() {
-        using RI = RaceInfo;
-
-        const int COL_NUM_WIDTH = 6;
-        const int COL_NAME_WIDTH = 20;
-        const int COL_BREED_WIDTH = 12;
-        const int COL_STAT_WIDTH = 8;
-
-        for (int i = 0; i < HORSE_COUNT; ++i) {
-            std::cout
-                << RI::pad(std::to_string(i + 1) + "번마", COL_NUM_WIDTH)
-                << RI::pad(horses[i].get_name(), COL_NAME_WIDTH)
-                << RI::pad(horses[i].get_breed(), COL_BREED_WIDTH)
-                << RI::pad_right(horses[i].get_spd(), COL_STAT_WIDTH)
-                << RI::pad_right(horses[i].get_pow(), COL_STAT_WIDTH)
-                << RI::pad_right(horses[i].get_sta(), COL_STAT_WIDTH)
-                << RI::pad_right(horses[i].get_guts(), COL_STAT_WIDTH)
-                << "\n";
-        }
-    }
-
-
-
-
-
-
 
     void cpu_check() { // 사전 정보 출력
         canvas.printMap();   // 맵 출력

@@ -10,7 +10,6 @@
 #include <mmsystem.h> 
 #pragma comment(lib,"winmm.lib")
 
-
 const int startStat = 10.0;
 
 using namespace std;

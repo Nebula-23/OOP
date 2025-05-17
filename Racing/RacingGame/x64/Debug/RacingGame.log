@@ -149,5 +149,5 @@ C:\school\Racing\RacingGame\UI.h(160,13): warning C4129: '$': 인식할 수 없�
 C:\school\Racing\RacingGame\UI.h(161,13): warning C4129: '$': 인식할 수 없는 문자 이스케이프 시퀀스입니다.
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\school\Racing\RacingGame\main.cpp(14,23): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\school\Racing\RacingGame\main.cpp(13,23): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   RacingGame.vcxproj -> C:\school\Racing\x64\Debug\RacingGame.exe

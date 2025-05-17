@@ -16,11 +16,13 @@ private:
 
 public:
 	Canvas() {
-		for (int y = 0; y < HEIGHT; ++y)
-			for (int x = 0; x < WIDTH; ++x)
+		for (int y = 0; y < HEIGHT; ++y) {
+			map[y][0] = y+1;
+			for (int x = 1; x < WIDTH; ++x)
 			{
 				map[y][x] = 0; // 맵을 모두 초기화
 			}
+		}
 		for (int i = 0; i < HEIGHT; ++i)
 		{
 			map[i][60] = -1;
@@ -46,24 +48,54 @@ public:
 		map[y][posX] = 0; // 현재 위치 0으로 초기화
 		map[y][x] = y + 1;
 	}
-
-	void printMap() // 맵출력함수
+	
+	void printMap()
 	{
-		for (int h = 0; h < HEIGHT; h++) {
-			bool isH = false;
-			for (int w = 0; w < WIDTH; w++)
-			{
-				if (map[h][w] == -1)std::cout << '|';
-				else if (map[h][w] != 0)
-				{
-					std::cout << h_mark[h]; isH = true;
-				}
-				else if (!isH)std::cout << '.';
-				else std::cout << ' ';
+		const int TILE_WIDTH = 2; // 시각상 2칸 폭
+
+		std::cout << "╔";
+		for (int i = 0; i < WIDTH * TILE_WIDTH; ++i) std::cout << "═";
+		std::cout << "╗\n";
+
+		for (int h = 0; h < HEIGHT; ++h) {
+			bool isPassed = false;
+
+			// [1] 위 줄
+			std::cout << "║";
+			for (int w = 0; w < WIDTH; ++w) {
+				if (map[h][w] != 0) std::cout << "┌┐";
+				else std::cout << "  ";
 			}
-			std::cout << '\n';
+			std::cout << "║\n";
+
+			// [2] 중간 줄
+			std::cout << "║";
+			for (int w = 0; w < WIDTH; ++w) {
+				if (map[h][w] == -1) std::cout << " |";
+				else if (map[h][w] != 0) {
+					std::cout << "│" << h_mark[h];
+					isPassed = true;
+				}
+				else if (!isPassed) std::cout << ". ";
+				else std::cout << "  ";
+			}
+			std::cout << "║\n";
+
+			// [3] 아래 줄
+			std::cout << "║";
+			for (int w = 0; w < WIDTH; ++w) {
+				if (map[h][w] != 0) std::cout << "└┘";
+				else std::cout << "  ";
+			}
+			std::cout << "║\n";
 		}
+
+		std::cout << "╚";
+		for (int i = 0; i < WIDTH * TILE_WIDTH; ++i) std::cout << "═";
+		std::cout << "╝\n";
 	}
+
+
 };
 #endif // !CANVAS_H
 

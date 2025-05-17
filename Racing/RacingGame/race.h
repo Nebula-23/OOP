@@ -1,22 +1,25 @@
 ﻿#pragma once
+#include "race_info.h"
 #include "canvas.h"
 #include "horse.h"
 #include "horse_name.h"
 #include <array>
 #include <algorithm>
 #include <random>
+#include <iomanip>
 #include <Windows.h>
 
 class Race {
 private:
     static const int HORSE_COUNT = 7;
-    
+
     horse& player;    // 실제 플레이어 참조
     Canvas canvas;    // canvas 생성
     Horse_name name;  // Horse_name 생성
 
     int lane = rand() % HORSE_COUNT; // 플레이어 라인 추첨;
     std::array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu 특성 배열
+    std::string h_breed = "";
 
     horse horses[HORSE_COUNT];       // 빈 말 배열 생성
     bool finished[HORSE_COUNT] = {}; // 말이 결승선에 도착여부 확인
@@ -58,28 +61,107 @@ public:
         }
     }
 
-    void show_race_summary(int n) { //레인별 능력치 제공
+    void show_race_summary() { // 레이스 사전 정보 출력
+        using RI = RaceInfo;
+
+        const int COL_NUM_WIDTH = 6;
+        const int COL_NAME_WIDTH = 20;
+        const int COL_BREED_WIDTH = 12;
+        const int COL_STAT_WIDTH = 8;
+
+        std::cout
+            << RI::pad("번호", COL_NUM_WIDTH)
+            << RI::pad("이름", COL_NAME_WIDTH)
+            << RI::pad("주행 특성", COL_BREED_WIDTH)
+            << RI::pad("스피드", COL_STAT_WIDTH)
+            << RI::pad("파워", COL_STAT_WIDTH)
+            << RI::pad("지구력", COL_STAT_WIDTH)
+            << RI::pad("근성", COL_STAT_WIDTH)
+            << "\n";
+
         for (int i = 0; i < HORSE_COUNT; ++i) {
-            std::cout << i + 1 << "레인 | " << horses[i].get_name();
-            std::cout << " | 주행 특성: " << horses[i].get_breed();
-            std::cout << " | 스피드: " << horses[i].get_spd();
-            std::cout << " | 파워: " << horses[i].get_pow();
-            std::cout << " | 지구력: " << horses[i].get_sta();
-            std::cout << " | 근성: " << horses[i].get_guts();
-            std::cout << '\n';
+            switch (horses[i].get_breed())
+            {
+            case 0:
+                h_breed = "도주마";
+                break;
+            case 1:
+                h_breed = "선행마";
+                break;
+            case 2:
+                h_breed = "선입마";
+                break;
+            case 3:
+                h_breed = "추입마";
+                break;
+            }
+
+            std::cout
+                << RI::pad(std::to_string(i + 1) + "번마", COL_NUM_WIDTH)
+                << RI::pad(horses[i].get_name(), COL_NAME_WIDTH)
+                << RI::pad(h_breed, COL_BREED_WIDTH)
+                << RI::pad(std::to_string(horses[i].get_spd()), COL_STAT_WIDTH)
+                << RI::pad(std::to_string(horses[i].get_pow()), COL_STAT_WIDTH)
+                << RI::pad(std::to_string(horses[i].get_sta()), COL_STAT_WIDTH)
+                << RI::pad(std::to_string(horses[i].get_guts()), COL_STAT_WIDTH)
+                << "\n";
         }
     }
 
-    void show_race_summary(void) { //레인 및 등수 출력
-        for (int i = 0; i < HORSE_COUNT; ++i) {
-            std::cout << i + 1 << "레인 | " << horses[i].get_name();
+    void show_race_rank() { // 레이스 등수 ui 출력
+        using RI = RaceInfo;
 
-            if (horses[i].get_rank() > 0) { // 등수가 있는 경우에만 등수 출력
-                std::cout << " | 등수: " << horses[i].get_rank();
+        const int COL_NUM_WIDTH = 6;
+        const int COL_NAME_WIDTH = 20;
+        const int COL_BREED_WIDTH = 10;
+        const int COL_RANK_WIDTH = 6;
+
+        std::cout
+            << RI::pad("번호", COL_NUM_WIDTH)
+            << RI::pad("이름", COL_NAME_WIDTH)
+            << RI::pad("주행 특성", COL_BREED_WIDTH)
+            << RI::pad("등수", COL_RANK_WIDTH)
+            << "\n";
+
+        for (int i = 0; i < HORSE_COUNT; ++i) {
+            std::string h_num = std::to_string(i + 1) + "번마";
+            std::string h_name = horses[i].get_name();
+
+            switch (horses[i].get_breed())
+            {
+            case 0:
+                h_breed = "도주마";
+                break;
+            case 1:
+                h_breed = "선행마";
+                break;
+            case 2:
+                h_breed = "선입마";
+                break;
+            case 3:
+                h_breed = "추입마";
+                break;
             }
 
-            std::cout << '\n';
+            std::string h_rank = horses[i].get_rank() > 0
+                ? std::to_string(horses[i].get_rank()) + "등"
+                : "";
+
+            std::cout
+                << RI::pad(h_num, COL_NUM_WIDTH)
+                << RI::pad(h_name, COL_NAME_WIDTH)
+                << RI::pad(h_breed, COL_BREED_WIDTH)
+                << RI::pad(h_rank, COL_RANK_WIDTH)
+                << "\n";
         }
+    }
+
+
+    void cpu_check() { // 사전 정보 출력
+        canvas.printMap();   // 맵 출력
+        show_race_summary(); // 레인별 능력치 보여주기
+        std::cout << "\n레이스를 시작하려면 엔터를 눌러주세요.\n";
+        getchar();
     }
 
     void exit_game() { //게임오버
@@ -88,45 +170,30 @@ public:
         exit(0);
     }
 
-    void cpu_check() { // 사전 정보 출력
-        canvas.printMap();   // 맵 출력
-        show_race_summary(1); // 레인별 능력치 보여주기
-        std::cout << "\n레이스를 시작하려면 엔터를 눌러주세요.\n";
-        getchar();
-    }
-
-    void reward() { // 등수 보상 함수 -> 수치는 나중에 밸런싱
+    void reward() { // 등수 보상 함수
         int rank = horses[lane].get_rank();
         player.set_rank(rank);  // player에 등수 기록
 
         switch (rank)
         {
         case 1:
-            std::cout << "1등을 달성했습니다! (모든 능력치 +100)\n";
-            player.set_spd(100);
-            player.set_pow(100);
-            player.set_sta(100);
-            player.set_guts(100);
+            std::cout << "1등을 달성했습니다! (모든 능력치 +50)\n";
+            player.set_spd(50);
+            player.set_pow(50);
+            player.set_sta(50);
+            player.set_guts(50);
             break;
 
         case 2:
-            std::cout << "2등을 달성했습니다! (모든 능력치 +70)\n";
-            player.set_spd(70);
-            player.set_pow(70);
-            player.set_sta(70);
-            player.set_guts(70);
+            std::cout << "2등을 달성했습니다! (모든 능력치 +30)\n";
+            player.set_spd(30);
+            player.set_pow(30);
+            player.set_sta(30);
+            player.set_guts(30);
             break;
 
         case 3:
-            std::cout << "3등을 달성했습니다! (모든 능력치 +40)\n";
-            player.set_spd(40);
-            player.set_pow(40);
-            player.set_sta(40);
-            player.set_guts(40);
-            break;
-
-        case 4:
-            std::cout << "4등을 달성했습니다! (모든 능력치 +10)\n";
+            std::cout << "3등을 달성했습니다! (모든 능력치 +10)\n";
             player.set_spd(10);
             player.set_pow(10);
             player.set_sta(10);
@@ -138,6 +205,10 @@ public:
             exit_game();
             break;
         }
+
+        std::cout << "시상식이 종료되었습니다.\n";
+        std::cout << "엔터를 눌러 훈련장으로 복귀합니다.\n";
+        getchar();
     }
 
     void start() {
@@ -149,7 +220,7 @@ public:
         while (finished_count < HORSE_COUNT) {
             for (int i = 0; i < HORSE_COUNT; i++) {
                 if (finished[i]) {
-                    horses[i].add_position(30);
+                    horses[i].add_position(50);
                     continue;
                 }
 
@@ -173,10 +244,10 @@ public:
             }
 
             canvas.printMap();
-            show_race_summary();
-            getchar(); // 디버그용
-            //system("cls");
+            show_race_rank();
             //Sleep(500);
+            //system("cls");
+            getchar(); // 디버그용
         }
     }
 };

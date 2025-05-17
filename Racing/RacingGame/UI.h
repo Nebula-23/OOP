@@ -4,9 +4,12 @@
 
 #include "conio.h"
 #include "training.h"
+#include "horse.h"
 #define UP 72 // 위
 #define DOWN 80 // 아래
-const int MAX_MONTH = 36;
+const int MAX_MONTH = 6;
+extern const int startStat;
+//#include "horse.h"랑 extern const int startStat; 말생성에 필요해서 추가했어요
 
 //#define LEFT 2 
 //#define RIGHT 3
@@ -185,6 +188,8 @@ void print_stat(int month, horse* player, training& trainer) {
             cout << "숫자만 입력해주세요: ";
             continue;
         }
+        std::cin.ignore(); // 버퍼 비우기
+
         switch (n) {
         case 1: trainer.training_speed(*player);      return;
         case 2: trainer.training_power(*player);      return;
@@ -193,6 +198,61 @@ void print_stat(int month, horse* player, training& trainer) {
         case 5: trainer.rest(*player);                return;
         default:
             cout << "잘못된 선택입니다. 다시 입력해주세요: ";
+        }
+    }
+}
+
+//말생성 함수
+inline horse select_horse() {
+    int x = 46;
+
+    gotoxy(x, 15);
+    std::cout << "1. 도주마 사일런스 스즈카\n";
+    gotoxy(x, 17);
+    std::cout << "2. 선행마 마야노 탑건\n";
+    gotoxy(x, 19);
+    std::cout << "3. 선입마 오구리 캡\n";
+    gotoxy(x, 21);
+    std::cout << "4. 추입마 골드 쉽\n";
+    gotoxy(x, 23);
+    std::cout << "5. 커스텀 말 만들기\n";
+    gotoxy(x, 25);
+    std::cout << "시작마를 고르시오 (1 ~ 5): ";
+
+    while (true) {
+        int n;
+        std::cin >> n;
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout << "숫자만 입력해주세요: ";
+            continue;
+        }
+        switch (n) {
+        case 1: return horse("사일런스 스즈카", 0, startStat, startStat, startStat, startStat);
+        case 2: return horse("마야노 탑건", 1, startStat, startStat, startStat, startStat);
+        case 3: return horse("오구리 캡", 2, startStat, startStat, startStat, startStat);
+        case 4: return horse("골드 쉽", 3, startStat, startStat, startStat, startStat);
+        case 5: {
+            std::string name;
+            int breed;
+
+            std::cout << "\n[커스텀 말 생성]\n";
+            std::cout << "이름을 입력하세요: ";
+            std::cin.ignore(); // 버퍼 비우기
+            std::getline(std::cin, name);
+
+            std::cout << "경주 스타일을 선택하세요 (1: 도주, 2: 선행, 3: 선입, 4: 추입): ";
+            while (!(std::cin >> breed) || breed < 1 || breed > 4) {
+                std::cin.clear();
+                std::cin.ignore(100, '\n');
+                std::cout << "잘못된 선택입니다. 다시 입력해주세요 (1~4): ";
+            }
+
+            return horse(name, breed - 1, startStat, startStat, startStat, startStat);
+        }
+        default:
+            std::cout << "잘못된 선택입니다. 다시 입력해주세요: ";
         }
     }
 }

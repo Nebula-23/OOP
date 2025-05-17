@@ -19,18 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\canvas.h" />
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\game.h" />
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\horse.h" />
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\horse_name.h" />
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\race.h" />
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\Sound.h" />
-    <ClInclude Include="..\..\OOP\Racing\RacingGame\UI.h" />
-    <ClInclude Include="race_info.h" />
-    <ClInclude Include="training.h" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\OOP\Racing\RacingGame\main.cpp" />
+    <ClInclude Include="canvas.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="horse.h" />
+    <ClInclude Include="horse_name.h" />
+    <ClInclude Include="race.h" />
+    <ClInclude Include="race_info.h" />
+    <ClInclude Include="Sound.h" />
+    <ClInclude Include="training.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -119,7 +119,6 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

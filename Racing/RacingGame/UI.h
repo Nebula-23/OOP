@@ -7,7 +7,7 @@
 #include "horse.h"
 #define UP 72 // 위
 #define DOWN 80 // 아래
-const int MAX_MONTH = 6;
+const int MAX_MONTH = 54;
 extern const int startStat;
 //#include "horse.h"랑 extern const int startStat; 말생성에 필요해서 추가했어요
 

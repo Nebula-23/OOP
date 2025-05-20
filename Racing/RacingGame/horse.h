@@ -5,7 +5,7 @@
 #include<cmath>
 #include<cstdlib>
 
-#define BASELINE 1000 // 스탯 기준치 (이동로직 계산 사용)
+#define BASELINE 400 // 스탯 기준치 (이동로직 계산 사용)
 
 enum HorseType { PLAYER, CPU };
 
@@ -30,8 +30,8 @@ private:
 
 protected:
     // 스텟별 가중치
-    double breed_mod[3];      // 품종 보정치 0: 초반 / 1: 중반 / 2: 후반
-    double stat_mod[3];       // 스탯 보정치 0: 초반 / 1: 중반 / 2: 후반
+    double breed_mod[3];      // 구간 가중도 0: 초반 / 1: 중반 / 2: 후반
+    double stat_mod[3];       // 능력치 가중도 0: 초반 / 1: 중반 / 2: 후반
 
 public:
     // 임시 생성용 기본생성자
@@ -55,43 +55,61 @@ public:
 
     // AI 스탯 설정
     void set_ai_stats(int breed, int tier) {
+        int t = (10 - tier);
         switch (breed) {
-        case 0: spd = (1100 + rand() % 101) / tier;
-            pow = (1000 + rand() % 101) / tier;
-            sta = (750 + rand() % 101) / tier;
-            guts = (650 + rand() % 101) / tier; break;
-        case 1: spd = (1050 + rand() % 101) / tier;
-            pow = (900 + rand() % 101) / tier;
-            sta = (950 + rand() % 101) / tier;
-            guts = (800 + rand() % 101) / tier; break;
-        case 2: spd = (950 + rand() % 101) / tier;
-            pow = (850 + rand() % 101) / tier;
-            sta = (1000 + rand() % 101) / tier;
-            guts = (850 + rand() % 101) / tier; break;
-        case 3: spd = (900 + rand() % 101) / tier;
-            pow = (800 + rand() % 101) / tier;
-            sta = (900 + rand() % 101) / tier;
-            guts = (1100 + rand() % 101) / tier; break;
+            // 도주
+        case 0:
+            spd = (1100 + rand() % 101) / 9 * t;
+            pow = (1150 + rand() % 101) / 9 * t;
+            sta = (900 + rand() % 101) / 9 * t;
+            guts = (650 + rand() % 101) / 9 * t;
+            break;
+
+            // 선행
+        case 1:
+            spd = (1100 + rand() % 101) / 9 * t;
+            pow = (1000 + rand() % 101) / 9 * t;
+            sta = (1100 + rand() % 101) / 9 * t;
+            guts = (600 + rand() % 101) / 9 * t;
+            break;
+
+            // 선입
+        case 2:
+            spd = (1100 + rand() % 101) / 9 * t;
+            pow = (850 + rand() % 101) / 9 * t;
+            sta = (1050 + rand() % 101) / 9 * t;
+            guts = (1000 + rand() % 101) / 9 * t;
+            break;
+
+            // 추입
+        case 3:
+            spd = (1100 + rand() % 101) / 9 * t;
+            pow = (700 + rand() % 101) / 9 * t;
+            sta = (900 + rand() % 101) / 9 * t;
+            guts = (1200 + rand() % 101) / 9 * t;
+            break;
         }
     }
 
-    // 품종 특성 설정
+    // 품종별 주행 특성 설정
     void set_modifiers(int breed) {
-        static double s_mod[4][3] = {
-            {1.5, 1.3, 1.2},
-            {1.4, 1.4, 1.2},
-            {1.3, 1.4, 1.3},
-            {1.2, 1.3, 1.5}
+        static double s_mod[4][3] = { // 능력치 가중도
+            {1.0, 0.8, 0.6}, // 도주
+            {0.9, 1.0, 0.8}, // 선행
+            {0.8, 0.9, 1.0}, // 선입
+            {0.7, 0.8, 1.0}  // 추입
         };
-        static double b_mod[4][3] = {
-            {1.9, 1.7, 1.4},
-            {1.8, 1.8, 1.6},
-            {1.6, 1.8, 1.8},
-            {1.4, 1.7, 1.9}
+
+        static double b_mod[4][3] = { // 구간 가중도
+            {1.5, 1.2, 1.0}, // 도주
+            {1.2, 1.3, 1.1}, // 선행
+            {1.1, 1.2, 1.4}, // 선입
+            {1.0, 1.2, 1.6}  // 추입
         };
+
         for (int i = 0; i < 3; ++i) {
-            stat_mod[i] = s_mod[breed][i];
-            breed_mod[i] = b_mod[breed][i];
+            stat_mod[i] = s_mod[breed][i]; // 능력치 가중도
+            breed_mod[i] = b_mod[breed][i]; // 구간 가중도
         }
     }
 
@@ -127,15 +145,12 @@ public:
 
         int seg = position(); // 현재 위치한 구간
 
-        // 속도 기반 이동 거리 + 능력치 및 품종 보정 + 누적 소수점
-        double base_speed = static_cast<double>(spd) / BASELINE;
-        double random_factor = 2.5 + (rand() % 11) / 10.0;
+        // 속도 기반 이동 거리 + 능력치  + 누적 소수점
+        double base_speed = (static_cast<double>(spd) / BASELINE) + 2.0 + (rand() % 11) / 10.0;
 
-        double stat_ratio = static_cast<double>(stat_by_section[seg]) / BASELINE; // 능력치 비율 적용
-        double stat_bonus = stat_ratio * stat_mod[seg]; // 능력치 보너스 계산
-        double breed_bonus = breed_mod[seg] * stat_bonus; // 품종 보너스 계산
+        double stat_ratio = (static_cast<double>(stat_by_section[seg]) / BASELINE) * stat_mod[seg]; // 능력치 가중도 계산
 
-        double move_distance = base_speed * random_factor + breed_bonus + decimal_point; // 최종 이동 거리
+        double move_distance = (base_speed + stat_ratio) * breed_mod[seg] + decimal_point; // 최종 이동 거리
 
         // 소수점 부분은 다음 이동에 반영되도록 저장
         decimal_point = fmod(move_distance, 1.0);

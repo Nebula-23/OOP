@@ -7,7 +7,7 @@
 #include "horse.h"
 #define UP 72 // 위
 #define DOWN 80 // 아래
-const int MAX_MONTH = 6;
+const int MAX_MONTH = 54;
 extern const int startStat;
 //#include "horse.h"랑 extern const int startStat; 말생성에 필요해서 추가했어요
 
@@ -175,10 +175,10 @@ void print_stat(int month, horse* player, training& trainer) {
     cout << "\t\t\t\t\t\t\n";
     cout << "===========================================================================================================================\n";
     cout << "현능력치\n";
-    cout << "스피드 : " << player->get_spd() << "\t파워 : " << player->get_pow() << "\t근성 : " << player->get_guts() << "\t지구력 : " << player->get_sta() << "\n";
+    cout << "스피드 : " << player->get_spd() << "\t파워 : " << player->get_pow() << "\t지구력 : " << player->get_sta() << "\t근성 : " << player->get_guts() << "\n";
     cout << "부상확률 : " << trainer.injury_percent(*player) << "%\t" << "체력: " << trainer.get_hp() << "\n";
     cout << "===========================================================================================================================\n";
-    cout << "1) 스피드 훈련\t2) 파워 훈련\t3) 근성 훈련\t4) 지구력 훈련\t5) 휴식\n";
+    cout << "1) 스피드 훈련\t2) 파워 훈련\t3) 지구력 훈련\t4) 근성 훈련\t5) 휴식\n";
     while (true) {
         int n;
         cin >> n;
@@ -193,8 +193,8 @@ void print_stat(int month, horse* player, training& trainer) {
         switch (n) {
         case 1: trainer.training_speed(*player);      return;
         case 2: trainer.training_power(*player);      return;
-        case 3: trainer.training_perseverance(*player); return;
-        case 4: trainer.training_endurance(*player);  return;
+        case 3: trainer.training_endurance(*player);  return; 
+        case 4: trainer.training_perseverance(*player); return;
         case 5: trainer.rest(*player);                return;
         default:
             cout << "잘못된 선택입니다. 다시 입력해주세요: ";

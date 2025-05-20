@@ -9,8 +9,8 @@ MCI_PLAY_PARMS playBgm;
 MCI_OPEN_PARMS openShuffleSound;
 MCI_PLAY_PARMS playShuffleSound;
 
-#define BGM_1 "C:\\Users\\kimdg\\Desktop\\c++pj\\Racing\\RacingGame\\BGM_1.mp3"    //첫번재 BGM
-#define BGM_2 "C:\\Users\\kimdg\\Desktop\\c++pj\\Racing\\RacingGame\\BGM_2.mp3"    //두번째 BGM
+#define BGM_1 "C:\\Users\\kimdg\\Desktop\\c++pj\\Racing\\RacingGame\\BGM_1.wav"    //첫번재 BGM
+#define BGM_2 "C:\\Users\\kimdg\\Desktop\\c++pj\\Racing\\RacingGame\\BGM_2.wav"    //두번째 BGM
 
 int dwID;
 

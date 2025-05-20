@@ -15,13 +15,10 @@ inline void play_game(horse& player) {
     for (int i = 0; i < MAX_MONTH; i++) {
         // 티어 계산
         if (i != 0 && i % 6 == 0) {
-            int tier;
-            if (i <= 12)        tier = 6;
-            else if (i <= 24)   tier = 5;
-            else if (i <= 36)   tier = 4;
-            else if (i <= 48)   tier = 3;
-            else if (i <= 60)   tier = 2;
-            else                tier = 1;
+            //매경기마다 티어 1한단계씩 올라감
+            int tier = 10 - (i / 6);
+            // 최소 티어는 1로 보장
+            if (tier < 1) tier = 1;
 
             Race race(player, tier);
             std::cout << "\n=== 레이스가 시작됩니다! ===\n";

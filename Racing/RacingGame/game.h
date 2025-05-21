@@ -2,6 +2,7 @@
 #include "race.h"
 #include "training.h"
 #include "UI.h"
+#include "Sound.h"
 #include <windows.h>
 
 inline void play_game(horse& player) {

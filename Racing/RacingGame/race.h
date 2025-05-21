@@ -35,7 +35,7 @@ public:
         std::shuffle(cpu_type.begin(), cpu_type.end(), g);
 
         for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // 말 생성
-            if (i != lane){
+            if (i != lane) {
                 int type = cpu_type[j];
                 horses[i] = horse(name.get_name(type), type, tier); // cpu이름 생성로직 만들기
                 j++;
@@ -43,24 +43,28 @@ public:
         }
     }
 
-    void tie_breaker() {
-
+    void tie_breaker(int rank) {
         for (int i = 0; i < HORSE_COUNT; i++) {
-            if (!finished[i]) continue; // 결승선에 도달한 말만 등수 계산
+            if (horses[i].get_rank() != 0 || !finished[i]) { continue; }
 
-            double total_i = horses[i].get_position() + horses[i].get_decimal_point();
-            int rank = 1; // 각 말마다 rank를 1로 초기화
+            double total_i = horses[i].get_position() + horses[i].get_decimal_point(); // i의 현재 위치 계산
+            int tie_offset = 0; // 동석차인 사람들 끼리 1, 2, 3등 비교
 
             for (int j = 0; j < HORSE_COUNT; j++) {
-                if (i != j && finished[j]) { // 결승선에 도달한 말끼리만 비교
-                    double total_j = horses[j].get_position() + horses[j].get_decimal_point();
-                    if (total_i < total_j) {
-                        rank++;
-                    }
-                    std::cout << i + 1 << "번마 | " << total_i - total_j << " | " << rank << "등" << std::endl;
+                if (i == j || horses[j].get_rank() != 0 || !finished[j]) { continue; }
+
+                double total_j = horses[j].get_position() + horses[j].get_decimal_point(); //j의 현재 위치 계싼
+
+                if (total_i < total_j) {
+                    /*if (std::abs(total_i - total_j) < 1e-6) {
+    // 동점자 처리 or 무시
+}
+*/
+                    tie_offset++;
                 }
             }
-            horses[i].set_rank(rank);
+
+            horses[i].set_rank(rank + tie_offset); // 최종 랭크 부여
         }
     }
 
@@ -159,7 +163,6 @@ public:
         }
     }
 
-
     void cpu_check() { // 사전 정보 출력
         canvas.printMap();   // 맵 출력
         show_race_summary(); // 레인별 능력치 보여주기
@@ -223,12 +226,10 @@ public:
         int finished_count = 0;
 
         while (finished_count < HORSE_COUNT) {
+            int rank = finished_count;
+
             for (int i = 0; i < HORSE_COUNT; i++) {
-                if (finished[i]) {
-                    horses[i].add_position(50);
-                    std::cout << i + 1 << "이전 위치: " << horses[i].get_prev_pos() << " | 이동한 위치 " << horses[i].get_position() << " | 소수점 " << horses[i].get_decimal_point() << std::endl;
-                    continue;
-                }
+                if (finished[i]) { continue; }
 
                 horses[i].move(); // 말 이동
 
@@ -239,22 +240,21 @@ public:
                     canvas.set_tile(i, 60, prev_pos); // 결승선에 도달한 말 위치 고정
                     finished[i] = true;
                     ++finished_count;
-                    tie_breaker();
                 }
 
-                else {
-                    canvas.set_tile(i, curr_pos, prev_pos); // 일반 이동 처리
-                }
+                else { canvas.set_tile(i, curr_pos, prev_pos); } // 일반 이동
 
-                std::cout << i+1 << "이전 위치: " << horses[i].get_prev_pos() << " | 이동한 위치 " << horses[i].get_position() << " | 소수점 " << horses[i].get_decimal_point() << std::endl;
+                std::cout << i + 1 << "이전 위치: " << horses[i].get_prev_pos() << " | 이동한 위치 " << horses[i].get_position() << " | 소수점 " << horses[i].get_decimal_point() << std::endl;
+
             }
+
+            if (finished_count > rank) { tie_breaker(rank); }; //결승선을 넘은 말이 있을때만 실행.
 
             canvas.printMap();
             show_race_rank();
+            getchar(); // sleep or getchar로 진행
             //Sleep(500);
-            getchar(); // 디버그용
-            system("cls");
+            //system("cls");
         }
     }
 };
-

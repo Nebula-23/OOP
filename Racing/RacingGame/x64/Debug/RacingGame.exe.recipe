@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
-      <FullPath>C:\Users\kimdg\Desktop\c++pj\Racing\x64\Debug\RacingGame.exe</FullPath>
-=======
       <FullPath>C:\school\Racing\x64\Debug\RacingGame.exe</FullPath>
->>>>>>> 46ea3d66bbcaa1b191eac4ae986130def4b3fae9
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

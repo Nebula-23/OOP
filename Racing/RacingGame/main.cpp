@@ -7,6 +7,7 @@
 #include "race.h"
 #include "UI.h"
 #include "game.h"
+#include "tutorial.h"
 #include <mmsystem.h> 
 #pragma comment(lib,"winmm.lib")
 
@@ -41,9 +42,13 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
     // 말생성 함수 UI.h에서 처리
     horse player = select_horse();
+    
+    // 튜토리얼 실행
+    tutorial();
 
     //게임 진행 함수 game,h에서 처리
     play_game(player);
+
     return 0;
 }
 

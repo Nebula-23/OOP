@@ -30,6 +30,7 @@
     <ClInclude Include="race_info.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="training.h" />
+    <ClInclude Include="tutorial.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

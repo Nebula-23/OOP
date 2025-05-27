@@ -32,6 +32,8 @@ public:
 		horses[lane] = player; // 화면 표시용 복사본
 		horses[lane].reset();  // 복사본 초기화
 
+		canvas.set_player(lane); // 
+
 		// CPU 타입 셔플
 		std::mt19937 g(std::random_device{}());
 		std::shuffle(cpu_type.begin(), cpu_type.end(), g);

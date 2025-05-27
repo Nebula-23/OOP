@@ -31,13 +31,13 @@ class training {
         }
         else {
             if (training_hp <= MIRACLE) { //체력10밑 극적성공 
-                m = (rand() % 11 + 50) * 2;
-                s = (rand() % 6 + 30) * 2;
+                m = (rand() % 31 + 20) * 2;
+                s = (rand() % 6 + 15) * 2;
                 std::cout << "극한의 상황에서 훈련을 성공했습니다!\n훈련 경험치 2배!\n";
             }
             else { //평범하게 훈련하는것 
-                m = rand() % 11 + 50;
-                s = rand() % 6 + 30;
+                m = rand() % 31 + 20;
+                s = rand() % 6 + 15;
                 std::cout << "훈련 성공!\n";
             }
             training_hp -= TRAINING_MHP;

@@ -150,7 +150,7 @@ int menuDraw() {
     }
 }
 void print_stat(int month, horse* player, training& trainer) {
-    int display_year = (month % 24 == 0 && month != 0) ? month / 24 : month / 24 + 1;
+    int display_year = (month % 18 == 0 && month != 0) ? month / 18 : month / 18 + 1;
     int d_day = (month % 6 == 0) ? 0 : 6 - (month % 6);
 
     string brred_str;

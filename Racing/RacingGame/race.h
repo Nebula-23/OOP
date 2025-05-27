@@ -171,7 +171,7 @@ public:
 	void restart_game() {//4등이하면 재시작하게 예외처리
 		cout << "\n목표 등수에 도달하지 못했습니다...\n";
 		cout << "게임을 다시 시작합니다...\n";
-		Sleep(2000);
+		getchar();
 		throw std::runtime_error("RESTART");  // 예외로 재시작을 알림
 	}
 
@@ -206,7 +206,6 @@ public:
 			break;
 
 		default:
-			cout << "목표 등수에 도달하지 못했습니다...\n";
 			restart_game();
 			break;
 		}
@@ -218,13 +217,15 @@ public:
 	}
 
 	void start() {
-		//system("cls");
+		system("cls");
 		cpu_check();
 
 		int finished_count = 0;
 
 		while (finished_count < HORSE_COUNT) {
 			int rank = finished_count;
+
+			system("cls");
 
 			for (int i = 0; i < HORSE_COUNT; i++) {
 				if (finished[i]) { continue; }
@@ -252,7 +253,6 @@ public:
 			show_race_rank();
 			getchar(); // sleep or getchar로 진행
 			//Sleep(500);
-			//system("cls");
 		}
 	}
 };

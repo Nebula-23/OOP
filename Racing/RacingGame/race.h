@@ -168,10 +168,11 @@ public:
 		getchar();
 	}
 
-	void exit_game() { //게임오버
-		cout << "\nGAME OVER\n";
+	void restart_game() {//4등이하면 재시작하게 예외처리
+		cout << "\n목표 등수에 도달하지 못했습니다...\n";
+		cout << "게임을 다시 시작합니다...\n";
 		Sleep(2000);
-		exit(0);
+		throw std::runtime_error("RESTART");  // 예외로 재시작을 알림
 	}
 
 	void reward() { // 등수 보상 함수
@@ -206,7 +207,7 @@ public:
 
 		default:
 			cout << "목표 등수에 도달하지 못했습니다...\n";
-			exit_game();
+			restart_game();
 			break;
 		}
 

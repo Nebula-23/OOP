@@ -1,4 +1,4 @@
-﻿#ifndef TRAINING_H
+#ifndef TRAINING_H
 #define TRAINING_H
 
 #include<iostream>
@@ -31,13 +31,13 @@ class training {
         }
         else {
             if (training_hp <= MIRACLE) { //체력10밑 극적성공 
-                m = (rand() % 31 + 20) * 2;
-                s = (rand() % 6 + 15) * 2;
+                m = (rand() % 31 + 20)*2;
+                s = (rand() % 16 + 5)*2;
                 std::cout << "극한의 상황에서 훈련을 성공했습니다!\n훈련 경험치 2배!\n";
             }
             else { //평범하게 훈련하는것 
                 m = rand() % 31 + 20;
-                s = rand() % 6 + 15;
+                s = rand() % 16 + 5;
                 std::cout << "훈련 성공!\n";
             }
             training_hp -= TRAINING_MHP;
@@ -53,17 +53,12 @@ public:
         training_bass(isInjury, m, s);
         int spd = h.get_spd();
         int pow = h.get_pow();
-        if (spd + m > MAX_STAT) {
-            m -= spd + m - MAX_STAT;
+        if (spd + m+s > MAX_STAT) {
+            m -= spd + m+s - MAX_STAT;
         }
-        if (pow + s > MAX_STAT) {
-            s -= pow + s - MAX_STAT;
-        }
-            
         if (!isInjury) {
-            std::cout << "스피드 + " << m << " | 파워 + " << s << std::endl;
-            h.set_spd(m);
-            h.set_pow(s);
+            std::cout << "스피드 + " << m+s<< std::endl;
+            h.set_spd(m+s);
         }
     }
 
@@ -90,16 +85,16 @@ public:
         training_bass(isInjury, m, s);
         if (!isInjury) {
             int pow = h.get_pow();
-            int spd = h.get_spd();
+            int sta = h.get_sta();
             if (pow + m > MAX_STAT) {
                 m -= pow + m - MAX_STAT;
             }
-            if (spd + s > MAX_STAT) {
-                s -= spd + s - MAX_STAT;
+            if (sta + s > MAX_STAT) {
+                s -= sta + s - MAX_STAT;
             }
-            std::cout << "파워 + " << m << " | 스피드 + " << s << std::endl;
+            std::cout << "힘 + " << m << " | 지구력 + " << s << std::endl;
             h.set_pow(m);
-            h.set_spd(s);
+            h.set_sta(s);
         }
     }
 
@@ -108,16 +103,16 @@ public:
         training_bass(isInjury, m, s);
         if (!isInjury) {
             int guts = h.get_guts();
-            int sta = h.get_sta();
+            int pow = h.get_pow();
             if (guts + m > MAX_STAT) {
                 m -= guts + m - MAX_STAT;
             }
-            if (sta + s > MAX_STAT) {
-                s -= sta + s - MAX_STAT;
+            if (pow + s > MAX_STAT) {
+                s -= pow + s - MAX_STAT;
             }
-            std::cout << "근성 + " << m << " | 지구력 + " << s << std::endl;
+            std::cout << "근성 + " << m << " | 힘 + " << s << std::endl;
             h.set_guts(m);
-            h.set_sta(s);
+            h.set_pow(s);
         }
     }
 
@@ -150,10 +145,11 @@ public:
         std::cout << "회복된 체력: " << rest_hp << std::endl;
     }
     //플레이어 hp 표시용 게터? 추가
-    int get_hp()  {
+    int get_hp() {
         return training_hp;
     }
 
 };
 
 #endif // !TRAINING_H
+

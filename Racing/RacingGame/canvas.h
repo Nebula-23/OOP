@@ -15,6 +15,7 @@ private:
 	std::string h_mark[HEIGHT]; // 말 문자 
 
 public:
+
 	Canvas() {
 		for (int y = 0; y < HEIGHT; ++y) {
 			map[y][0] = y+1;
@@ -51,6 +52,7 @@ public:
 	
 	void printMap()
 	{
+		
 		const int TILE_WIDTH = 2; // 시각상 2칸 폭
 
 		std::cout << "╔";

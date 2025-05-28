@@ -43,13 +43,20 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
             srand(static_cast<unsigned>(time(nullptr)));
 
+            //show_win(); 1등
+            //show_se();
+            //show_th();
+            //show_go();
+            //getchar(); 
             // 튜토리얼 실행
             tutorial();
+
 
             // 말생성 함수 UI.h에서 처리
             horse player = select_horse();
 
             //게임 진행 함수 game,h에서 처리
+            PlaySound(TEXT("BGM3.wav"), NULL, SND_ASYNC | SND_LOOP);
             play_game(player);
             break; // 정상 엔딩 시 루프 종료
 

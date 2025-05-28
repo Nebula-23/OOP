@@ -13,7 +13,8 @@ MCI_PLAY_PARMS playShuffleSound;
 #define BGM_2 "C:\\Users\\kimdg\\Desktop\\c++pj\\Racing\\RacingGame\\BGM_2.wav"    //두번째 BGM
 #define BGM_3 "C:\\Users\\kimdg\\Desktop\\c++pj\\Racing\\RacingGame\\BGM_3.wav"
 
-int dwID;
+//
+// int dwID;
 
 //void playingBgm(void) {
 //    openBgm.lpstrElementName = BGM_1;            //파일 오픈

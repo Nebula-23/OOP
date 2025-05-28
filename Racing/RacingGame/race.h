@@ -218,6 +218,7 @@ public:
 
 	void start() {
 		system("cls");
+		PlaySound(TEXT("BGM3.wav"), NULL, SND_ASYNC | SND_LOOP);
 		cpu_check();
 
 		int finished_count = 0;

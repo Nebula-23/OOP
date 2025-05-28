@@ -10,7 +10,7 @@ inline void play_game(horse& player) {
 
     Sleep(500);
     system("cls");
-
+    //첫 레이스 전 훈련BGM 실행
     PlaySound(TEXT("BGM2.wav"), NULL, SND_ASYNC | SND_LOOP);
 
     for (int i = 0; i < MAX_MONTH; i++) {
@@ -26,6 +26,8 @@ inline void play_game(horse& player) {
             race.start();
             std::cout << "-----------------------레이스 종료-----------------------\n";
             race.reward();
+            //레이스끝나고 다시 훈련BGM 실행
+            PlaySound(TEXT("BGM2.wav"), NULL, SND_ASYNC | SND_LOOP);
         }
 
         print_stat(i + 1, &player, trainer);

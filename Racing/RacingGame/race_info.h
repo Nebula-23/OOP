@@ -43,15 +43,4 @@ public:
             oss << ' ';
         return oss.str();
     }
-
-    // 숫자 우측 정렬 패딩 (선택)
-    static std::string pad_right(int n, int target_width) {
-        std::ostringstream oss;
-        std::string str = std::to_string(n);
-        int pad_size = target_width - width(str);
-        for (int i = 0; i < pad_size; ++i)
-            oss << ' ';
-        oss << str;
-        return oss.str();
-    }
 };

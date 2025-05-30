@@ -31,8 +31,8 @@ class training {
         }
         else {
             if (training_hp <= MIRACLE) { //체력10밑 극적성공 
-                m = (rand() % 21 + 30)*2;
-                s = (rand() % 11 + 10)*2;
+                m = (rand() % 21 + 30) * 2;
+                s = (rand() % 11 + 10) * 2;
                 std::cout << "극한의 상황에서 훈련을 성공했습니다!\n훈련 경험치 2배!\n";
             }
             else { //평범하게 훈련하는것 
@@ -53,12 +53,12 @@ public:
         training_bass(isInjury, m, s);
         int spd = h.get_spd();
         int pow = h.get_pow();
-        if (spd + m+s > MAX_STAT) {
-            m -= spd + m+s - MAX_STAT;
+        if (spd + m + s > MAX_STAT) {
+            m -= spd + m + s - MAX_STAT;
         }
         if (!isInjury) {
-            std::cout << "스피드 + " << m+s<< std::endl;
-            h.set_spd(m+s);
+            std::cout << "스피드 + " << m + s << std::endl;
+            h.set_spd(m + s);
         }
     }
 
@@ -117,11 +117,11 @@ public:
     }
 
     int injury_percent(horse& h) { //훈련 hp별 부상 확률 
-        if (training_hp <= 0) { return 70; }
-        else if (training_hp <= 10) { return 60; }
-        else if (training_hp <= 20) { return 50; }
+        if (training_hp <= 0) { return 100; }
+        else if (training_hp <= 10) { return 90; }
+        else if (training_hp <= 20) { return 60; }
         else if (training_hp <= 30) { return 30; }
-        else if (training_hp <= 40) { return 20; }
+        else if (training_hp <= 40) { return 10; }
         else { return 0; }
     }
 

@@ -43,13 +43,18 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
             srand(static_cast<unsigned>(time(nullptr)));
 
-            //show_horse();
+            //show_win();
             //getchar();
-            //show_win(); 1등
+            //system("cls");
             //show_se();
+            //getchar();
+            //system("cls");
             //show_th();
+            //getchar();
+            //system("cls");
             //show_go();
             //getchar(); 
+
             // 튜토리얼 실행
             tutorial();
 

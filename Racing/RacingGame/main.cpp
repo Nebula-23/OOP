@@ -43,6 +43,8 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
             srand(static_cast<unsigned>(time(nullptr)));
 
+            //show_horse();
+            //getchar();
             //show_win(); 1등
             //show_se();
             //show_th();

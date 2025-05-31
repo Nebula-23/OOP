@@ -11,7 +11,7 @@
 #include <mmsystem.h> 
 #pragma comment(lib,"winmm.lib")
 
-const int startStat = 10.0;
+const int startStat = 10;
 
 using namespace std;
 

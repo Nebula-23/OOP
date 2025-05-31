@@ -181,8 +181,9 @@ void training_info() { // 훈련 시스템
 	cout << "\t근성 훈련: 근성 +30 ~ +50, 힘 +5 ~ +15" << endl;
 	cout << "\t휴식: 체력 50 ~ 80% 회복" << endl << endl;
 	cout << "\n\tTIP" << endl;
+	cout << "\t눙력치는 최대 1400까지 성장합니다." << endl;
 	cout << "\t말의 스타일과 목표 레이스에 맞는 능력치를 집중적으로 키우세요." << endl;
-	cout << "\t체력이 낮으면 부상확률이 높아집니다!" << endl;
+	cout << "\t체력이 낮으면 부상확률이 높아지니 주의하세요." << endl;
 	cout << endl;
 	cout << "\t(엔터를 누르면 튜토리얼 목록으로 복귀합니다.)" << endl;
 

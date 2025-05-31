@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
       <FullPath>C:\school\Racing\x64\Debug\RacingGame.exe</FullPath>
-=======
-      <FullPath>C:\Racing\x64\Debug\RacingGame.exe</FullPath>
->>>>>>> oop/ksy_5-31
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

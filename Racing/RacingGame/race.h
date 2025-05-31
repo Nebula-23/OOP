@@ -25,6 +25,7 @@ private:
 	int lane = rand() % HORSE_COUNT; // 플레이어 라인 추첨;
 	array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu 특성 배열
 	string h_breed = "";
+	string turn[7] = { "", "" , "" , "" , "" , "", "" }; // 도착 턴 저장 배열
 
 	horse horses[HORSE_COUNT];       // 빈 말 배열 생성
 	bool finished[HORSE_COUNT] = {}; // 말이 결승선에 도착여부 확인
@@ -34,7 +35,7 @@ public:
 		horses[lane] = player; // 화면 표시용 복사본
 		horses[lane].reset();  // 복사본 초기화
 
-		canvas.set_player(lane); // 
+		canvas.set_player(lane); // 플레이어 마크 ★ 수정
 
 		// CPU 타입 셔플
 		std::mt19937 g(std::random_device{}());
@@ -135,17 +136,21 @@ public:
 		const int COL_NUM_WIDTH = 6;
 		const int COL_NAME_WIDTH = 20;
 		const int COL_BREED_WIDTH = 10;
-		const int COL_RANK_WIDTH = 6;
+		const int COL_RANK_WIDTH = 8;
+		const int COL_TURN_WIDTH = 8;
+		const int COL_ARRIVAL_WIDTH = 10;
 
 		cout
 			<< RI::pad("번호", COL_NUM_WIDTH)
 			<< RI::pad("이름", COL_NAME_WIDTH)
 			<< RI::pad("주행 특성", COL_BREED_WIDTH)
 			<< RI::pad("등수", COL_RANK_WIDTH)
+			//<< RI::pad("도착 턴", COL_TURN_WIDTH)
+			//<< RI::pad("도착 거리", COL_ARRIVAL_WIDTH)
 			<< "\n";
 
 		for (int i = 0; i < HORSE_COUNT; ++i) {
-			string h_num = std::to_string(i + 1) + "번마";
+			string h_num = to_string(i + 1) + "번마";
 			string h_name = horses[i].get_name();
 
 			switch (horses[i].get_breed())
@@ -164,15 +169,24 @@ public:
 				break;
 			}
 
-			std::string h_rank = horses[i].get_rank() > 0
+			string h_rank = horses[i].get_rank() > 0
 				? to_string(horses[i].get_rank()) + "등"
 				: "";
+
+			string h_turn = turn[i]; 
+
+			string h_arrival = horses[i].get_rank() > 0
+				? to_string(horses[i].get_position() + horses[i].get_decimal_point())
+				: "";
+
 
 			cout
 				<< RI::pad(h_num, COL_NUM_WIDTH)
 				<< RI::pad(h_name, COL_NAME_WIDTH)
 				<< RI::pad(h_breed, COL_BREED_WIDTH)
 				<< RI::pad(h_rank, COL_RANK_WIDTH)
+				//<< RI::pad(h_turn, COL_TURN_WIDTH)
+				//<< RI::pad(h_arrival, COL_ARRIVAL_WIDTH)
 				<< "\n";
 		}
 	}
@@ -240,8 +254,10 @@ public:
 		cpu_check();
 
 		int finished_count = 0;
+		int finished_turn = 0;
 
 		while (finished_count < HORSE_COUNT) {
+			finished_turn++;
 			int rank = finished_count;
 
 			system("cls");
@@ -257,6 +273,7 @@ public:
 				if (curr_pos >= 60) {
 					canvas.set_tile(i, 60, prev_pos); // 결승선에 도달한 말 위치 고정
 					finished[i] = true;
+					turn[i] = to_string(finished_turn); // 도착 턴수 저장
 					++finished_count;
 				}
 

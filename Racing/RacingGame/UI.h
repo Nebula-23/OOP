@@ -8,21 +8,11 @@
 #define DOWN 80 // 아래
 const int MAX_MONTH = 54;
 extern const int startStat;
-//#include "horse.h"랑 extern const int startStat; 말생성에 필요해서 추가했어요
-
-//#define LEFT 2 
-//#define RIGHT 3
 using namespace std;
 
 
 void init_console_size() {
     system("mode con:cols=124 lines=35");
-}
-
-void init_game_ui() { // 게임맨처음 킬때 TItle 현재는 사용 안함
-
-    cout << " 말달리자 게임 " << endl;
-
 }
 
 void gotoxy(int x, int y) {
@@ -104,14 +94,8 @@ int menuDraw() {
     gotoxy(x - z, y + 6);
     printf("               #######            #######         ##################     ");
 
-    /*gotoxy(x - 4, y + 2);
-    cout << "계속하려면 아무 키나 누르세요...";*/
-
     gotoxy(x + 4, y + 10);
     printf("  게임시작 ");
-
-    /*gotoxy(x + 6, y + 12);
-    printf("이어하기 ");*/
 
     gotoxy(x + 6, y + 12);
     printf("  종료	\n\n");
@@ -161,8 +145,8 @@ void print_stat(int month, horse* player, training& trainer) {
 
 
     cout << "=============================================================================================================================\n"
-        << "\t\t\t\t\t\t\t" << display_year << "(년차)\n\n" //<< month << " / " << MAX_MONTH << "\n\n"
-        << "\t\t\t\t\t" << player->get_name() << " | " << brred_str << " | " << month << "turn |" << " 레이스 D-" << d_day << "\n";
+        << "\t\t\t\t\t\t\t   " << display_year << "(년차)\n\n" //<< month << " / " << MAX_MONTH << "\n\n"
+        << "\t\t\t\t\t" << player->get_name() << " | " << brred_str << " | " << month << "turn | " << "레이스 D-" << d_day << "\n";
     cout << "=============================================================================================================================\n\n";
     cout << "\t-------------------------------------------------------------------------------------------------------------\n";
     cout << "\t          |     |                                    /\\---/\\                                     \n";
@@ -170,7 +154,7 @@ void print_stat(int month, horse* player, training& trainer) {
     cout << "\t          |     |                                 (()( 6'  6'\\                                  \n";
     cout << "\t          |     |                             ((((((          \\\n";
     cout << "\t          |     |                       ((((((          \\      \\    __________________\n";
-    cout << "\t          |     |        $%__\"_______\"(((((              /↖(@__@) /⢇⢝⠽⣾⡿⣞⣞//⣵⣵⢵⣵⣵⢇⢇/|\n";
+    cout << "\t          |     |        $%__\"_______\"(((((              /↖(@__@)  /⢇⢝⠽⣾⡿⣞⣞//⣵⣵⢵⣵⣵⢇⢇/|\n";
     cout << "\t          |     ((((((($/         ______________________/______   /⡪⣎⢎⢎⢮⡪⣎//⣿⡿⣟⣿⡾⣿⣯/⣕|\n";
     cout << "\t|_________|((())/__________       |___________________________|  /=======//=======/⣜⣜|\n";
     cout << "\t|_________(((())/__________|      |___________________________| /=======//=======/⣜⣜⣜|\n";
@@ -178,7 +162,7 @@ void print_stat(int month, horse* player, training& trainer) {
     cout << "\t|______(((())______________|         |    |          |    |    『===============|⣿⡺⣜⡺|\n";//
     cout << "\t|_______)))))______________|       __|____|          |____|___||⡽⣝⣞⡕⡵⣳||⢵⡳⣷⣶⣗⣝⢮⢯|⣫⢯/⢯|\n";
     cout << "\t|______((()()______________|      |_______| ._.-._., |________||⢽⣺⣺⡪⡪⣗||⢽⢵⣫⢟⣽⡺⣜⢽|⡳/|⢯|\n";
-    cout << "\t|______(()(________________|._._._|_______| |      | |________||⢟⣞⢮⢯⢪⢯||⢽⠹⡺⡽⡮⣻⡪ |/⢯||\n";
+    cout << "\t|______(()(________________|._._._|_______| |      | |________||⢟⣞⢮⢯⢪⢯||⢽⠹⡺⡽⡮⣻⡪ |/⢯|⢯|\n";
     cout << "\t|_____(((((________________|         |    | |      | |    |    |=================⣻⡪⣻⡪|\n";
     cout << "\t|______(__)________________|       _ |____|_|______|_|____|___ |⡺⡵⡽⣝⣞⡕||⣳⡳⣳⢽⢵⡳⣷⣶|⢯⣶⣶/\n";
     cout << "\t|_______))_________________|      |___________________________||⢗⢽⣺⣺⡪⡪||⣺⢽⢵⣫⢟⣽⡺⣜|⣶⣶/\n";
@@ -187,10 +171,10 @@ void print_stat(int month, horse* player, training& trainer) {
     cout << "\t|__________________________|--------------------------------------------------------------------------------\n";
     cout << "=============================================================================================================================\n";
     cout << "현능력치\n";
-    cout << "스피드 : " << player->get_spd() << "\t파워 : " << player->get_pow() << "\t지구력 : " << player->get_sta() << "\t근성 : " << player->get_guts() << "\n";
+    cout << "스피드 : " << player->get_spd() << " / 1400" << "\t파워 : " << player->get_pow() << " / 1400" << "\t지구력 : " << player->get_sta() << " / 1400" << "\t근성 : " << player->get_guts() << " / 1400" << "\n";
     cout << "부상확률 : " << trainer.injury_percent(*player) << "%\t" << "체력: " << trainer.get_hp() << "\n";
     cout << "=============================================================================================================================\n";
-    cout << "1) 스피드 훈련\t2) 파워 훈련\t3) 지구력 훈련\t4) 근성 훈련\t5) 휴식\n";
+    cout << "1) 스피드 훈련        2) 파워 훈련        3) 지구력 훈련        4) 근성 훈련        5) 휴식\n";
 
     while (true) {
         int n;
@@ -206,35 +190,40 @@ void print_stat(int month, horse* player, training& trainer) {
         switch (n) {
         case 1: {
             if (player->get_spd() == 1400) {
-                std::cout << "이미 맥스 다시선택\n"; continue;
+                std::cout << "최대치에 도달하였습니다. 다시 선택해주세요.\n";
+                continue;
             }
             trainer.training_speed(*player);   return;
         }
         case 2: {
             if (player->get_pow() == 1400) {
-                std::cout << "이미 맥스 다시선택\n"; continue;
+                std::cout << "최대치에 도달하였습니다. 다시 선택해주세요.\n"; 
+                continue;
             } trainer.training_power(*player);      return;
         }
         case 3: {
             if (player->get_guts() == 1400) {
-                std::cout << "이미 맥스 다시선택\n"; continue;
+                std::cout << "최대치에 도달하였습니다. 다시 선택해주세요.\n"; 
+                continue;
             } trainer.training_perseverance(*player); return;
         }
         case 4: {
             if (player->get_sta() == 1400) {
-                std::cout << "이미 맥스 다시선택\n"; continue;
+                std::cout << "최대치에 도달하였습니다. 다시 선택해주세요.\n"; 
+                continue;
             } trainer.training_endurance(*player);  return;
         }
         case 5: trainer.rest(*player);                return;
         default:
             cout << "잘못된 선택입니다. 다시 입력해주세요: ";
+            break;
         }
     }
 }
 
 //말생성 함수
 inline horse select_horse() {
-    int x = 46;
+    int x = 47;
 
     gotoxy(x, 15);
     std::cout << "1. 도주마 사일런스 스즈카\n";
@@ -267,22 +256,21 @@ inline horse select_horse() {
             std::string name;
             int breed;
 
-            std::cout << "\n[커스텀 말 생성]\n";
-            std::cout << "이름을 입력하세요: ";
+            std::cout << "\n\t\t\t[커스텀 말 생성]\n";
+            std::cout << "\t\t\t이름을 입력하세요: ";
             std::cin.ignore(); // 버퍼 비우기
             std::getline(std::cin, name);
-
-            std::cout << "경주 스타일을 선택하세요 (1: 도주, 2: 선행, 3: 선입, 4: 추입): ";
+            std::cout << "\t\t\t경주 스타일을 선택하세요 (1: 도주, 2: 선행, 3: 선입, 4: 추입): ";
             while (!(std::cin >> breed) || breed < 1 || breed > 4) {
                 std::cin.clear();
                 std::cin.ignore(100, '\n');
-                std::cout << "잘못된 선택입니다. 다시 입력해주세요 (1~4): ";
+                std::cout << "\t\t\t잘못된 선택입니다. 다시 입력해주세요 (1~4): ";
             }
 
             return horse(name, breed - 1, startStat, startStat, startStat, startStat);
         }
         default:
-            std::cout << "잘못된 선택입니다. 다시 입력해주세요: ";
+            std::cout << "\t\t\t잘못된 선택입니다. 다시 입력해주세요: ";
         }
     }
 }

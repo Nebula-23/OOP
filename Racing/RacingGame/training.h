@@ -1,4 +1,4 @@
-#ifndef TRAINING_H
+﻿#ifndef TRAINING_H
 #define TRAINING_H
 
 #include<iostream>
@@ -152,4 +152,3 @@ public:
 };
 
 #endif // !TRAINING_H
-

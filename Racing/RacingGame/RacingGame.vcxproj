@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canvas.h" />
+    <ClInclude Include="final_reward.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="horse.h" />
     <ClInclude Include="horse_name.h" />

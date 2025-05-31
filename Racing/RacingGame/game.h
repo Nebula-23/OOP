@@ -23,7 +23,7 @@ inline void play_game(horse& player) {
 
             Race race(player, tier);
             std::cout << "\n=== 레이스가 시작됩니다! ===\n";
-            race.start();
+            race.start(i);
             std::cout << "-----------------------레이스 종료-----------------------\n";
             race.reward();
             //레이스끝나고 다시 훈련BGM 실행
@@ -31,11 +31,13 @@ inline void play_game(horse& player) {
         }
 
         print_stat(i + 1, &player, trainer);
-        Sleep(500);
+        Sleep(1000);
         system("cls");
     }
 
     std::cout << "\n=== 최종 레이스가 시작됩니다! ===\n";
     Race race(player, 1);
-    race.start();
+    race.start(54);
+    race.final_reward();
+
 }

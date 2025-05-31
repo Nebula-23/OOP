@@ -9,6 +9,8 @@
 #include <iomanip>
 #include <vector>
 #include <Windows.h>
+//최종등수 아스키아트 불러올때 필요해서 추가
+#include "final_reward.h"
 
 using namespace std;
 
@@ -44,6 +46,20 @@ public:
 				horses[i] = horse(name.get_name(type), type, tier); // cpu이름 생성로직 만들기
 				j++;
 			}
+		}
+	}
+
+	//레이스 이름 표시
+	void print_race_name(int race_index) {
+		const std::string names[] = {
+			"아카데미 지역리그", "아카데미 플레이오프", "아카데미 파이널",
+			"컨퍼런스 그룹 스테이지", "컨퍼런스 녹아웃 스테이지", "컨퍼런스 챔피언십",
+			"챔피언스 디비전", "챔피언스 세미파이널", "챔피언스 결승"
+		};
+		if (race_index >= 0 && race_index < 9) {
+			std::cout << "\n=================================================\n";
+			std::cout << "\t\t" << names[race_index] << "\n";
+			std::cout << "=================================================\n\n";
 		}
 	}
 
@@ -216,9 +232,11 @@ public:
 		system("cls");
 	}
 
-	void start() {
+	// 일차 받아와서 print_race_name에 넘겨주게 변경
+	void start(int month) {
 		system("cls");
 		PlaySound(TEXT("BGM3.wav"), NULL, SND_ASYNC | SND_LOOP);
+		print_race_name(month / 6 - 1);
 		cpu_check();
 
 		int finished_count = 0;
@@ -254,6 +272,26 @@ public:
 			show_race_rank();
 			getchar(); // sleep or getchar로 진행
 			//Sleep(500);
+		}
+	}
+
+	void final_reward() {//최종 등수 아스키아트 불러오기
+		int rank = horses[lane].get_rank();
+		player.set_rank(rank);  
+
+		switch (rank) {
+		case 1:
+			show_win();
+			break;
+		case 2:
+			show_se();
+			break;
+		case 3:
+			show_th();
+			break;
+		default:
+			show_go();
+			break;
 		}
 	}
 };

@@ -249,7 +249,11 @@ public:
 	// 일차 받아와서 print_race_name에 넘겨주게 변경
 	void start(int tier) {
 		system("cls");
-		PlaySound(TEXT("BGM3.wav"), NULL, SND_ASYNC | SND_LOOP);
+		//PlaySound(TEXT("BGM3.wav"), NULL, SND_ASYNC | SND_LOOP);
+		PlaySound(TEXT("BGM3-1.wav"), NULL, SND_ASYNC | SND_LOOP);
+		//PlaySound(TEXT("BGM3-2.wav"), NULL, SND_ASYNC | SND_LOOP);
+		//PlaySound(TEXT("BGM3-3.wav"), NULL, SND_ASYNC | SND_LOOP);
+		//PlaySound(TEXT("BGM3-4.wav"), NULL, SND_ASYNC | SND_LOOP);
 		print_race_name(tier / 6 - 1);
 		cpu_check();
 

@@ -29,7 +29,6 @@
     <ClInclude Include="horse_name.h" />
     <ClInclude Include="race.h" />
     <ClInclude Include="race_info.h" />
-    <ClInclude Include="Sound.h" />
     <ClInclude Include="training.h" />
     <ClInclude Include="tutorial.h" />
     <ClInclude Include="UI.h" />

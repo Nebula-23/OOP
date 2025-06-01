@@ -26,9 +26,6 @@
     <ClInclude Include="race_info.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Sound.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="training.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>

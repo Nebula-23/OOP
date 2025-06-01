@@ -11,7 +11,7 @@
 #include <mmsystem.h> 
 #pragma comment(lib,"winmm.lib")
 
-const int startStat = 10;
+const int startStat = 50;
 
 using namespace std;
 
@@ -43,7 +43,6 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
             srand(static_cast<unsigned>(time(nullptr)));
             
-
 
             //show_win();
             //getchar();

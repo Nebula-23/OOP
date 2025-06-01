@@ -4,7 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
-#include<string>
+#include <string>
 
 const std::string h_mark_arr[10] = { "+","@","#","8","&","¥","$","%","§","¶" };
 class Canvas {

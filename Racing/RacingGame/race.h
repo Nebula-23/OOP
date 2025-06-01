@@ -1,4 +1,6 @@
 ﻿#pragma once
+//최종등수 아스키아트 불러올때 필요해서 추가
+#include "final_reward.h"
 #include "race_info.h"
 #include "canvas.h"
 #include "horse.h"
@@ -9,8 +11,6 @@
 #include <iomanip>
 #include <vector>
 #include <Windows.h>
-//최종등수 아스키아트 불러올때 필요해서 추가
-#include "final_reward.h"
 
 using namespace std;
 
@@ -238,7 +238,7 @@ public:
 		system("cls");
 	}
 
-	void start(int tier) {
+	void start(int tier) { // tier을 인자로 받음
 		if (tier >= 7) { PlaySound(TEXT("BGM3-1.wav"), NULL, SND_ASYNC | SND_LOOP); }
 		else if (tier >= 4) { PlaySound(TEXT("BGM3-2.wav"), NULL, SND_ASYNC | SND_LOOP); }
 		else if (tier >= 2) { PlaySound(TEXT("BGM3-3.wav"), NULL, SND_ASYNC | SND_LOOP); }
@@ -247,7 +247,7 @@ public:
 
 		int finished_count = 0;
 		int finished_turn = 0;
-
+		
 		while (finished_count < HORSE_COUNT) {
 			finished_turn++;
 			int rank = finished_count;

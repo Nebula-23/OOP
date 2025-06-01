@@ -85,7 +85,7 @@ public:
         case 3:
             spd = (1100 + rand() % 101) / 9 * t;
             pow = (700 + rand() % 101) / 9 * t;
-            sta = (900 + rand() % 101) / 9 * t;
+            sta = (950 + rand() % 101) / 9 * t;
             guts = (1200 + rand() % 101) / 9 * t;
             break;
         }

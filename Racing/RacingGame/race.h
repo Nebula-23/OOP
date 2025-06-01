@@ -7,6 +7,7 @@
 #include "horse_name.h"
 #include <array>
 #include <algorithm>
+#include <cmath>
 #include <random>
 #include <iomanip>
 #include <vector>
@@ -53,13 +54,26 @@ public:
 	}
 
 	void lap_time_set(double total, int num) {
-		double time = (h_turn[num] * 1.5) + (10 - total / 10) + 60; // (도착 턴 * 1.5 + (10 - 최종위치/10) + 60)초
+		double time = (h_turn[num] * 1.5) + (10 - total / 10) + 60;
 		int min = time / 60;
 		double sec = fmod(time, 60.0);
 
+		// 소수점 셋째 자리에서 자르기 (반올림 없이)
+		double truncated_sec = floor(sec * 1000) / 1000.0;
+
+		// 문자열로 저장 (to_string은 기본적으로 6자리 출력)
+		string sec_str = to_string(truncated_sec);
+
+		// 소수점 셋째 자리까지만 남기기
+		size_t dot_pos = sec_str.find('.');
+		if (dot_pos != string::npos && dot_pos + 4 < sec_str.size()) {
+			sec_str = sec_str.substr(0, dot_pos + 4); // 소수점 이하 3자리까지
+		}
+
 		lap_time[num][0] = to_string(min); // 분 저장
-		lap_time[num][1] = to_string(sec); // 초 저장
+		lap_time[num][1] = sec_str;        // 초 저장
 	}
+
 
 	void tie_breaker(int rank) { // 타이 브레이커 및 랩타임 계산
 		vector<pair<double, int>> list; // pair인 vector list(거리, 말번호)
@@ -142,7 +156,7 @@ public:
 			<< RI::pad("이름", COL_NAME_WIDTH)
 			<< RI::pad("주행 특성", COL_BREED_WIDTH)
 			<< RI::pad("등수", COL_RANK_WIDTH)
-			<< RI::pad("도착 시간", COL_TIME_WIDTH)
+			<< RI::pad("기록", COL_TIME_WIDTH)
 			<< "\n";
 
 		for (int i = 0; i < HORSE_COUNT; ++i) {
@@ -191,6 +205,7 @@ public:
 	}
 
 	void restart_game() { // 4등이하면 재시작하게 예외처리
+		final_reward();
 		cout << "\n목표 등수에 도달하지 못했습니다...\n";
 		cout << "게임을 다시 시작합니다...\n";
 		getchar();

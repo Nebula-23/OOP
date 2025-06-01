@@ -144,8 +144,8 @@ public:
         int stat_by_section[3] = { pow, sta, guts };
         double correction = 1.0; // 최종 이동 거리 보정치 (너무 빨리 끝나는 것을 방지)
 
-        if (tier == 7) { correction = 0.9; } // 7티어 경기 보정치
-        else if (tier < 7) { correction = 0.8; } // 1~6티어 경기 보정치
+        if (tier == 7) { correction = 0.8; } // 7티어 경기 보정치
+        else if (tier < 7) { correction = 0.7; } // 1~6티어 경기 보정치
 
         int seg = position(); // 현재 위치한 구간
 

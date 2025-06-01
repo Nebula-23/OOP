@@ -2,11 +2,15 @@
 #include "race.h"
 #include "training.h"
 #include "UI.h"
-#include "Sound.h"
 #include <windows.h>
 
 inline void play_game(horse& player) {
     training trainer(player);
+    const string names[] = {
+    "아카데미 지역리그", "아카데미 플레이오프", "아카데미 파이널",
+    "컨퍼런스 그룹 스테이지", "컨퍼런스 녹아웃 스테이지", "컨퍼런스 챔피언십",
+    "챔피언스 디비전", "챔피언스 세미파이널", "챔피언스 결승전"
+    };
 
     Sleep(500);
     system("cls");
@@ -14,19 +18,32 @@ inline void play_game(horse& player) {
     PlaySound(TEXT("BGM2.wav"), NULL, SND_ASYNC | SND_LOOP);
 
     for (int i = 0; i < MAX_MONTH; i++) {
-        // 티어 계산
-        if (i != 0 && i % 6 == 0) {
-            //매경기마다 티어 1한단계씩 올라감
+        if ((i != 0 && i % 6 == 0) || (i == MAX_MONTH - 1)) {
             int tier = 10 - (i / 6);
-            // 최소 티어는 1로 보장
             if (tier < 1) tier = 1;
 
+            int race_index = 9 - tier;
+
             Race race(player, tier);
-            std::cout << "\n=== 레이스가 시작됩니다! ===\n";
-            race.start(i);
-            std::cout << "-----------------------레이스 종료-----------------------\n";
-            race.reward();
-            //레이스끝나고 다시 훈련BGM 실행
+            if (race_index >= 0 && race_index < 9) {
+                cout << "=================================================\n";
+                if (tier == 1 && i == MAX_MONTH - 1) {
+                    cout << "\n=== 최종 레이스가 시작됩니다! ===\n";
+                }
+                cout << "\t\t" << names[race_index] << "\n";
+                cout << "=================================================\n\n";
+            }
+
+            race.start(tier);
+            cout << "-----------------------레이스 종료-----------------------\n";
+
+            if (tier == 1 && i == MAX_MONTH - 1) {
+                race.final_reward();
+            }
+            else {
+                race.reward();
+            }
+
             PlaySound(TEXT("BGM2.wav"), NULL, SND_ASYNC | SND_LOOP);
         }
 
@@ -35,9 +52,5 @@ inline void play_game(horse& player) {
         system("cls");
     }
 
-    std::cout << "\n=== 최종 레이스가 시작됩니다! ===\n";
-    Race race(player, 1);
-    race.start(54);
-    race.final_reward();
 
 }

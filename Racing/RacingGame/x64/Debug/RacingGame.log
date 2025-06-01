@@ -1,395 +1,101 @@
 ﻿  main.cpp
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x6d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x6d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x6e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x6e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x6f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x6f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x72 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x72 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x73 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x73 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x74 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x74 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x76 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x76 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x78 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x78 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x79 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x79 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x7b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x7b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x7e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x7e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x82 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x82 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x83 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x83 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x8c 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x8c 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x8e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x8e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x8f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x8f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x91 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x91 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x98 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x98 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x99 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x99 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x9a 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x9a 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x9b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x9b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x9d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x9d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x358 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x358 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x359 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x359 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x35b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x35b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x35d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x35d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x35e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x35e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x35f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x35f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x360 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x360 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x364 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x364 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x366 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x366 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x367 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x367 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2a 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\school\Racing\RacingGame\race.h(57,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2c 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x32 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x60 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x8b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x8c 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x8d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x8e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0xb9 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0xba 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0xbb 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0xbc 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x190 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x191 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x192 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x193 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x1ef 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x1f2 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2b2 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2b4 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2b5 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2b7 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2b8 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2b9 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2f2 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2f4 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x2f5 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x3d1 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x3d2 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x3d3 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x3d4 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x3d6 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x3d9 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x3db 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x3dc 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x440 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x442 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x443 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x445 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x446 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x447 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x48a 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x48c 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x48d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x57b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x57c 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x57d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x57e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x580 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x582 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x585 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x586 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x588 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x589 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5a8 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5a9 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5aa 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5ab 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5ac 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5ad 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5af 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5b0 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5b3 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5b4 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5b6 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5b7 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5b8 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5b9 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5bd 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5be 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5bf 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5c0 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x5c6 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x61c 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x61d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x61e 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x61f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x621 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x622 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x626 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x627 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x62a 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x62b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x62f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x630 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x631 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x632 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x633 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x634 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x636 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x638 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(1,1): warning C4828: 파일에 0x639 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(4,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\kimdg\Desktop\c++pj\Racing\RacingGame\Sound.h(5,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-  RacingGame.vcxproj -> C:\Users\kimdg\Desktop\c++pj\Racing\x64\Debug\RacingGame.exe
+  RacingGame.vcxproj -> C:\school\Racing\x64\Debug\RacingGame.exe

@@ -24,11 +24,13 @@ private:
 
 	int lane = rand() % HORSE_COUNT; // 플레이어 라인 추첨;
 	array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu 특성 배열
-	string h_breed = "";
-	string turn[7] = { "", "" , "" , "" , "" , "", "" }; // 도착 턴 저장 배열
 
 	horse horses[HORSE_COUNT];       // 빈 말 배열 생성
 	bool finished[HORSE_COUNT] = {}; // 말이 결승선에 도착여부 확인
+	
+	int h_turn[7] = { }; // 도착 턴 저장 배열
+	string lap_time[7][2] = {}; // 랩타임 저장을 위한 배열 (분, 초)
+	string h_breed = ""; 
 
 public:
 	Race(horse& player, int tier) : player(player) { // 플레이어 말 입력, 현재 레이스 티어 입력
@@ -50,26 +52,22 @@ public:
 		}
 	}
 
-	//레이스 이름 표시
-	void print_race_name(int race_index) {
-		const std::string names[] = {
-			"아카데미 지역리그", "아카데미 플레이오프", "아카데미 파이널",
-			"컨퍼런스 그룹 스테이지", "컨퍼런스 녹아웃 스테이지", "컨퍼런스 챔피언십",
-			"챔피언스 디비전", "챔피언스 세미파이널", "챔피언스 결승"
-		};
-		if (race_index >= 0 && race_index < 9) {
-			std::cout << "\n=================================================\n";
-			std::cout << "\t\t" << names[race_index] << "\n";
-			std::cout << "=================================================\n\n";
-		}
+	void lap_time_set(double total, int num) {
+		double time = (h_turn[num] * 1.5) + (10 - total / 10) + 60; // (도착 턴 * 1.5 + (10 - 최종위치/10) + 60)초
+		int min = time / 60;
+		double sec = fmod(time, 60.0);
+
+		lap_time[num][0] = to_string(min); // 분 저장
+		lap_time[num][1] = to_string(sec); // 초 저장
 	}
 
-	void tie_breaker(int rank) {
+	void tie_breaker(int rank) { // 타이 브레이커 및 랩타임 계산
 		vector<pair<double, int>> list; // pair인 vector list(거리, 말번호)
 
 		for (int i = 0; i < HORSE_COUNT; i++) {
 			if (horses[i].get_rank() == 0 && finished[i]) {
 				double total = horses[i].get_position() + horses[i].get_decimal_point();
+				lap_time_set(total, i);
 				list.emplace_back(total, i);  // 거리, 말 번호
 			}
 		}
@@ -82,6 +80,7 @@ public:
 			horses[num].set_rank(total_rank);
 		}
 	}
+
 
 	void show_race_summary() { // 레이스 사전 정보 출력
 		using RI = RaceInfo;
@@ -135,18 +134,16 @@ public:
 
 		const int COL_NUM_WIDTH = 6;
 		const int COL_NAME_WIDTH = 20;
-		const int COL_BREED_WIDTH = 10;
+		const int COL_BREED_WIDTH = 12;
 		const int COL_RANK_WIDTH = 8;
-		const int COL_TURN_WIDTH = 8;
-		const int COL_ARRIVAL_WIDTH = 10;
+		const int COL_TIME_WIDTH = 10;
 
 		cout
 			<< RI::pad("번호", COL_NUM_WIDTH)
 			<< RI::pad("이름", COL_NAME_WIDTH)
 			<< RI::pad("주행 특성", COL_BREED_WIDTH)
 			<< RI::pad("등수", COL_RANK_WIDTH)
-			//<< RI::pad("도착 턴", COL_TURN_WIDTH)
-			//<< RI::pad("도착 거리", COL_ARRIVAL_WIDTH)
+			<< RI::pad("도착 시간", COL_TIME_WIDTH)
 			<< "\n";
 
 		for (int i = 0; i < HORSE_COUNT; ++i) {
@@ -173,20 +170,16 @@ public:
 				? to_string(horses[i].get_rank()) + "등"
 				: "";
 
-			string h_turn = turn[i]; 
-
-			string h_arrival = horses[i].get_rank() > 0
-				? to_string(horses[i].get_position() + horses[i].get_decimal_point())
+			string h_time = horses[i].get_rank() > 0
+				? lap_time[i][0] +":"+ lap_time[i][1]
 				: "";
-
 
 			cout
 				<< RI::pad(h_num, COL_NUM_WIDTH)
 				<< RI::pad(h_name, COL_NAME_WIDTH)
 				<< RI::pad(h_breed, COL_BREED_WIDTH)
 				<< RI::pad(h_rank, COL_RANK_WIDTH)
-				//<< RI::pad(h_turn, COL_TURN_WIDTH)
-				//<< RI::pad(h_arrival, COL_ARRIVAL_WIDTH)
+				<< RI::pad(h_time, COL_TIME_WIDTH)
 				<< "\n";
 		}
 	}
@@ -248,13 +241,10 @@ public:
 
 	// 일차 받아와서 print_race_name에 넘겨주게 변경
 	void start(int tier) {
-		system("cls");
-		//PlaySound(TEXT("BGM3.wav"), NULL, SND_ASYNC | SND_LOOP);
-		PlaySound(TEXT("BGM3-1.wav"), NULL, SND_ASYNC | SND_LOOP);
-		//PlaySound(TEXT("BGM3-2.wav"), NULL, SND_ASYNC | SND_LOOP);
-		//PlaySound(TEXT("BGM3-3.wav"), NULL, SND_ASYNC | SND_LOOP);
-		//PlaySound(TEXT("BGM3-4.wav"), NULL, SND_ASYNC | SND_LOOP);
-		print_race_name(tier / 6 - 1);
+		if (tier >= 7) { PlaySound(TEXT("BGM3-1.wav"), NULL, SND_ASYNC | SND_LOOP); }
+		else if (tier >= 4) { PlaySound(TEXT("BGM3-2.wav"), NULL, SND_ASYNC | SND_LOOP); }
+		else if (tier >= 2) { PlaySound(TEXT("BGM3-3.wav"), NULL, SND_ASYNC | SND_LOOP); }
+		else if (tier == 1) { PlaySound(TEXT("BGM3-4.wav"), NULL, SND_ASYNC | SND_LOOP); }
 		cpu_check();
 
 		int finished_count = 0;
@@ -277,7 +267,7 @@ public:
 				if (curr_pos >= 60) {
 					canvas.set_tile(i, 60, prev_pos); // 결승선에 도달한 말 위치 고정
 					finished[i] = true;
-					turn[i] = to_string(finished_turn); // 도착 턴수 저장
+					h_turn[i] = finished_turn; // 도착 턴수 저장
 					++finished_count;
 				}
 

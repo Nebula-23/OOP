@@ -202,16 +202,16 @@ void print_stat(int month, horse* player, training& trainer) {
             } trainer.training_power(*player);      return;
         }
         case 3: {
-            if (player->get_guts() == 1400) {
-                std::cout << "최대치에 도달하였습니다. 다시 선택해주세요.\n"; 
-                continue;
-            } trainer.training_perseverance(*player); return;
-        }
-        case 4: {
             if (player->get_sta() == 1400) {
                 std::cout << "최대치에 도달하였습니다. 다시 선택해주세요.\n"; 
                 continue;
-            } trainer.training_endurance(*player);  return;
+            } trainer.training_endurance(*player); return;
+        }
+        case 4: {
+            if (player->get_guts() == 1400) {
+                std::cout << "최대치에 도달하였습니다. 다시 선택해주세요.\n"; 
+                continue;
+            } trainer.training_perseverance(*player);  return;
         }
         case 5: trainer.rest(*player);                return;
         default:

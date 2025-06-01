@@ -29,7 +29,7 @@ private:
 	bool finished[HORSE_COUNT] = {}; // 말이 결승선에 도착여부 확인
 	
 	int h_turn[7] = { }; // 도착 턴 저장 배열
-	string lap_time[7][2] = {}; // 랩타임 저장을 위한 배열 (분, 초)
+	string lap_time[7][2] = {}; // 랩타임 저장을 위한 배열 ([분][초])
 	string h_breed = ""; 
 
 public:
@@ -37,11 +37,11 @@ public:
 		horses[lane] = player; // 화면 표시용 복사본
 		horses[lane].reset();  // 복사본 초기화
 
-		canvas.set_player(lane); // 플레이어 마크 ★ 수정
+		canvas.set_player(lane); // 플레이어 마크 ★ 지정
 
 		// CPU 타입 셔플
-		std::mt19937 g(std::random_device{}());
-		std::shuffle(cpu_type.begin(), cpu_type.end(), g);
+		mt19937 g(std::random_device{}());
+		shuffle(cpu_type.begin(), cpu_type.end(), g);
 
 		for (int i = 0, j = 0; i < HORSE_COUNT; i++) { // 말 생성
 			if (i != lane) {
@@ -80,7 +80,6 @@ public:
 			horses[num].set_rank(total_rank);
 		}
 	}
-
 
 	void show_race_summary() { // 레이스 사전 정보 출력
 		using RI = RaceInfo;
@@ -239,7 +238,6 @@ public:
 		system("cls");
 	}
 
-	// 일차 받아와서 print_race_name에 넘겨주게 변경
 	void start(int tier) {
 		if (tier >= 7) { PlaySound(TEXT("BGM3-1.wav"), NULL, SND_ASYNC | SND_LOOP); }
 		else if (tier >= 4) { PlaySound(TEXT("BGM3-2.wav"), NULL, SND_ASYNC | SND_LOOP); }

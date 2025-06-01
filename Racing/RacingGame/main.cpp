@@ -43,22 +43,7 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
             srand(static_cast<unsigned>(time(nullptr)));
             
-            //system("cls");
-            //cout << "1";
-            //PlaySound(TEXT("BGM3-1.wav"), NULL, SND_ASYNC | SND_LOOP);
-            //getchar();
-            //system("cls");
-            //cout << "2";
-            //PlaySound(TEXT("BGM3-2.wav"), NULL, SND_ASYNC | SND_LOOP);
-            //getchar();
-            //system("cls");
-            //cout << "3";
-            //PlaySound(TEXT("BGM3-3.wav"), NULL, SND_ASYNC | SND_LOOP);
-            //getchar();
-            //system("cls");
-            //cout << "4";
-            //PlaySound(TEXT("BGM3-4.wav"), NULL, SND_ASYNC | SND_LOOP);
-            //getchar();
+
 
             //show_win();
             //getchar();

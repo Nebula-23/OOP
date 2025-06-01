@@ -190,47 +190,47 @@ public:
 		getchar();
 	}
 
-	void restart_game() {//4등이하면 재시작하게 예외처리
+	void restart_game() { // 4등이하면 재시작하게 예외처리
 		cout << "\n목표 등수에 도달하지 못했습니다...\n";
 		cout << "게임을 다시 시작합니다...\n";
 		getchar();
 		throw std::runtime_error("RESTART");  // 예외로 재시작을 알림
 	}
 
-	void reward() { // 등수 보상 함수
+	void reward() { // 보상 함수
 		int rank = horses[lane].get_rank();
-		player.set_rank(rank);  // player에 등수 기록
+		player.set_rank(rank);  // 등수 저장
 
-		switch (rank)
-		{
+		int bonus = 0;
+
+		switch (rank) {
 		case 1:
 			cout << "1등을 달성했습니다! (모든 능력치 +50)\n";
-			player.set_spd(50);
-			player.set_pow(50);
-			player.set_sta(50);
-			player.set_guts(50);
+			bonus = 50;
 			break;
-
 		case 2:
 			cout << "2등을 달성했습니다! (모든 능력치 +30)\n";
-			player.set_spd(30);
-			player.set_pow(30);
-			player.set_sta(30);
-			player.set_guts(30);
+			bonus = 30;
 			break;
-
 		case 3:
 			cout << "3등을 달성했습니다! (모든 능력치 +10)\n";
-			player.set_spd(10);
-			player.set_pow(10);
-			player.set_sta(10);
-			player.set_guts(10);
+			bonus = 10;
 			break;
-
 		default:
 			restart_game();
-			break;
+			return;
 		}
+
+		player.set_spd(bonus);
+		player.set_pow(bonus);
+		player.set_sta(bonus);
+		player.set_guts(bonus);
+
+		// 능력치 상한 제한 (1400 초과 시 1400으로 고정)
+		if (player.get_spd() > 1400) player.set_spd(1400 - player.get_spd());
+		if (player.get_pow() > 1400) player.set_pow(1400 - player.get_pow());
+		if (player.get_sta() > 1400) player.set_sta(1400 - player.get_sta());
+		if (player.get_guts() > 1400) player.set_guts(1400 - player.get_guts());
 
 		cout << "시상식이 종료되었습니다.\n";
 		cout << "훈련장으로 복귀합니다.\n";

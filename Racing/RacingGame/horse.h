@@ -139,18 +139,22 @@ public:
     }
 
     // 말 이동 로직
-    void move() {
+    void move(int tier) {
         // 구간별 대응 스탯 선택: [0]:pow, [1]:sta, [2]:guts
         int stat_by_section[3] = { pow, sta, guts };
+        double correction = 1.0; // 최종 이동 거리 보정치 (너무 빨리 끝나는 것을 방지)
+
+        if (tier == 7) { correction = 0.9; } // 7티어 경기 보정치
+        else if (tier < 7) { correction = 0.8; } // 1~6티어 경기 보정치
 
         int seg = position(); // 현재 위치한 구간
 
         // 속도 기반 이동 거리 + 능력치  + 누적 소수점
-        double base_speed = (static_cast<double>(spd) / BASELINE) + 2.0 + (rand() % 11) / 10.0;
+        double base_speed = (static_cast<double>(spd) / BASELINE) + 2.0 + (rand() % 11 / 10.0);
 
         double stat_ratio = (static_cast<double>(stat_by_section[seg]) / BASELINE) * stat_mod[seg]; // 능력치 가중도 계산
 
-        double move_distance = (base_speed + stat_ratio) * breed_mod[seg] + decimal_point; // 최종 이동 거리
+        double move_distance = ( (base_speed + stat_ratio) * breed_mod[seg] + decimal_point ) * correction; // 최종 이동 거리
 
         // 소수점 부분은 다음 이동에 반영되도록 저장
         decimal_point = fmod(move_distance, 1.0);

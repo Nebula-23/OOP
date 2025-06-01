@@ -247,10 +247,10 @@ public:
 	}
 
 	// 일차 받아와서 print_race_name에 넘겨주게 변경
-	void start(int month) {
+	void start(int tier) {
 		system("cls");
 		PlaySound(TEXT("BGM3.wav"), NULL, SND_ASYNC | SND_LOOP);
-		print_race_name(month / 6 - 1);
+		print_race_name(tier / 6 - 1);
 		cpu_check();
 
 		int finished_count = 0;
@@ -265,7 +265,7 @@ public:
 			for (int i = 0; i < HORSE_COUNT; i++) {
 				if (finished[i]) { continue; }
 
-				horses[i].move(); // 말 이동
+				horses[i].move(tier); // 말 이동
 
 				int prev_pos = horses[i].get_prev_pos(); // 이전 위치
 				int curr_pos = horses[i].get_position(); // 이동한 위치

@@ -95,7 +95,7 @@ C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x366 오
 C:\school\Racing\RacingGame\race_info.h(1,1): warning C4828: 파일에 0x367 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-C:\school\Racing\RacingGame\race.h(58,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\school\Racing\RacingGame\race.h(80,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
   RacingGame.vcxproj -> C:\school\Racing\x64\Debug\RacingGame.exe

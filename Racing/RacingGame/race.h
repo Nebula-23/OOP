@@ -23,6 +23,7 @@ private:
 	Canvas canvas;    // canvas 생성
 	Horse_name name;  // Horse_name 생성
 
+	int h_tier; // 레이스 티어 저장
 	int lane = rand() % HORSE_COUNT; // 플레이어 라인 추첨;
 	array<int, 6> cpu_type = { 0, 1, 1, 2, 2, 3 }; //cpu 특성 배열
 
@@ -35,6 +36,7 @@ private:
 
 public:
 	Race(horse& player, int tier) : player(player) { // 플레이어 말 입력, 현재 레이스 티어 입력
+		set_tier(tier);
 		horses[lane] = player; // 화면 표시용 복사본
 		horses[lane].reset();  // 복사본 초기화
 
@@ -54,14 +56,34 @@ public:
 	}
 
 	void lap_time_set(double total, int num) {
-		double time = (h_turn[num] * 1.5) + (10 - total / 10) + 60;
+		double time;
+		int lap_correction;
+
+		// 보정으로 인해 느려진 턴 만큼의 랩타임 감소
+		switch (h_tier)
+		{
+		case 9:
+			lap_correction = 60;
+			break;
+		case 8:
+			lap_correction = 60;
+			break;
+		case 7:
+			lap_correction = 55;
+			break;
+		default:
+			lap_correction = 53; 
+			break;
+		}
+
+		time = (h_turn[num] * 1.5) + (10 - total / 10) + lap_correction;
 		int min = time / 60;
 		double sec = fmod(time, 60.0);
 
 		// 소수점 셋째 자리에서 자르기 (반올림 없이)
 		double truncated_sec = floor(sec * 1000) / 1000.0;
 
-		// 문자열로 저장 (to_string은 기본적으로 6자리 출력)
+		// 문자열로 저장 (to_string은 기본적으로 6자리 출력함)
 		string sec_str = to_string(truncated_sec);
 
 		// 소수점 셋째 자리까지만 남기기
@@ -88,7 +110,7 @@ public:
 
 		sort(list.rbegin(), list.rend()); // 거리 내림차순
 
-		for (int i = 0; i < list.size(); i++) {
+		for (int i = 0; i < list.size(); i++) { // 최종 등수 부여
 			int num = list[i].second;
 			int total_rank = rank + i + 1;
 			horses[num].set_rank(total_rank);
@@ -253,7 +275,8 @@ public:
 		system("cls");
 	}
 
-	void start(int tier) { // tier을 인자로 받음
+	void start() { // tier을 인자로 받음
+		int tier = h_tier;
 		if (tier >= 7) { PlaySound(TEXT("BGM3-1.wav"), NULL, SND_ASYNC | SND_LOOP); }
 		else if (tier >= 4) { PlaySound(TEXT("BGM3-2.wav"), NULL, SND_ASYNC | SND_LOOP); }
 		else if (tier >= 2) { PlaySound(TEXT("BGM3-3.wav"), NULL, SND_ASYNC | SND_LOOP); }
@@ -294,8 +317,8 @@ public:
 
 			canvas.printMap();
 			show_race_rank();
-			//getchar(); // sleep or getchar로 진행
-			Sleep(1000);
+			getchar(); // sleep or getchar로 진행
+			//Sleep(1000);
 		}
 	}
 
@@ -326,4 +349,6 @@ public:
 		}
 		throw std::runtime_error("RESTART");
 	}
+	
+	void set_tier(int n) { { this->h_tier = n; } }
 };

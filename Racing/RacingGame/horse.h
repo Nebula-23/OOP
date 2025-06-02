@@ -109,7 +109,7 @@ public:
 
         for (int i = 0; i < 3; ++i) {
             stat_mod[i] = s_mod[breed][i]; // 능력치 가중도
-            breed_mod[i] = b_mod[breed][i]; // 구간 가중도
+            breed_mod[i] = b_mod[breed][i]; // 특성 보정값
         }
     }
 
@@ -128,8 +128,8 @@ public:
     void set_pow(int n) { this->pow += n; }     // 파워 증가
     void set_sta(int n) { this->sta += n; }     // 스태미나 증가 (오타 수정)
     void set_guts(int n) { this->guts += n; }   // 근성 증가
-    void set_breed(int n) { this->breed = n; }  // 품종 리턴
-    void set_rank(int n) { this->rank = n; }    // 랭크 리턴
+    void set_breed(int n) { this->breed = n; }  // 품종 SET
+    void set_rank(int n) { this->rank = n; }    // 랭크 SET
 
     // 현재 위치가 어느 구간인지 반환 (0: 초반 / 1: 중반 / 2: 후반)
     int position() const {
@@ -154,7 +154,7 @@ public:
 
         double stat_ratio = (static_cast<double>(stat_by_section[seg]) / BASELINE) * stat_mod[seg]; // 능력치 가중도 계산
 
-        double move_distance = ( (base_speed + stat_ratio) * breed_mod[seg] + decimal_point ) * correction; // 최종 이동 거리
+        double move_distance = ( (base_speed + stat_ratio) * breed_mod[seg]) * correction + decimal_point; // 최종 이동 거리
 
         // 소수점 부분은 다음 이동에 반영되도록 저장
         decimal_point = fmod(move_distance, 1.0);

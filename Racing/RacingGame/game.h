@@ -31,11 +31,11 @@ inline void play_game(horse& player) {
             Race race(player, tier);
             if (race_index >= 0 && race_index < 9) {
                 cout << "============================================\n";
-                cout << "  " << names[race_index] << "\n";
+                cout << "       " << names[race_index] << "\n";
                 cout << "============================================\n\n";
             }
 
-            race.start(tier);
+            race.start();
             std::cout << "-----------------------레이스 종료-----------------------\n";
             race.reward();
             //레이스끝나고 다시 훈련BGM 실행
@@ -50,9 +50,9 @@ inline void play_game(horse& player) {
 
     Race race(player, 1);
     cout << "============================================\n";
-    cout << "  " << names[8] << "\n";
+    cout << "       " << names[8] << "\n";
     cout << "============================================\n\n";
-    race.start(1);
+    race.start();
     race.final_reward();
 
 }

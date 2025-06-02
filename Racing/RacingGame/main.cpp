@@ -23,6 +23,7 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
     SetConsoleOutputCP(CP_UTF8);  // 출력 인코딩
     SetConsoleCP(CP_UTF8);        // 입력 인코딩
     //while문으로 반복
+    
     while (true) {
         try {
             int start_format;
@@ -43,7 +44,6 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
             srand(static_cast<unsigned>(time(nullptr)));
             
-            //cout << "\n\n\n\n\n\n\t아스키 아트";
             //getchar();
             //system("cls");
             //show_win();

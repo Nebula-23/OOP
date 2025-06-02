@@ -60,27 +60,37 @@ void tutorial() {
 		{
 		case 1:
 			goals();
+			getchar();
 			break;
 		case 2:
 			race_structure();
+			getchar();
 			break;
 		case 3:
 			important_stat();
+			getchar();
 			break;
 		case 4:
 			horse_breed();
+			getchar();
 			break;
 		case 5:
 			training_info();
+			getchar();
 			break;
 		case 6:
 			race_info();
+			getchar();
 			break;
 		case 7:
 			grow_and_reward();
+
+			getchar();
 			break;
 		case 8:
 			tip();
+			getchar();
+			break;
 		case 0:
 			is_game_over = true;
 			break;
@@ -89,9 +99,7 @@ void tutorial() {
 			Sleep(500);
 			break;
 		}
-			getchar();
-			Sleep(5000);
-			//system("cls");
+		system("cls");
 	}
 }
 

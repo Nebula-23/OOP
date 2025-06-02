@@ -78,13 +78,13 @@ public:
             spd = (1100 + rand() % 101) / 9 * t;
             pow = (850 + rand() % 101) / 9 * t;
             sta = (1050 + rand() % 101) / 9 * t;
-            guts = (1000 + rand() % 101) / 9 * t;
+            guts = (1100 + rand() % 101) / 9 * t;
             break;
 
             // 추입
         case 3:
             spd = (1100 + rand() % 101) / 9 * t;
-            pow = (700 + rand() % 101) / 9 * t;
+            pow = (800 + rand() % 101) / 9 * t;
             sta = (950 + rand() % 101) / 9 * t;
             guts = (1200 + rand() % 101) / 9 * t;
             break;

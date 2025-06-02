@@ -60,36 +60,27 @@ void tutorial() {
 		{
 		case 1:
 			goals();
-			getchar();
 			break;
 		case 2:
 			race_structure();
-			getchar();
 			break;
 		case 3:
 			important_stat();
-			getchar();
 			break;
 		case 4:
 			horse_breed();
-			getchar();
 			break;
 		case 5:
 			training_info();
-			getchar();
 			break;
 		case 6:
 			race_info();
-			getchar();
 			break;
 		case 7:
 			grow_and_reward();
-			getchar();
 			break;
 		case 8:
 			tip();
-			getchar();
-			break;
 		case 0:
 			is_game_over = true;
 			break;
@@ -98,6 +89,9 @@ void tutorial() {
 			Sleep(500);
 			break;
 		}
+			getchar();
+			Sleep(5000);
+			//system("cls");
 	}
 }
 
@@ -175,10 +169,10 @@ void training_info() { // 훈련 시스템
 	cout << "\t매 훈련 시 체력 -10" << endl;
 	cout << "\t피로 누적 시 부상 위험! (부상 시 전체 능력치 10% 감소, 체력 100으로 회복)" << endl << endl;
 	cout << "\n\t훈련 종류" << endl;
-	cout << "\t스피드 훈련: 스피드 +30 ~ +60" << endl;
-	cout << "\t힘 훈련: 힘 +30 ~ +50, 지구력 +5 ~ +15" << endl;
-	cout << "\t지구력 훈련: 지구력 +30 ~ +50, 근성 +5 ~ +15" << endl;
-	cout << "\t근성 훈련: 근성 +30 ~ +50, 힘 +5 ~ +15" << endl;
+	cout << "\t스피드 훈련: 스피드 +20 ~ +70" << endl;
+	cout << "\t힘 훈련: 힘 +20 ~ +60, 지구력 +10 ~ +20" << endl;
+	cout << "\t지구력 훈련: 지구력 +20 ~ +60, 근성 +10 ~ +20" << endl;
+	cout << "\t근성 훈련: 근성 +20 ~ +60, 힘 +10 ~ +20" << endl;
 	cout << "\t휴식: 체력 50 ~ 80% 회복" << endl << endl;
 	cout << "\n\tTIP" << endl;
 	cout << "\t눙력치는 최대 1400까지 성장합니다." << endl;

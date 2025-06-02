@@ -43,9 +43,12 @@ int main() { //cols 가로 , lines 세로 cols=140 lines=30
 
             srand(static_cast<unsigned>(time(nullptr)));
             
-
+            //cout << "\n\n\n\n\n\n\t아스키 아트";
+            //getchar();
+            //system("cls");
             //show_win();
             //getchar();
+            //system("cls");
             //show_se();
             //getchar();
             //system("cls");

@@ -294,26 +294,34 @@ public:
 
 			canvas.printMap();
 			show_race_rank();
-			getchar(); // sleep or getchar로 진행
-			//Sleep(500);
+			//getchar(); // sleep or getchar로 진행
+			Sleep(1000);
 		}
 	}
 
 	void final_reward() {//최종 등수 아스키아트 불러오기
 		int rank = horses[lane].get_rank();
 		player.set_rank(rank);  
-
+		std::cout << "-----------------------레이스 종료-----------------------\n";
 		switch (rank) {
 		case 1:
+			cout << "최종 우승을 달성했습니다!\n시상식으로 이동하려면 엔터를 눌러주세요.\n";
+			getchar();
 			show_win();
 			break;
 		case 2:
+			cout << "2등을 달성했습니다!\n시상식으로 이동하려면 엔터를 눌러주세요.\n";
+			getchar();
 			show_se();
 			break;
 		case 3:
+			cout << "3등을 달성했습니다!\n시상식으로 이동하려면 엔터를 눌러주세요.\n";
+			getchar();
 			show_th();
 			break;
 		default:
+			cout << "\n목표 등수에 도달하지 못했습니다...\n계속하려면 엔터를 눌러주세요.";
+			getchar();
 			show_go();
 			break;
 		}

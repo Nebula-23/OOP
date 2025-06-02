@@ -36,8 +36,8 @@ class training {
                 std::cout << "극한의 상황에서 훈련을 성공했습니다!\n훈련 경험치 2배!\n";
             }
             else { //평범하게 훈련하는것 
-                m = rand() % 36 + 15;
-                s = rand() % 16 + 10;
+                m = rand() % 41 + 20;
+                s = rand() % 11 + 10;
                 std::cout << "훈련 성공!\n";
             }
             training_hp -= TRAINING_MHP;
@@ -58,7 +58,7 @@ public:
         }
         if (!isInjury) {
             std::cout << "스피드 + " << m + s << std::endl;
-            h.set_spd(m + s);
+            h.set_spd(m + s - 10); // 스피드 능력치의 중요도를 고려 및 난이도 조절을 위하여 -10의 보정 
         }
     }
 

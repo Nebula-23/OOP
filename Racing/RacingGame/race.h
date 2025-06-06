@@ -104,15 +104,15 @@ public:
 			if (horses[i].get_rank() == 0 && finished[i]) {
 				double total = horses[i].get_position() + horses[i].get_decimal_point();
 				lap_time_set(total, i);
-				list.emplace_back(total, i);  // 거리, 말 번호
+				list.emplace_back(total, i);  // 거리, 말의 레인 번호
 			}
 		}
 
 		sort(list.rbegin(), list.rend()); // 거리 내림차순
 
 		for (int i = 0; i < list.size(); i++) { // 최종 등수 부여
-			int num = list[i].second;
-			int total_rank = rank + i + 1;
+			int num = list[i].second;			// 두번째 있는 '레인 번호 호출 및 삽입'
+			int total_rank = rank + (i + 1);	// (i + 1) == 동석차 중에서의 등수
 			horses[num].set_rank(total_rank);
 		}
 	}
@@ -283,8 +283,8 @@ public:
 		else if (tier == 1) { PlaySound(TEXT("BGM3-4.wav"), NULL, SND_ASYNC | SND_LOOP); }
 		cpu_check();
 
-		int finished_count = 0;
-		int finished_turn = 0;
+		int finished_count = 0; // 결승선을 넘은 말 수
+		int finished_turn = 0;  // 현재까지 진행된 턴
 		
 		while (finished_count < HORSE_COUNT) {
 			finished_turn++;
@@ -308,8 +308,6 @@ public:
 				}
 
 				else { canvas.set_tile(i, curr_pos, prev_pos); } // 일반 이동
-
-				//cout << i + 1 << "이전 위치: " << horses[i].get_prev_pos() << " | 이동한 위치 " << horses[i].get_position() << " | 소수점 " << horses[i].get_decimal_point() << std::endl;
 
 			}
 

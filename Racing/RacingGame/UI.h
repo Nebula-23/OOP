@@ -216,7 +216,7 @@ void print_stat(int month, horse* player, training& trainer) {
         case 5: trainer.rest(*player);                return;
         case 9999: // 시연을 위한 치트키
             player->set_spd(1400 - player->get_spd());
-            player->set_pow(1400-player->get_pow());
+            player->set_pow(1400 - player->get_pow());
             player->set_sta(1400 - player->get_sta());
             player->set_guts(1400 - player->get_guts());
             return;
